@@ -38,7 +38,7 @@ test('avant / après : clavier', async ({ page }) => {
 });
 
 test('pages villes : avant / après simulé, signalé et crédité', async ({ page }) => {
-  for (const slug of ['charleville-mezieres', 'troyes', 'paris']) {
+  for (const slug of ['paris', 'arras', 'beauvais']) {
     await page.goto(`/villes/${slug}/`);
     const ba = page.locator('.city-ba');
     await expect(ba.getByRole('slider', { name: 'Comparer avant et après' })).toBeVisible();
@@ -46,6 +46,17 @@ test('pages villes : avant / après simulé, signalé et crédité', async ({ pa
     await expect(ba.locator('figcaption a[rel~="license"]')).toHaveCount(1);
     const srcs = await ba.locator('img').evaluateAll((imgs) => imgs.map((i) => (i as HTMLImageElement).currentSrc));
     expect(srcs.some((s) => s.includes(encodeURIComponent(`/villes/sim/${slug}-avant.webp`)))).toBe(true);
+  }
+});
+
+test('pages villes : vraies photos d’archives, créditées et signalées', async ({ page }) => {
+  for (const slug of ['charleville-mezieres', 'troyes', 'reims']) {
+    await page.goto(`/villes/${slug}/`);
+    const ba = page.locator('.city-ba');
+    await expect(ba.locator('.arch-fig')).toHaveCount(2);
+    await expect(ba.locator('.arch-fig a[rel~="license"]')).toHaveCount(2);
+    await expect(ba).toContainText('Travaux non réalisés par Drone Éclat');
+    await expect(ba.getByRole('slider')).toHaveCount(0);
   }
 });
 
