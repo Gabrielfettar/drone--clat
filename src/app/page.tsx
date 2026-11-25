@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import { HeroStage } from '@/components/hero/HeroStage';
-import { BeforeAfter } from '@/components/widgets/BeforeAfter';
+import { SimSlider } from '@/components/sections/SimSlider';
 import { Faq } from '@/components/ui/Faq';
 import { Icon } from '@/components/ui/Icon';
 import { SuppliersStrip } from '@/components/sections/Sections';
@@ -31,17 +31,21 @@ const gains = [
 ];
 
 const segments = [
-  { k: 'b_toit_propre_tuiles', t: 'Maisons', d: 'Pavillons, longères, villas' },
+  { k: 'e_drone_toiture_commons', t: 'Maisons', d: 'Pavillons, longères, villas' },
   { k: 'd_bardage_propre', t: 'Copropriétés & bureaux', d: 'Façades, bardages, toits plats' },
   { k: 'f_toit_industriel', t: 'Industrie & logistique', d: 'Des milliers de m², activité maintenue' },
-  { k: 'g_eglise_bourgogne', t: 'Églises', d: 'Clochers, nefs, pierre fragile' },
   { k: 'g_chateau_normandie', t: 'Châteaux & patrimoine', d: 'Méthode validée avec l’architecte' },
   { k: 'g_versailles_toit', t: 'Monuments historiques', d: 'Là où l’échafaudage coûte une fortune' },
 ];
 
 export default function Home() {
   const before = photo('a_toit_moussu_1'), after = photo('b_toit_propre_tuiles');
-  const moss = photo('a_toit_moussu_2'), drone = photo('e_drone_toiture_commons'), facade = photo('d_bardage_propre');
+  const pairs = ['reims', 'arras', 'charleville-mezieres', 'rouen', 'compiegne', 'lille']
+    .map((slug) => cities.find((c) => c.slug === slug))
+    .filter((c): c is NonNullable<typeof c> => !!c?.simulation)
+    .map((c) => ({ slug: c.slug, name: c.name, before: c.simulation!.before, after: `/villes/${c.simulation!.photo.file}`, caption: c.simulation!.photo.caption, author: c.simulation!.photo.author, licence: c.simulation!.photo.licence, licenceUrl: c.simulation!.photo.licenceUrl, commonsUrl: c.simulation!.photo.commonsUrl }));
+  const negCity = cities.find((c) => c.slug === 'compiegne')?.simulation;
+  const drone = photo('e_drone_toiture_commons'), facade = photo('d_bardage_propre');
   const steps = [
     { k: '01', title: 'Vos photos.', text: 'Trois questions, quelques photos. Étude gratuite sous 48 h.', img: before ? `/illustrations/libres/${before.file}` : '/illustrations/roof-before.webp', alt: 'Toiture moussue avant étude' },
     { k: '02', title: 'Le drone décolle.', text: 'Démarches de vol à notre charge. Personne sur le toit.', img: drone ? `/illustrations/libres/${drone.file}` : '/illustrations/drone.webp', alt: 'Drone de nettoyage en action sur une toiture' },
@@ -78,12 +82,7 @@ export default function Home() {
           <div className="wow-head" data-reveal>
             <h2 id="ba-title" className="h-mega-2">Glissez.<br /><span className="accent">Ça brille.</span></h2>
           </div>
-          {before && after && (
-            <div className="wow-ba-frame" data-reveal>
-              <BeforeAfter before={`/illustrations/libres/${before.file}`} after={`/illustrations/libres/${after.file}`} illustration tag="Photos d’illustration"
-                alt={{ before: before.caption, after: after.caption }} />
-            </div>
-          )}
+          {pairs.length > 0 && <div className="wow-ba-frame" data-reveal><SimSlider pairs={pairs} /></div>}
         </div>
       </section>
 
@@ -113,14 +112,15 @@ export default function Home() {
       </section>
 
       {/* 5. Widget : et si on ne fait rien ? */}
-      {after && moss && (
+      {negCity && (
         <section className="section section--mist" aria-labelledby="neg-title">
           <div className="container">
             <div className="wow-head wow-head--split" data-reveal>
               <h2 id="neg-title" className="h-mega-2">La mousse ne dort <span className="accent">jamais.</span></h2>
               <p className="lede">Faites avancer le temps.</p>
             </div>
-            <NeglectSlider clean={`/illustrations/libres/${after.file}`} dirty={`/illustrations/libres/${moss.file}`} stages={neglect} />
+            <NeglectSlider clean={`/villes/${negCity.photo.file}`} dirty={negCity.before} stages={neglect} />
+            <p className="hint muted neg-credit">Simulation sur une photo de l’hôtel de ville de Compiègne ({negCity.photo.author}, {negCity.photo.licence}, Wikimedia Commons, image modifiée).</p>
             <div className="cta-row wow-center-row"><Link className="btn" href="/contact/?service=demoussage-toiture-drone" data-track="cta_neglect">J’agis avant l’hiver <span className="btn-arrow" aria-hidden="true">→</span></Link></div>
           </div>
         </section>
@@ -138,7 +138,7 @@ export default function Home() {
           {segments.map((s) => {
             const p = photo(s.k);
             return (
-              <Link key={s.t} href={s.k.startsWith('b_') ? '/services/demoussage-toiture-drone/' : '/professionnels/entretien-batiments/'} className="seg-card">
+              <Link key={s.t} href={s.k.startsWith('e_') ? '/services/demoussage-toiture-drone/' : '/professionnels/entretien-batiments/'} className="seg-card">
                 {p && <Image src={`/illustrations/libres/${p.file}`} alt={p.caption} fill sizes="(max-width: 700px) 80vw, 30vw" />}
                 <span className="seg-txt"><strong>{s.t}</strong><span>{s.d}</span></span>
               </Link>

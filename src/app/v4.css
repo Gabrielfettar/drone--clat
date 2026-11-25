@@ -4,7 +4,7 @@
    ========================================================================= */
 
 /* ---------- Typo géante ---------- */
-.h-mega { font-size: clamp(3rem, 1.2rem + 7.2vw, 8rem); line-height: 0.92; letter-spacing: -0.035em; font-stretch: 118%; }
+.h-mega { font-size: clamp(2.75rem, 1.2rem + 5.6vw, 6.75rem); line-height: 0.92; letter-spacing: -0.035em; font-stretch: 118%; }
 .h-mega-2 { font-size: clamp(2.5rem, 1.2rem + 5vw, 6rem); line-height: 0.95; letter-spacing: -0.03em; font-stretch: 116%; }
 .accent { color: var(--c-blue); }
 .section--ink .accent { color: #4cb8ff; }
@@ -16,7 +16,8 @@
 
 /* ---------- Hero ---------- */
 .hero--wow { min-height: 100svh; }
-.hero--wow .hero-content > * { max-width: 760px; }
+.hero--wow .hero-content > * { max-width: 920px; }
+.hero--wow .hero-sub { max-width: 640px; }
 .hero--wow .hero-title { margin: var(--s-4) 0 var(--s-5); }
 .hero--wow .hero-title span { display: block; }
 .hero-sub { font-size: clamp(1.125rem, 1rem + 0.6vw, 1.5rem); font-weight: 500; color: var(--c-ink-2); }
@@ -29,10 +30,10 @@
 @keyframes ring { 0%, 70%, 100% { box-shadow: 0 14px 34px -14px rgb(0 145 235 / 0.8), 0 0 0 0 rgb(0 145 235 / 0.4); } 85% { box-shadow: 0 14px 34px -14px rgb(0 145 235 / 0.8), 0 0 0 14px rgb(0 145 235 / 0); } }
 
 /* Mot tournant */
-.rot { display: inline-grid; vertical-align: bottom; }
-.rot-track { display: inline-grid; }
-.rot-word { grid-area: 1 / 1; color: var(--c-blue-strong); font-weight: 700; white-space: nowrap; transition: transform 0.6s var(--ease-out), opacity 0.6s var(--ease-out), filter 0.6s; }
-.rot-word[data-on='false'] { opacity: 0; transform: translateY(0.7em); filter: blur(4px); }
+.rot { position: relative; display: inline-block; }
+.rot-track { display: inline-block; }
+.rot-word { display: inline-block; color: var(--c-blue-strong); font-weight: 700; white-space: nowrap; transition: transform 0.6s var(--ease-out), opacity 0.6s var(--ease-out), filter 0.6s; }
+.rot-word[data-on='false'] { position: absolute; left: 0; top: 0; opacity: 0; transform: translateY(0.7em); filter: blur(4px); }
 .rot-word[data-on='true'] { opacity: 1; transform: none; filter: none; }
 
 /* Indice de défilement */
@@ -52,7 +53,8 @@
 .marquee-dot { width: 14px; height: 7px; border: 2.5px solid var(--c-blue); border-bottom: 0; border-radius: 14px 14px 0 0; }
 
 /* ---------- Avant / après géant ---------- */
-.wow-ba-frame .ba-frame { aspect-ratio: 16 / 8; border-radius: var(--r-lg); box-shadow: var(--sh-3); }
+.wow-ba-frame { max-width: 1100px; margin-inline: auto; }
+.wow-ba-frame .ba-frame { aspect-ratio: 3 / 2; border-radius: var(--r-lg); box-shadow: var(--sh-3); }
 @media (max-width: 700px) { .wow-ba-frame .ba-frame { aspect-ratio: 4 / 5; } }
 
 /* ---------- Gains ---------- */
@@ -65,7 +67,7 @@
 .gw-t { font-weight: 600; color: #4cb8ff; }
 .gw p { color: var(--c-on-ink-muted); font-size: var(--t-sm); }
 @media (max-width: 900px) { .gw-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 540px) { .gw-grid { grid-template-columns: 1fr; } }
+@media (max-width: 540px) { .gw { padding: 1.25rem 1rem; } .gw p { display: none; } .gw svg { margin-bottom: 4px; } }
 
 /* ---------- Récit au scroll ---------- */
 .story { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-8); margin-top: var(--s-8); }
@@ -137,7 +139,7 @@
 .stats-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-5); text-align: center; }
 .stats-grid > div { display: grid; gap: 6px; }
 .stat-big { font-family: var(--f-display); font-weight: 800; font-stretch: 118%; font-size: clamp(2.5rem, 1.5rem + 3.6vw, 5rem); line-height: 1; background: linear-gradient(180deg, var(--c-ink), var(--c-blue)); -webkit-background-clip: text; background-clip: text; color: transparent; font-variant-numeric: tabular-nums; }
-.stats-grid span { color: var(--c-muted); font-size: var(--t-sm); }
+.stats-grid > div > span { color: var(--c-muted); font-size: var(--t-sm); }
 @media (max-width: 760px) { .stats-grid { grid-template-columns: 1fr 1fr; row-gap: var(--s-7); } }
 
 /* ---------- Logos fournisseurs ---------- */
@@ -150,8 +152,8 @@
 .sup-logo { display: grid; place-items: center; width: 100%; height: 120px; padding: 20px 28px; border-radius: var(--r-md); border: 1px solid rgb(255 255 255 / 0.12); background: rgb(255 255 255 / 0.03); transition: background var(--d-base), transform var(--d-base) var(--ease-out), border-color var(--d-base); }
 .sup-logo:hover { background: rgb(255 255 255 / 0.08); border-color: rgb(255 255 255 / 0.3); transform: translateY(-3px); }
 .sup-logo img { width: auto; max-width: 100%; max-height: 64px; object-fit: contain; }
-.sup-logo img.logo-onlight { filter: brightness(0) invert(1); opacity: 0.92; transition: filter var(--d-base), opacity var(--d-base); }
-.sup-logo:hover img.logo-onlight { filter: none; opacity: 1; background: #fff; border-radius: 6px; padding: 6px; }
+.sup-logo:has(.logo-onlight) { background: #fff; border-color: #fff; }
+.sup-logo:has(.logo-onlight):hover { background: #fff; box-shadow: 0 12px 30px -12px rgb(0 0 0 / 0.5); }
 @media (max-width: 800px) { .sup-logos-inner { grid-template-columns: 1fr; } }
 @media (max-width: 420px) { .sup-logo-list { grid-template-columns: 1fr; } }
 .sup-card-logo { display: grid; place-items: start; height: 72px; margin-bottom: var(--s-3); }
@@ -187,3 +189,14 @@
   .scroll-hint { display: none; }
   .wow-head { margin-bottom: var(--s-6); }
 }
+
+/* ---------- Sélecteur de villes avant / après ---------- */
+.csw { display: grid; gap: var(--s-4); }
+.csw-tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+.csw-tab { min-height: 44px; padding: 0 18px; border-radius: var(--r-pill); border: 1px solid var(--c-line-strong); background: var(--c-paper); font-weight: 600; font-size: var(--t-sm); cursor: pointer; transition: background var(--d-fast), color var(--d-fast), border-color var(--d-fast); }
+.csw-tab:hover { border-color: var(--c-ink); }
+.csw-tab[aria-selected='true'] { background: var(--c-ink); color: #fff; border-color: var(--c-ink); }
+.csw-stage { animation: panelIn var(--d-slow) var(--ease-out); }
+.csw .ba-cap { font-size: 11px; }
+.neg-credit { margin-top: var(--s-4); font-size: 11px; }
+@media (max-width: 700px) { .csw-tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } .csw-tab { flex: none; } }
