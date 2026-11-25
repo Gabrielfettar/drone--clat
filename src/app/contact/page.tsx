@@ -7,7 +7,7 @@ import { site, isKnown } from '@/config/site';
 
 export const metadata: Metadata = {
   title: 'Demande d’étude et devis gratuit',
-  description: 'Décrivez votre chantier en 2 minutes : type de bâtiment, surface, photos. Étude gratuite et devis détaillé sous 48 h ouvrées, sans engagement.',
+  description: 'Votre demande en 1 minute et 3 étapes : bâtiment, photos facultatives, coordonnées. Étude gratuite et devis détaillé sous 48 h ouvrées, sans engagement.',
   alternates: { canonical: '/contact/' },
 };
 

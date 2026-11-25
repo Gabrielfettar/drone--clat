@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import '../pages-b.css';
 import { PageHero } from '@/components/ui/PageHero';
 import { CtaBand } from '@/components/ui/CtaBand';
+import { TeamBlock, SuppliersStrip } from '@/components/sections/Sections';
 import { site } from '@/config/site';
 
 export const metadata: Metadata = {
@@ -39,21 +40,6 @@ const commitments = [
   ['Un rapport photo remis à chaque client', 'Avant / après, observations et conseils d’entretien pour les années suivantes.'],
   ['Une orientation honnête', 'Tuiles cassées, infiltration, couverture à refaire : nous vous le disons et vous orientons vers un couvreur plutôt que de vendre un nettoyage inutile.'],
 ];
-
-const team = [
-  { role: 'Fondateur et gérant', missing: ['Nom', 'Parcours', 'Photo'] },
-  { role: 'Télépilote', missing: ['Nom', 'Certificats et formations', 'Photo'] },
-  { role: 'Couvreur partenaire (envisagé)', missing: ['Entreprise', 'Secteur', 'Spécialités'] },
-];
-
-function Silhouette() {
-  return (
-    <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" strokeWidth="1.6">
-      <circle cx="16" cy="12" r="5" />
-      <path d="M6 27c1.6-5 5.4-7.5 10-7.5S24.4 22 26 27" strokeLinecap="round" />
-    </svg>
-  );
-}
 
 export default function AboutPage() {
   return (
@@ -121,24 +107,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Équipe */}
-      <section className="section" aria-labelledby="team-title">
+      <TeamBlock />
+
+      <section className="section section--tight" aria-label="Informations réglementaires">
         <div className="container">
-          <div className="sec-head">
-            <div data-reveal><span className="eyebrow">Équipe</span><h2 id="team-title" className="h-1">Les personnes derrière le drone.</h2></div>
-            <p className="lede" data-reveal style={{ ['--i' as string]: 1 }}>Les présentations arrivent. Nous préférons laisser ces emplacements vides plutôt que d’y mettre des noms ou des visages qui ne seraient pas les nôtres.</p>
-          </div>
-          <ul className="pb-team" role="list">
-            {team.map((m, k) => (
-              <li key={m.role} className="pb-member" data-reveal style={{ ['--i' as string]: k }}>
-                <span className="pb-avatar"><Silhouette /></span>
-                <h3 className="h-3">{m.role}</h3>
-                <dl>
-                  {m.missing.map((f) => <div key={f}><dt>{f}</dt><dd><span className="pending-tag">à compléter</span></dd></div>)}
-                </dl>
-              </li>
-            ))}
-          </ul>
           <dl className="pb-legal-dl" style={{ marginTop: 'var(--s-6)' }}>
             <div><dt>Siège</dt><dd>{site.base.city}, {site.base.department}{site.base.pending && <> <span className="pending-tag">à confirmer</span></>}</dd></div>
             <div><dt>Numéro d’exploitant UAS</dt><dd><span className="pending-tag">à compléter</span></dd></div>
@@ -146,6 +118,8 @@ export default function AboutPage() {
           </dl>
         </div>
       </section>
+
+      <SuppliersStrip />
 
       <CtaBand
         title="Parlons de votre bâtiment."

@@ -145,7 +145,7 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
 
       <CtaBand
         title="Passons de la théorie à votre toiture."
-        text="Six questions, quelques photos : nous revenons vers vous sous 48 h ouvrées avec une étude et un devis détaillé."
+        text="Trois étapes, quelques photos si vous en avez : nous revenons vers vous sous 48 h ouvrées avec une étude et un devis détaillé."
         secondary={{ href: '/realisations/', label: 'Voir les réalisations' }}
       />
 

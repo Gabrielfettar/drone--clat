@@ -5,6 +5,7 @@ import { PageHero } from '@/components/ui/PageHero';
 import { CtaBand } from '@/components/ui/CtaBand';
 import { Gallery } from '@/components/widgets/Gallery';
 import { projects, demos } from '@/content/projects';
+import { Situations } from '@/components/sections/Situations';
 
 export const metadata: Metadata = {
   title: { absolute: 'Réalisations : chantiers par drone dans l’Oise' },
@@ -64,6 +65,8 @@ export default function RealisationsPage() {
       </section>
 
       {/* Galerie */}
+      <Situations />
+
       <section className="section section--mist" aria-labelledby="galerie-title">
         <div className="container">
           <div className="sec-head">

@@ -7,10 +7,11 @@ import { ZoneChecker } from '@/components/widgets/ZoneChecker';
 import { site } from '@/config/site';
 import { places, haversineKm } from '@/content/places';
 import '../pages-a.css';
+import { CitiesStrip } from '@/components/sections/Sections';
 
 export const metadata: Metadata = {
-  title: 'Zones d’intervention : Compiègne et l’Oise',
-  description: 'Basé à Compiègne, Drone Éclat intervient dans l’Oise. Vérifiez si votre commune est dans notre secteur prévisionnel : Compiégnois, Noyonnais, Valois…',
+  title: 'Zones d’intervention : 200 km autour de Compiègne',
+  description: 'Basé à Compiègne, Drone Éclat intervient dans un rayon de 200 km : Oise, Hauts-de-France, Île-de-France, Grand Est, Normandie. Vérifiez votre commune en quelques secondes.',
   alternates: { canonical: '/zones-intervention/' },
 };
 
@@ -23,7 +24,7 @@ function kmFromBase(name: string) {
   return Math.round(haversineKm({ lat: site.base.lat, lon: site.base.lon }, p));
 }
 
-/** Secteurs ENVISAGÉS : aucun n'est validé. Ne pas retirer l'étiquette « prévisionnel » sans décision de la direction. */
+/** Secteurs proches de la base (cœur d'activité). */
 const sectors = [
   { name: 'Compiégnois', ref: 'Compiègne', towns: 'Compiègne, Margny-lès-Compiègne, Venette, Pierrefonds et alentour', note: 'Notre point de départ. Bâti ancien en brique et pierre, pavillons récents, nombreuses toitures exposées à l’ombre et à l’humidité de la forêt.' },
   { name: 'Noyonnais', ref: 'Noyon', towns: 'Noyon et les communes du nord-est de l’Oise', note: 'Habitat de bourg et bâtiments agricoles de plaine, avec de grands hangars à bardage métallique.' },
@@ -46,7 +47,7 @@ const faq: FaqItem[] = [
   { q: 'Quel délai prévoir pour une intervention dans l’Oise ?', a: 'En zone habitée, chaque vol professionnel doit être notifié à l’avance à la préfecture de l’Oise. Comptez environ deux semaines de délai administratif, auxquelles s’ajoutent la météo et notre planning. Le délai est indiqué dans le devis.' },
   { q: 'Intervenez-vous près de l’aéroport de Beauvais-Tillé ?', a: 'Les abords des aéroports et aérodromes sont soumis à des restrictions de vol. Pour chaque adresse, nous consultons la carte officielle des restrictions : certaines interventions restent possibles avec des démarches supplémentaires, d’autres non.' },
   { q: 'Mon bâtiment est dans un centre ancien ou près d’un monument : est-ce un problème ?', a: 'Pas forcément pour un simple nettoyage, mais les règles locales peuvent varier. Nous vérifions avec vous si une démarche est nécessaire auprès de la mairie avant de programmer l’intervention.' },
-  { q: 'Pourquoi n’y a-t-il pas de page pour ma commune ?', a: 'Nous préférons ne pas publier de pages qui changent seulement le nom de la ville. Une page locale sera créée lorsque nous aurons de vrais chantiers à montrer dans le secteur. En attendant, le vérificateur de code postal vous donne une réponse immédiate.' },
+  { q: 'Ma ville n’a pas de page dédiée : intervenez-vous quand même ?', a: 'Oui, si elle se trouve dans notre rayon de 200 km autour de Compiègne. Les pages locales présentent les principales villes du secteur ; le vérificateur de code postal vous répond pour toutes les communes.' },
 ];
 
 export default function ZonesPage() {
@@ -55,9 +56,9 @@ export default function ZonesPage() {
     <div className="pa">
       <PageHero
         crumbs={[{ href: '/zones-intervention/', label: 'Zones d’intervention' }]}
-        eyebrow="Oise · Hauts-de-France"
-        title="Nos zones d’intervention autour de Compiègne"
-        lede="Drone Éclat est basé à Compiègne, dans l’Oise. Notre secteur est en cours de validation : vérifiez votre code postal, puis décrivez votre chantier pour une réponse définitive."
+        eyebrow="Hauts-de-France · Île-de-France · Grand Est · Normandie"
+        title="200 km autour de Compiègne."
+        lede="Drone Éclat est basé à Compiègne, dans l’Oise, et intervient dans un rayon de 200 km : de Lille à Paris, de Rouen à Reims. Vérifiez votre code postal, puis décrivez votre chantier."
       >
         <div className="cta-row">
           <Link className="btn" href="#verifier" data-track="zones_hero_check">Vérifier ma commune <span className="btn-arrow" aria-hidden="true">→</span></Link>
@@ -70,7 +71,7 @@ export default function ZonesPage() {
         <div className="container pa-stack">
           <p className="answer" data-reveal>
             <span className="mono">En bref</span>
-            Drone Éclat intervient depuis Compiègne dans un secteur prévisionnel d’environ {radius.value} km, qui couvre une grande partie de l’Oise. Ce rayon est {radius.pending ? 'encore en cours de validation' : 'validé'} : la faisabilité de chaque chantier est confirmée lors de l’étude, selon l’adresse, l’espace aérien et la taille du bâtiment.
+            Drone Éclat intervient depuis Compiègne dans un rayon de {radius.value} km, pour les particuliers comme pour les professionnels. La faisabilité de chaque chantier est confirmée lors de l’étude, selon l’adresse, l’espace aérien et la taille du bâtiment.
           </p>
           <div className="pa-block">
             <div className="sec-head" style={{ marginBottom: 0 }}>
@@ -86,8 +87,8 @@ export default function ZonesPage() {
       <section className="section section--mist" aria-labelledby="sectors-title">
         <div className="container">
           <div className="sec-head">
-            <div data-reveal><span className="eyebrow">Secteurs envisagés</span><h2 id="sectors-title" className="h-1">Du Compiégnois au Beauvaisis.</h2></div>
-            <p className="lede" data-reveal style={{ ['--i' as string]: 1 }}>Ces secteurs sont prévisionnels. Ils seront confirmés, ajustés ou retirés selon notre organisation et les contraintes d’espace aérien.</p>
+            <div data-reveal><span className="eyebrow">Autour de notre base</span><h2 id="sectors-title" className="h-1">Notre cœur de secteur, dans l’Oise.</h2></div>
+            <p className="lede" data-reveal style={{ ['--i' as string]: 1 }}>Les communes les plus proches de Compiègne, où nos délais d’intervention sont les plus courts.</p>
           </div>
           <div className="cards">
             {sectors.map((s, k) => {
@@ -96,7 +97,6 @@ export default function ZonesPage() {
                 <article key={s.name} className="card" data-reveal style={{ ['--i' as string]: k % 4 }}>
                   <div className="pa-card-head">
                     <span className="mono">{km === 0 ? 'Base' : km ? `≈ ${km} km` : 'Secteur'}</span>
-                    <span className="pending-tag">Prévisionnel</span>
                   </div>
                   <h3 className="h-3">{s.name}</h3>
                   <p className="pa-towns">{s.towns}</p>
@@ -105,9 +105,11 @@ export default function ZonesPage() {
               );
             })}
           </div>
-          <p className="hint muted cmp-note" data-reveal>Distances à vol d’oiseau depuis le centre de Compiègne, données à titre indicatif. Communes limitrophes de l’Aisne, de la Somme ou du Val-d’Oise : au cas par cas, sur étude.</p>
+          <p className="hint muted cmp-note" data-reveal>Distances à vol d’oiseau depuis le centre de Compiègne, données à titre indicatif. </p>
         </div>
       </section>
+
+      <CitiesStrip />
 
       {/* Bâti local */}
       <section className="section" aria-labelledby="bati-title">

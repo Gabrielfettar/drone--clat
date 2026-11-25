@@ -8,6 +8,7 @@ import { site, isKnown } from '@/config/site';
 import { services } from '@/content/services';
 import { projects } from '@/content/projects';
 import '../../pages-a.css';
+import { ProsShowcase, AidesTeaser } from '@/components/sections/Sections';
 
 export const metadata: Metadata = {
   title: 'Bâtiments professionnels : entretien par drone',
@@ -92,6 +93,10 @@ export default function ProfessionnelsPage() {
           </div>
         </div>
       </section>
+
+      <ProsShowcase />
+
+      <AidesTeaser />
 
       {/* Enjeux */}
       <section className="section section--ink" aria-labelledby="enjeux">

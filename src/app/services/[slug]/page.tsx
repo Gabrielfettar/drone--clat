@@ -42,7 +42,7 @@ function referenceLinks(s: Service) {
   const links = [
     { href: '/technologie/', eyebrow: 'Méthode', title: 'Matériel et limites du drone', text: 'Drone relié au sol, unité de pompage, caméra de contrôle : ce que le drone fait, et ce qu’il ne fait pas.' },
     { href: '/securite-reglementation/', eyebrow: 'Cadre', title: 'Sécurité et réglementation', text: 'Démarches de vol, balisage, eau, biocide ou phytosanitaire : ce que dit la réglementation.' },
-    { href: '/zones-intervention/', eyebrow: 'Secteur', title: 'Zones d’intervention', text: 'Basés à Compiègne : vérifiez si votre commune est dans notre secteur prévisionnel.' },
+    { href: '/zones-intervention/', eyebrow: 'Secteur', title: 'Zones d’intervention', text: 'Basés à Compiègne : vérifiez si votre commune est dans notre rayon de 200 km.' },
   ];
   if (s.audience.includes('professionnels') || s.audience.includes('agricole')) {
     links.push({ href: '/professionnels/entretien-batiments/', eyebrow: 'Professionnels', title: 'Entretien de bâtiments pros', text: 'Syndics, entreprises, exploitations agricoles : planning par secteurs et documents de sécurité.' });

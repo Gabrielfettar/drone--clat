@@ -2,10 +2,12 @@ import type { Metadata, Viewport } from 'next';
 import { Archivo, Instrument_Sans, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 import './components.css';
+import './v3.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { QuickContact } from '@/components/layout/QuickContact';
 import { RevealInit } from '@/components/layout/RevealInit';
+import { StickyCta } from '@/components/layout/StickyCta';
 import { Analytics } from '@/components/layout/Analytics';
 import { JsonLd } from '@/components/ui/JsonLd';
 import { site, absoluteUrl } from '@/config/site';
@@ -38,6 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="contenu">{children}</main>
         <Footer />
         <QuickContact />
+        <StickyCta />
         <RevealInit />
         <Analytics />
         <JsonLd data={[organizationSchema(), websiteSchema()]} />

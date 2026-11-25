@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Logo } from '@/components/ui/Logo';
 import { services } from '@/content/services';
+import { cities } from '@/content/cities';
 import { site, isKnown } from '@/config/site';
 
 export function Footer() {
@@ -27,7 +28,9 @@ export function Footer() {
               <li><Link href="/technologie/">Technologie et matériel</Link></li>
               <li><Link href="/realisations/">Réalisations</Link></li>
               <li><Link href="/zones-intervention/">Zones d’intervention</Link></li>
-              <li><Link href="/a-propos/">À propos</Link></li>
+              <li><Link href="/a-propos/">À propos et équipe</Link></li>
+              <li><Link href="/fournisseurs/">Nos fournisseurs</Link></li>
+              <li><Link href="/aides-tva/">TVA à 10 % et aides</Link></li>
               <li><Link href="/journal/">Conseils</Link></li>
             </ul>
           </nav>
@@ -40,6 +43,12 @@ export function Footer() {
             </ul>
           </div>
         </div>
+        {!!cities.length && (
+          <nav aria-label="Villes desservies" className="footer-cities">
+            <h2 className="mono">Nous intervenons à</h2>
+            <ul>{cities.map((c) => <li key={c.slug}><Link href={`/villes/${c.slug}/`}>Nettoyage de toiture {c.name}</Link></li>)}</ul>
+          </nav>
+        )}
         <div className="footer-bottom">
           <span>© {year} Drone Éclat</span>
           <nav aria-label="Informations légales">

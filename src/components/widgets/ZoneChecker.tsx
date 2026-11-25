@@ -1,7 +1,8 @@
 'use client';
 import Link from 'next/link';
 import { useId, useMemo, useState } from 'react';
-import { places, haversineKm } from '@/content/places';
+import { places as nearPlaces, haversineKm } from '@/content/places';
+import { cities } from '@/content/cities';
 import { site } from '@/config/site';
 
 type Result =
@@ -10,7 +11,8 @@ type Result =
   | { state: 'error'; message: string }
   | { state: 'done'; communes: { nom: string; lat: number; lon: number; km: number }[]; pick: number };
 
-const SIZE = 420, KM_PX = 1.45; // échelle de la carte radar
+const SIZE = 420, KM_PX = 200 / Math.max(site.extendedRadiusKm.value, site.serviceRadiusKm.value); // échelle de la carte radar
+const places = cities.length ? cities.map((c) => ({ name: c.name, lat: c.lat, lon: c.lon, base: c.distanceKm === 0 })) : nearPlaces;
 const base = { lat: site.base.lat, lon: site.base.lon };
 function project(lat: number, lon: number) {
   const kx = 111.32 * Math.cos((base.lat * Math.PI) / 180), ky = 110.57;
@@ -47,12 +49,12 @@ export function ZoneChecker({ compact = false }: { compact?: boolean }) {
 
   const current = res.state === 'done' ? res.communes[res.pick] : null;
   const verdict = current ? (current.km <= R ? 'in' : current.km <= RX ? 'maybe' : 'out') : null;
-  const rings = useMemo(() => [20, 40, R, RX].filter((v, i, a) => a.indexOf(v) === i).sort((a, b) => a - b), [R, RX]);
+  const rings = useMemo(() => [50, 100, R, RX].filter((v, i, a) => a.indexOf(v) === i).sort((a, b) => a - b), [R, RX]);
   const dot = current ? project(current.lat, current.lon) : null;
 
   return (
     <div className={`zone ${compact ? 'zone--compact' : ''}`}>
-      <div className="zone-map" role="img" aria-label={`Carte du secteur : rayon prévisionnel de ${R} km autour de ${site.base.city}${current ? `. ${current.nom} est à ${Math.round(current.km)} km.` : ''}`}>
+      <div className="zone-map" role="img" aria-label={`Carte du secteur : rayon d’intervention de ${R} km autour de ${site.base.city}${current ? `. ${current.nom} est à ${Math.round(current.km)} km.` : ''}`}>
         <svg viewBox={`0 0 ${SIZE} ${SIZE}`}>
           <defs>
             <radialGradient id={`${id}-g`}><stop offset="0" stopColor="#0091EB" stopOpacity=".16" /><stop offset="1" stopColor="#0091EB" stopOpacity=".02" /></radialGradient>
@@ -88,7 +90,7 @@ export function ZoneChecker({ compact = false }: { compact?: boolean }) {
             )}
           </g>
         </svg>
-        <p className="zone-legend mono">Base : {site.base.city} · rayon prévisionnel {R} km{site.serviceRadiusKm.pending ? ' (en cours de validation)' : ''}</p>
+        <p className="zone-legend mono">Base : {site.base.city} · rayon d’intervention {R} km{site.serviceRadiusKm.pending ? ' (en cours de validation)' : ''}</p>
       </div>
 
       <div className="zone-panel">
@@ -117,15 +119,15 @@ export function ZoneChecker({ compact = false }: { compact?: boolean }) {
               )}
               <p className="zone-km"><span className="mono">{current.nom}</span><strong>{Math.round(current.km)} km</strong><span className="mono">de {site.base.city}</span></p>
               <p className={`notice ${verdict === 'in' ? 'notice--success' : verdict === 'maybe' ? '' : 'notice--warning'}`}>
-                {verdict === 'in' && 'Votre commune est dans notre secteur prévisionnel. Décrivez votre chantier : nous confirmons la faisabilité dans l’étude.'}
-                {verdict === 'maybe' && 'Votre commune est en limite de secteur. Une intervention reste possible selon la taille du chantier : demandez une étude.'}
+                {verdict === 'in' && 'Votre commune est dans notre secteur d’intervention. Décrivez votre chantier : nous confirmons la faisabilité dans l’étude.'}
+                {verdict === 'maybe' && 'Votre commune est juste au-delà de notre secteur. Une intervention reste possible selon la taille du chantier : demandez une étude.'}
                 {verdict === 'out' && 'Votre commune est hors de notre secteur actuel. Vous pouvez tout de même nous écrire pour un chantier important.'}
               </p>
               {site.serviceRadiusKm.pending && <p className="hint muted">Secteur en cours de validation : la réponse définitive est donnée avec l’étude.</p>}
               <Link className="btn btn--block" href={`/contact/?cp=${cp}`} data-track="zone_to_devis">Demander une étude pour {current.nom}</Link>
             </div>
           )}
-          {res.state === 'idle' && <p className="muted zone-idle">Saisissez votre code postal pour savoir si votre commune se trouve dans notre secteur prévisionnel.</p>}
+          {res.state === 'idle' && <p className="muted zone-idle">Saisissez votre code postal pour savoir si votre commune se trouve dans notre secteur.</p>}
         </div>
       </div>
     </div>

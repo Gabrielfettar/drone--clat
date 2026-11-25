@@ -25,10 +25,12 @@ export const site = {
     lon: 2.8261,
     pending: true,
   },
-  /** Rayon d'intervention envisagé, en km. Provisoire tant qu'il n'est pas validé par la direction. */
-  serviceRadiusKm: { value: 60, pending: true } as Pending<number>,
-  /** Rayon élargi, au cas par cas (grands chantiers pro). */
-  extendedRadiusKm: { value: 120, pending: true } as Pending<number>,
+  /** Rayon d'intervention, en km autour de Compiègne (validé par la direction le 25/11/2026). */
+  serviceRadiusKm: { value: 200, pending: false } as Pending<number>,
+  /** Au-delà : au cas par cas (grands chantiers pro). */
+  extendedRadiusKm: { value: 250, pending: true } as Pending<number>,
+  /** Assujettissement à la TVA : conditionne l'affichage du taux de 10 %. À confirmer avec l'expert-comptable. */
+  vatRegistered: { value: true, pending: true } as Pending<boolean>,
   social: [] as { label: string; url: string }[],
   siret: { value: '', pending: true } as Pending<string>,
   insurer: { value: '', pending: true } as Pending<string>,

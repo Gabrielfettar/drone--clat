@@ -10,6 +10,9 @@ import { CtaBand } from '@/components/ui/CtaBand';
 import { services } from '@/content/services';
 import { homeFaq } from '@/content/faq';
 import { projects } from '@/content/projects';
+import { Icon } from '@/components/ui/Icon';
+import { Situations } from '@/components/sections/Situations';
+import { Benefits, AidesTeaser, ProsShowcase, TeamBlock, SuppliersStrip, CitiesStrip } from '@/components/sections/Sections';
 
 export const metadata: Metadata = {
   title: { absolute: 'Drone Éclat · Démoussage et nettoyage de toiture par drone, Oise' },
@@ -42,29 +45,20 @@ export default function Home() {
           </p>
           <div className="cta-row hero-in" style={{ ['--d' as string]: '360ms' }}>
             <Link href="/contact/" className="btn" data-track="cta_hero">Demander une étude gratuite <span className="btn-arrow" aria-hidden="true">→</span></Link>
-            <Link href="#methode" className="btn btn--ghost">Voir la méthode</Link>
+            <Link href="#benefices" className="btn btn--ghost">Ce que vous y gagnez</Link>
           </div>
+          <ul className="hero-proof hero-in" style={{ ['--d' as string]: '440ms' }}>
+            <li><Icon name="check" size={16} />Étude et devis gratuits sous 48 h</li>
+            <li><Icon name="check" size={16} />Aucun pied sur votre toit</li>
+            <li><Icon name="check" size={16} />TVA à 10 % possible</li>
+          </ul>
         </div>
       </section>
 
-      {/* 2. Proposition de valeur + 3. Confiance */}
-      <section className="section value" aria-labelledby="value-title">
-        <div className="container value-grid">
-          <div data-reveal>
-            <span className="eyebrow">Ce que nous faisons</span>
-            <h2 id="value-title" className="h-1">Le nettoyage en hauteur, sans les risques de la hauteur.</h2>
-          </div>
-          <div className="value-side" data-reveal style={{ ['--i' as string]: 1 }}>
-            <p className="lede">Nous intervenons sur les surfaces que l’on atteint mal : toitures, pignons, bardages, grands bâtiments. Le drone fait le travail en hauteur, l’équipe reste au sol et garde le contrôle.</p>
-            <ul className="trust">
-              <li><strong>Démarches de vol</strong><span>Préparées et déposées par nous avant chaque chantier.</span></li>
-              <li><strong>Étude gratuite</strong><span>Sur photos ou vue aérienne, réponse sous 48 h ouvrées.</span></li>
-              <li><strong>Rapport photo</strong><span>Avant / après remis à la fin de l’intervention.</span></li>
-              <li><strong>Franchise</strong><span>Si votre toit a besoin d’un couvreur, nous vous le disons.</span></li>
-            </ul>
-          </div>
-        </div>
-      </section>
+      {/* 2. Bénéfices clients */}
+      <Benefits />
+
+      <AidesTeaser />
 
       {/* 4. Prestations */}
       <section className="section section--mist" id="prestations" aria-labelledby="svc-title">
@@ -143,23 +137,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 9. Particuliers + 10. Professionnels */}
-      <section className="section section--ink audiences" aria-label="Pour qui">
-        <div className="container aud-grid">
-          <article className="aud" data-reveal>
-            <span className="eyebrow">Particuliers</span>
-            <h2 className="h-2">Votre maison, sans échafaudage dans le jardin.</h2>
-            <p className="lede">Démoussage de toiture, nettoyage de pignon ou de façade. Un devis clair, une intervention courte, un rapport photo.</p>
-            <Link className="btn btn--light" href="/services/demoussage-toiture-drone/">Démoussage de toiture <span className="btn-arrow" aria-hidden="true">→</span></Link>
-          </article>
-          <article className="aud" data-reveal style={{ ['--i' as string]: 1 }}>
-            <span className="eyebrow">Professionnels</span>
-            <h2 className="h-2">Grands volumes, activité maintenue.</h2>
-            <p className="lede">Syndics, entreprises, exploitations agricoles, collectivités : chantier découpé en secteurs, planning adapté, documents de sécurité fournis.</p>
-            <Link className="btn btn--ghost" href="/professionnels/entretien-batiments/">Offre professionnels <span className="btn-arrow" aria-hidden="true">→</span></Link>
-          </article>
-        </div>
-      </section>
+      {/* 9. Professionnels, patrimoine */}
+      <ProsShowcase />
+
+      <Situations limit={2} />
 
       {/* 11. Réalisations + 14. Témoignages */}
       <section className="section" aria-labelledby="real-title">
@@ -183,6 +164,10 @@ export default function Home() {
         </div>
       </section>
 
+      <SuppliersStrip />
+
+      <TeamBlock />
+
       {/* 12. Matériel */}
       <section className="section section--mist" aria-labelledby="gear-title">
         <div className="container gear">
@@ -204,12 +189,14 @@ export default function Home() {
       <section className="section" id="zone" aria-labelledby="zone-title">
         <div className="container">
           <div className="sec-head">
-            <div data-reveal><span className="eyebrow">Zone d’intervention</span><h2 id="zone-title" className="h-1">Basés à Compiègne, dans l’Oise.</h2></div>
-            <p className="lede" data-reveal style={{ ['--i' as string]: 1 }}>Vérifiez en quelques secondes si votre commune se trouve dans notre secteur prévisionnel.</p>
+            <div data-reveal><span className="eyebrow">Zone d’intervention</span><h2 id="zone-title" className="h-1">Basés à Compiègne, présents dans tout le Nord de la France.</h2></div>
+            <p className="lede" data-reveal style={{ ['--i' as string]: 1 }}>Nous intervenons dans un rayon de 200 km autour de Compiègne. Vérifiez votre commune en quelques secondes.</p>
           </div>
           <ZoneChecker />
         </div>
       </section>
+
+      <CitiesStrip />
 
       {/* Préparation d'intervention */}
       <section className="section section--mist" id="preparer" aria-labelledby="prep-title">
@@ -236,7 +223,7 @@ export default function Home() {
       </section>
 
       {/* 16. CTA final */}
-      <CtaBand title="Décrivez votre chantier en 2 minutes." text="Six questions, quelques photos, et nous revenons vers vous sous 48 h ouvrées avec une étude et un devis détaillé." />
+      <CtaBand title="Votre étude gratuite en 1 minute." text="Trois étapes, quelques photos si vous en avez, et nous revenons vers vous sous 48 h ouvrées avec une étude et un devis détaillé." cta="Recevoir mon étude gratuite" secondary={{ href: '/contact/?batiment=pro', label: 'Demande professionnelle' }} />
     </>
   );
 }
