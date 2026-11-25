@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 470" role="img" aria-label="Drone Éclat">
+  <path d="M62 112 A180 180 0 0 1 358 112" fill="none" stroke="#0091EB" stroke-width="18" stroke-linecap="round"/>
+  <g stroke="#0A1F37" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M65 175 L155 148 L210 170 L265 148 L355 175" stroke-width="24"/>
+    <path d="M50 153 H150 M270 153 H370" stroke-width="10"/>
+    <path d="M30 448 L210 372 L390 448" stroke-width="22"/>
+  </g>
+  <rect x="165" y="142" width="90" height="63" rx="18" fill="#0A1F37"/>
+  <g fill="#0091EB"><circle cx="50" cy="153" r="14"/><circle cx="370" cy="153" r="14"/></g>
+  <g stroke="#0091EB" stroke-width="9" stroke-linecap="round"><path d="M210 212 L140 318 M210 212 L176 330 M210 212 V336 M210 212 L244 330 M210 212 L280 318"/></g>
+  <g fill="#0091EB"><circle cx="133" cy="333" r="8"/><circle cx="171" cy="346" r="8"/><circle cx="210" cy="352" r="8"/><circle cx="249" cy="346" r="8"/><circle cx="287" cy="333" r="8"/></g>
+</svg>
