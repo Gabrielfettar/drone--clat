@@ -72,7 +72,30 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
         {hero && <p className="photo-credit">{hero.caption}. Photo : {hero.author}, <a href={hero.licenceUrl} target="_blank" rel="noopener license">{hero.licence}</a>, via <a href={hero.commonsUrl} target="_blank" rel="noopener">Wikimedia Commons</a>.</p>}
       </header>
 
-      {c.simulation && (
+      {c.archive && (
+        <section className="section city-ba" aria-labelledby="city-ba">
+          <div className="container">
+            <div className="sec-head">
+              <div data-reveal><span className="eyebrow">Avant / après à {c.name}</span><h2 id="city-ba" className="h-1">Même {c.name}. Dix ans de moins.</h2></div>
+              <p className="lede" data-reveal style={{ ['--i' as string]: 1 }}>{c.archive.building}. {c.archive.note}</p>
+            </div>
+            <div className="arch-pair" data-reveal>
+              {(['before', 'after'] as const).map((k) => {
+                const ph = c.archive![k];
+                return (
+                  <figure key={k} className="arch-fig" data-k={k}>
+                    <div className="arch-img"><Image src={`/villes/${ph.file}`} alt={`${c.archive!.building}, ${k === 'before' ? 'avant' : 'après'} le nettoyage${ph.date ? ` (${ph.date})` : ''}`} fill sizes="(max-width: 700px) 100vw, 50vw" /></div>
+                    <figcaption><span className="arch-tag">{k === 'before' ? 'Avant' : 'Après'}{ph.date ? ` · ${ph.date}` : ''}</span><span className="arch-cred">{ph.author}, <a href={ph.licenceUrl} target="_blank" rel="noopener license">{ph.licence}</a>, <a href={ph.commonsUrl} target="_blank" rel="noopener">Wikimedia Commons</a></span></figcaption>
+                  </figure>
+                );
+              })}
+            </div>
+            <p className="hint muted arch-note"><span className="pending-tag">Photos d’archives</span> Vraies photos du même bâtiment à deux époques. Travaux non réalisés par Drone Éclat.</p>
+          </div>
+        </section>
+      )}
+
+      {!c.archive && c.simulation && (
         <section className="section city-ba" aria-labelledby="city-ba">
           <div className="container">
             <div className="sec-head">

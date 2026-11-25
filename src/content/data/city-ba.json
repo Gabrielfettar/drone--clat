@@ -1,0 +1,272 @@
+[
+ {
+  "city": "reims",
+  "building": "Cathédrale Notre-Dame de Reims, façade ouest (grande rose)",
+  "kind": "Façade",
+  "before": {
+   "file": "avant-apres/reims-avant.webp",
+   "commonsUrl": "https://commons.wikimedia.org/wiki/File:Travaux_fa%C3%A7ade_cath%C3%A9drale_avant_004.jpg",
+   "author": "G.Garitan",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "date": "2017",
+   "width": 768,
+   "height": 872
+  },
+  "after": {
+   "file": "avant-apres/reims-apres.webp",
+   "commonsUrl": "https://commons.wikimedia.org/wiki/File:Travaux_cathedrale_2016_novembre_08908.jpg",
+   "author": "G.Garitan",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "date": "2017",
+   "width": 864,
+   "height": 1060
+  },
+  "sameAngle": true,
+  "note": "Pierre grisée et tachée autour de la grande rose, retrouvée claire après le chantier de restauration de la façade (2016)."
+ },
+ {
+  "city": "le-havre",
+  "building": "Cathédrale Notre-Dame du Havre, façade principale",
+  "kind": "Façade",
+  "before": {
+   "file": "avant-apres/le-havre-avant.webp",
+   "commonsUrl": "https://commons.wikimedia.org/wiki/File:LeHavreCathedraleND.jpg",
+   "author": "Selbymay",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "date": "2017",
+   "width": 1600,
+   "height": 1067
+  },
+  "after": {
+   "file": "avant-apres/le-havre-apres.webp",
+   "commonsUrl": "https://commons.wikimedia.org/wiki/File:Fa%C3%A7ade_Cath%C3%A9draleLH2.jpg",
+   "author": "Jérémy76",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "date": "2021",
+   "width": 1600,
+   "height": 1118
+  },
+  "sameAngle": true,
+  "note": "Façade grise et encrassée en 2017, puis pierre redevenue blanche après la restauration achevée en 2021."
+ },
+ {
+  "city": "rouen",
+  "building": "Cathédrale Notre-Dame de Rouen, portail central de la façade ouest",
+  "kind": "Façade",
+  "before": {
+   "file": "avant-apres/rouen-avant.webp",
+   "commonsUrl": "https://commons.wikimedia.org/wiki/File:Vue_generale_de_la_cathedrale_de_Rouen.jpg",
+   "author": "ByB (Wikipédia en français)",
+   "licence": "CC BY-SA 2.5",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.5",
+   "date": "2008",
+   "width": 1600,
+   "height": 2074
+  },
+  "after": {
+   "file": "avant-apres/rouen-apres.webp",
+   "commonsUrl": "https://commons.wikimedia.org/wiki/File:Rouen_-_cath%C3%A9drale_Notre-Dame,_fa%C3%A7ade_11.jpg",
+   "author": "Fab5669",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "date": "2021",
+   "width": 1600,
+   "height": 2400
+  },
+  "sameAngle": false,
+  "note": "Portail central encore noirci par la pollution en 2008, retrouvé blanc après la restauration de la façade occidentale."
+ },
+ {
+  "city": "troyes",
+  "building": "Cathédrale Saint-Pierre-et-Saint-Paul de Troyes, façade occidentale",
+  "kind": "Façade",
+  "before": {
+   "file": "avant-apres/troyes-avant.webp",
+   "commonsUrl": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_de_Troyes_2006.JPG",
+   "author": "Scorpius59",
+   "licence": "Public domain",
+   "licenceUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+   "date": "2006",
+   "width": 1200,
+   "height": 1600
+  },
+  "after": {
+   "file": "avant-apres/troyes-apres.webp",
+   "commonsUrl": "https://commons.wikimedia.org/wiki/File:Troyes_Cath%C3%A9drale_St._Pierre_et_Paul_Fassade_1.jpg",
+   "author": "Zairon",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "date": "2016",
+   "width": 1600,
+   "height": 2078
+  },
+  "sameAngle": true,
+  "note": "Portails et façade gris-noir en 2006, pierre blanche retrouvée après la restauration de la façade occidentale."
+ },
+ {
+  "city": "meaux",
+  "building": "Cathédrale Saint-Étienne de Meaux, façade occidentale",
+  "kind": "Façade",
+  "before": {
+   "file": "avant-apres/meaux-avant.webp",
+   "commonsUrl": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Saint-Etienne_de_Meaux..JPG",
+   "author": "Toine77",
+   "licence": "CC BY-SA 3.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "date": "2011",
+   "width": 1600,
+   "height": 2133
+  },
+  "after": {
+   "file": "avant-apres/meaux-apres.webp",
+   "commonsUrl": "https://commons.wikimedia.org/wiki/File:Meaux,_Cath%C3%A9drale_Saint-%C3%89tienne,_fa%C3%A7ade_ouest_2.jpg",
+   "author": "Antoine Rex",
+   "licence": "CC0",
+   "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "date": "2023",
+   "width": 1600,
+   "height": 2133
+  },
+  "sameAngle": true,
+  "note": "Pierre grise et patinée en 2011 ; façade éclaircie et toiture d'ardoise de la tour sud refaite lors de la restauration."
+ },
+ {
+  "city": "charleville-mezieres",
+  "building": "Basilique Notre-Dame-d'Espérance de Mézières, façade occidentale",
+  "kind": "Façade",
+  "before": {
+   "file": "avant-apres/charleville-mezieres-avant.webp",
+   "commonsUrl": "https://commons.wikimedia.org/wiki/File:Fa%C3%A7ade_%C3%A9glise_Notre_Dame_M%C3%A9zi%C3%A8res.JPG",
+   "author": "Adri08",
+   "licence": "CC BY-SA 3.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "date": "2008",
+   "width": 1600,
+   "height": 1200
+  },
+  "after": {
+   "file": "avant-apres/charleville-mezieres-apres.webp",
+   "commonsUrl": "https://commons.wikimedia.org/wiki/File:Charleville-M%C3%A9zi%C3%A8res_-_basilique_Notre-Dame-d%27Esp%C3%A9rance_(01).JPG",
+   "author": "Fab5669",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "date": "2015",
+   "width": 1600,
+   "height": 2133
+  },
+  "sameAngle": true,
+  "note": "Coulures noires et mousses en pied de façade en 2008 ; pierre de Dom retrouvée dorée après la restauration de la façade."
+ },
+ {
+  "city": "compiegne",
+  "building": "Hôtel de ville de Compiègne, façade et beffroi",
+  "kind": "Façade",
+  "before": {
+   "file": "avant-apres/compiegne-avant.webp",
+   "commonsUrl": "https://commons.wikimedia.org/wiki/File:H%C3%B4tel_de_ville_Compi%C3%A9gne.jpg",
+   "author": "Vifdor",
+   "licence": "CC BY-SA 3.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "date": "2010",
+   "width": 1600,
+   "height": 2407
+  },
+  "after": {
+   "file": "avant-apres/compiegne-apres.webp",
+   "commonsUrl": "https://commons.wikimedia.org/wiki/File:0_Compi%C3%A8gne_-_L%27h%C3%B4tel_de_Ville_(1).JPG",
+   "author": "Jean-Pol GRANDMONT",
+   "licence": "CC BY-SA 3.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "date": "2012",
+   "width": 1600,
+   "height": 2400
+  },
+  "sameAngle": true,
+  "note": "Façade grisée et encrassée en 2010, pierre redevenue blanche en 2012 après le nettoyage de l'hôtel de ville."
+ },
+ {
+  "city": "lille",
+  "building": "Vieille Bourse de Lille, façades sur la place du Théâtre",
+  "kind": "Façade",
+  "before": {
+   "file": "avant-apres/lille-avant.webp",
+   "commonsUrl": "https://commons.wikimedia.org/wiki/File:Tram_Lille_place_du_Th%C3%A9atre_1.jpg",
+   "author": "Smiley.toerist",
+   "licence": "CC BY-SA 3.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "date": "1981",
+   "width": 1600,
+   "height": 1066
+  },
+  "after": {
+   "file": "avant-apres/lille-apres.webp",
+   "commonsUrl": "https://commons.wikimedia.org/wiki/File:Lille_Vieille_Bourse_SW_2009_08_29.jpg",
+   "author": "Andreas F. Borchert",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "date": "2009",
+   "width": 1600,
+   "height": 1067
+  },
+  "sameAngle": false,
+  "note": "Façades noircies par la pollution en 1981, puis briques et sculptures retrouvées après la restauration des années 1990."
+ },
+ {
+  "city": "amiens",
+  "building": "Cathédrale Notre-Dame d'Amiens, façade occidentale",
+  "kind": "Façade",
+  "before": {
+   "file": "avant-apres/amiens-avant.webp",
+   "commonsUrl": "https://commons.wikimedia.org/wiki/File:France,_Amiens,_La_Cath%C3%A9drale_-_A6483.jpg",
+   "author": "Léon Auguste",
+   "licence": "CC0",
+   "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "date": "1912",
+   "width": 1519,
+   "height": 2048
+  },
+  "after": {
+   "file": "avant-apres/amiens-apres.webp",
+   "commonsUrl": "https://commons.wikimedia.org/wiki/File:Facade_de_la_cathedrale_d%27Amiens.jpg",
+   "author": "Florestan",
+   "licence": "CC BY 3.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
+   "date": "2008",
+   "width": 1600,
+   "height": 2138
+  },
+  "sameAngle": true,
+  "note": "Façade noircie par des siècles de pollution (autochrome de 1912), puis nettoyée au laser lors de la grande restauration de 1992-2001."
+ },
+ {
+  "city": "valenciennes",
+  "building": "Hôtel de ville de Valenciennes, façade sur la place d'Armes",
+  "kind": "Façade",
+  "before": {
+   "file": "avant-apres/valenciennes-avant.webp",
+   "commonsUrl": "https://commons.wikimedia.org/wiki/File:Valenciennes_001.jpg",
+   "author": "Manchot sanguinaire",
+   "licence": "CC BY-SA 3.0",
+   "licenceUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+   "date": "2005",
+   "width": 1086,
+   "height": 849
+  },
+  "after": {
+   "file": "avant-apres/valenciennes-apres.webp",
+   "commonsUrl": "https://commons.wikimedia.org/wiki/File:Valenciennes_HdV(2026).jpg",
+   "author": "Matgrt",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "date": "2026",
+   "width": 1600,
+   "height": 1363
+  },
+  "sameAngle": false,
+  "note": "Façade grise et ternie par la pollution en 2005, pierre claire retrouvée après le ravalement de l'hôtel de ville."
+ }
+]

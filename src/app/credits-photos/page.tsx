@@ -14,6 +14,7 @@ export default function CreditsPage() {
   const rows = [
     ...stock.map((p) => ({ what: p.caption, author: p.author, licence: p.licence, licenceUrl: p.licenceUrl, source: p.pageUrl })),
     ...cities.flatMap((c) => c.photos.map((p) => ({ what: `${c.name} : ${p.caption}`, author: p.author, licence: p.licence, licenceUrl: p.licenceUrl, source: p.commonsUrl }))),
+    ...cities.flatMap((c) => c.archive ? (['before', 'after'] as const).map((k) => ({ what: `${c.name} : ${c.archive!.building} (${k === 'before' ? 'avant' : 'après'}${c.archive![k].date ? `, ${c.archive![k].date}` : ''})`, author: c.archive![k].author, licence: c.archive![k].licence, licenceUrl: c.archive![k].licenceUrl, source: c.archive![k].commonsUrl })) : []),
   ];
   return (
     <>
