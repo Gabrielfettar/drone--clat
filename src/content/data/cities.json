@@ -1,0 +1,1033 @@
+[
+ {
+  "slug": "paris",
+  "name": "Paris",
+  "insee": "75056",
+  "department": "Paris",
+  "departmentCode": "75",
+  "region": "Île-de-France",
+  "population": 2103778,
+  "populationYear": 2023,
+  "lat": 48.8566,
+  "lon": 2.3522,
+  "distanceKm": 71,
+  "landmarks": [
+   "Cathédrale Notre-Dame de Paris (toiture en plomb reconstruite après l'incendie de 2019)",
+   "Basilique du Sacré-Cœur de Montmartre",
+   "Toits en zinc haussmanniens"
+  ],
+  "roofing": "Zinc : environ 78 % des toits parisiens sont en zinc ou mixtes zinc/ardoise ; tuile ≈ 7 % (étude APUR 2022).",
+  "droneNote": "Tournages par drone strictement interdits dans Paris hors dérogation de la Préfecture de police (demande par un opérateur professionnel, préavis d'au moins 10 jours ouvrables). Vérifier aussi la carte « Restrictions UAS » sur Géoportail.",
+  "sources": [
+   "https://www.insee.fr/fr/statistiques/fichier/8680694/dep75.pdf",
+   "https://fr.wikipedia.org/wiki/Paris",
+   "https://www.drieat.ile-de-france.developpement-durable.gouv.fr/IMG/pdf/20260420_les_toits_de_paris.pdf",
+   "https://www.paris.fr/pages/tourner-avec-un-drone-35519",
+   "https://www.geoportail.gouv.fr/",
+   "https://www.ecologie.gouv.fr/sites/default/files/documents/Contacts_prefectures_Autorisation_survols_basses_hauteurs_19janvier2026.pdf"
+  ],
+  "photos": [
+   {
+    "file": "paris-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Panorama_de_la_toiture_de_Notre-Dame_de_Paris.jpg",
+    "author": "Suaudeau",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Panorama sur la toiture de Notre-Dame de Paris",
+    "width": 1600,
+    "height": 2278
+   },
+   {
+    "file": "paris-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Notre_Dame,_Paris,_France._View_of_spire,_roof_with_statuary,_and_cityscape_beyond.jpg",
+    "author": "Charles Marville",
+    "licence": "Public domain",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.fr",
+    "caption": "Toiture de Notre-Dame de Paris, sa flèche et ses statues, avec les toits de Paris en arrière-plan",
+    "width": 1600,
+    "height": 2180
+   }
+  ],
+  "simulation": {
+   "photo": 0
+  }
+ },
+ {
+  "slug": "lille",
+  "name": "Lille",
+  "insee": "59350",
+  "department": "Nord",
+  "departmentCode": "59",
+  "region": "Hauts-de-France",
+  "population": 238246,
+  "populationYear": 2023,
+  "lat": 50.6365,
+  "lon": 3.0635,
+  "distanceKm": 137,
+  "landmarks": [
+   "Beffroi de l'hôtel de ville (patrimoine mondial UNESCO, beffrois de Belgique et de France)",
+   "Vieille Bourse (Grand'Place)",
+   "Cathédrale Notre-Dame-de-la-Treille"
+  ],
+  "roofing": "Panne flamande : tuile très utilisée dans le nord de la France.",
+  "droneNote": "Aéroport de Lille-Lesquin à proximité de la métropole : contraintes probables, à vérifier. Centre-ville en agglomération : un vol professionnel relève de la catégorie spécifique et suppose en principe une déclaration préalable en préfecture ; vérifier systématiquement la carte « Restrictions UAS » sur Géoportail avant chaque chantier.",
+  "sources": [
+   "https://www.insee.fr/fr/statistiques/fichier/8680694/dep59.pdf",
+   "https://fr.wikipedia.org/wiki/Lille",
+   "https://fr.wikipedia.org/wiki/Beffrois_de_Belgique_et_de_France",
+   "https://www.maisons-paysannes-loiret.org/attachments/article/39/Toitures%20N°%202%20Les%20pannes%20picardes%20et%20flamandes.pdf",
+   "https://www.geoportail.gouv.fr/",
+   "https://www.ecologie.gouv.fr/sites/default/files/documents/Contacts_prefectures_Autorisation_survols_basses_hauteurs_19janvier2026.pdf"
+  ],
+  "photos": [
+   {
+    "file": "lille-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Lille,_Le_beffroi_et_l%27_H%C3%B4tel_de_Ville_(_PA59000078).jpg",
+    "author": "PIERRE ANDRE LECLERCQ",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Le beffroi et l'hôtel de ville de Lille",
+    "width": 1600,
+    "height": 2108
+   },
+   {
+    "file": "lille-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Grand_place,_Lille.jpg",
+    "author": "Strukova1409",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "La Grand'Place de Lille",
+    "width": 1600,
+    "height": 1600
+   }
+  ],
+  "simulation": {
+   "photo": 1,
+   "skyTolerance": 45
+  }
+ },
+ {
+  "slug": "reims",
+  "name": "Reims",
+  "insee": "51454",
+  "department": "Marne",
+  "departmentCode": "51",
+  "region": "Grand Est",
+  "population": 177674,
+  "populationYear": 2023,
+  "lat": 49.2583,
+  "lon": 4.0317,
+  "distanceKm": 89,
+  "landmarks": [
+   "Cathédrale Notre-Dame de Reims (patrimoine mondial UNESCO)",
+   "Basilique Saint-Remi",
+   "Palais du Tau"
+  ],
+  "roofing": "Champagne : la tuile plate domine hors de la bande de tuile néo-romaine.",
+  "droneNote": "Centre-ville en agglomération : un vol professionnel relève de la catégorie spécifique et suppose en principe une déclaration préalable en préfecture ; vérifier systématiquement la carte « Restrictions UAS » sur Géoportail avant chaque chantier.",
+  "sources": [
+   "https://www.insee.fr/fr/statistiques/fichier/8680694/dep51.pdf",
+   "https://fr.wikipedia.org/wiki/Reims",
+   "https://fr.wikipedia.org/wiki/Cath%C3%A9drale_Notre-Dame_de_Reims",
+   "https://maisons-paysannes-loiret.org/attachments/article/39/Toitures%20N°%205%20La%20tuile%20neo-romaine%20de%20Champagne.pdf",
+   "https://www.geoportail.gouv.fr/",
+   "https://www.ecologie.gouv.fr/sites/default/files/documents/Contacts_prefectures_Autorisation_survols_basses_hauteurs_19janvier2026.pdf"
+  ],
+  "photos": [
+   {
+    "file": "reims-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Notre-Dame_de_Reims_(fa%C3%A7ade).jpg",
+    "author": "Lumaca",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Façade occidentale de la cathédrale Notre-Dame de Reims",
+    "width": 1600,
+    "height": 2133
+   },
+   {
+    "file": "reims-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Reims_Cathedrale_Notre_Dame_001.JPG",
+    "author": "Mattana",
+    "licence": "Public domain",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.fr",
+    "caption": "Cathédrale Notre-Dame de Reims",
+    "width": 1200,
+    "height": 900
+   }
+  ],
+  "simulation": {
+   "photo": 0
+  }
+ },
+ {
+  "slug": "le-havre",
+  "name": "Le Havre",
+  "insee": "76351",
+  "department": "Seine-Maritime",
+  "departmentCode": "76",
+  "region": "Normandie",
+  "population": 166687,
+  "populationYear": 2023,
+  "lat": 49.4939,
+  "lon": 0.1077,
+  "distanceKm": 197,
+  "landmarks": [
+   "Centre reconstruit par Auguste Perret (patrimoine mondial UNESCO, 2005)",
+   "Église Saint-Joseph et sa tour-lanterne",
+   "Hôtel de ville (Perret)"
+  ],
+  "roofing": null,
+  "droneNote": "Ville à ~197 km de Compiègne, à la limite des 200 km. Zone portuaire et aéroport du Havre-Octeville : contraintes probables, à vérifier. Centre-ville en agglomération : un vol professionnel relève de la catégorie spécifique et suppose en principe une déclaration préalable en préfecture ; vérifier systématiquement la carte « Restrictions UAS » sur Géoportail avant chaque chantier.",
+  "sources": [
+   "https://www.insee.fr/fr/statistiques/fichier/8680694/dep76.pdf",
+   "https://fr.wikipedia.org/wiki/Le_Havre",
+   "https://fr.wikipedia.org/wiki/%C3%89glise_Saint-Joseph_du_Havre",
+   "https://www.geoportail.gouv.fr/",
+   "https://www.ecologie.gouv.fr/sites/default/files/documents/Contacts_prefectures_Autorisation_survols_basses_hauteurs_19janvier2026.pdf"
+  ],
+  "photos": [
+   {
+    "file": "le-havre-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:%C3%89glise_Saint-Joseph_du_Havre_(49832991847).jpg",
+    "author": "Alexandre Prevot from Nancy, France",
+    "licence": "CC BY-SA 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "caption": "L'église Saint-Joseph du Havre",
+    "width": 1600,
+    "height": 1067
+   },
+   {
+    "file": "le-havre-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Le_Havre_-_%C3%89glise_Saint-Joseph_-_28261987289.jpg",
+    "author": "Fred Romero",
+    "licence": "CC BY 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+    "caption": "L'église Saint-Joseph, Le Havre",
+    "width": 1600,
+    "height": 1067
+   }
+  ],
+  "simulation": {
+   "photo": 0
+  }
+ },
+ {
+  "slug": "amiens",
+  "name": "Amiens",
+  "insee": "80021",
+  "department": "Somme",
+  "departmentCode": "80",
+  "region": "Hauts-de-France",
+  "population": 136449,
+  "populationYear": 2023,
+  "lat": 49.8942,
+  "lon": 2.2958,
+  "distanceKm": 65,
+  "landmarks": [
+   "Cathédrale Notre-Dame d'Amiens (patrimoine mondial UNESCO)",
+   "Beffroi d'Amiens (UNESCO)",
+   "Quartier Saint-Leu"
+  ],
+  "roofing": "Picardie : panne picarde présente dans la Somme et le nord de l'Oise, où elle partage les toits avec l'ardoise.",
+  "droneNote": "Aérodrome d'Amiens-Glisy à l'est de la ville : à vérifier. Centre-ville en agglomération : un vol professionnel relève de la catégorie spécifique et suppose en principe une déclaration préalable en préfecture ; vérifier systématiquement la carte « Restrictions UAS » sur Géoportail avant chaque chantier.",
+  "sources": [
+   "https://www.insee.fr/fr/statistiques/fichier/8680694/dep80.pdf",
+   "https://fr.wikipedia.org/wiki/Amiens",
+   "https://fr.wikipedia.org/wiki/Cath%C3%A9drale_Notre-Dame_d%27Amiens",
+   "https://www.maisons-paysannes-loiret.org/attachments/article/39/Toitures%20N°%202%20Les%20pannes%20picardes%20et%20flamandes.pdf",
+   "https://www.geoportail.gouv.fr/",
+   "https://www.ecologie.gouv.fr/sites/default/files/documents/Contacts_prefectures_Autorisation_survols_basses_hauteurs_19janvier2026.pdf"
+  ],
+  "photos": [
+   {
+    "file": "amiens-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:0_Amiens_-_Cath%C3%A9drale_Notre-Dame_(1).JPG",
+    "author": "Jean-Pol GRANDMONT",
+    "licence": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
+    "caption": "La cathédrale Notre-Dame d'Amiens",
+    "width": 1600,
+    "height": 2456
+   },
+   {
+    "file": "amiens-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Amiens_cathedral_001.JPG",
+    "author": "Mattana",
+    "licence": "Public domain",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.fr",
+    "caption": "La cathédrale d'Amiens",
+    "width": 900,
+    "height": 1200
+   }
+  ],
+  "simulation": {
+   "photo": 0
+  }
+ },
+ {
+  "slug": "rouen",
+  "name": "Rouen",
+  "insee": "76540",
+  "department": "Seine-Maritime",
+  "departmentCode": "76",
+  "region": "Normandie",
+  "population": 117662,
+  "populationYear": 2023,
+  "lat": 49.4431,
+  "lon": 1.0993,
+  "distanceKm": 125,
+  "landmarks": [
+   "Cathédrale Notre-Dame de Rouen (flèche la plus haute de France, 151 m)",
+   "Gros-Horloge",
+   "Abbatiale Saint-Ouen"
+  ],
+  "roofing": null,
+  "droneNote": "Aéroport de Rouen-Vallée de Seine (Boos) au sud-est : à vérifier. Centre-ville en agglomération : un vol professionnel relève de la catégorie spécifique et suppose en principe une déclaration préalable en préfecture ; vérifier systématiquement la carte « Restrictions UAS » sur Géoportail avant chaque chantier.",
+  "sources": [
+   "https://www.insee.fr/fr/statistiques/fichier/8680694/dep76.pdf",
+   "https://fr.wikipedia.org/wiki/Rouen",
+   "https://fr.wikipedia.org/wiki/Cath%C3%A9drale_Notre-Dame_de_Rouen",
+   "https://www.geoportail.gouv.fr/",
+   "https://www.ecologie.gouv.fr/sites/default/files/documents/Contacts_prefectures_Autorisation_survols_basses_hauteurs_19janvier2026.pdf"
+  ],
+  "photos": [
+   {
+    "file": "rouen-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Rouen_Cathedral_as_seen_from_Gros_Horloge_140215_4.jpg",
+    "author": "DXR",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "caption": "La cathédrale de Rouen vue depuis le Gros-Horloge",
+    "width": 1600,
+    "height": 2562
+   },
+   {
+    "file": "rouen-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Le_Gros_Horloge,_Rouen,_Normandy.jpg",
+    "author": "No machine-readable author provided. Ofol assumed (based on copyright claims).",
+    "licence": "CC BY 2.5",
+    "licenceUrl": "https://creativecommons.org/licenses/by/2.5",
+    "caption": "Le Gros-Horloge de Rouen",
+    "width": 1600,
+    "height": 2133
+   }
+  ],
+  "simulation": {
+   "photo": 0
+  }
+ },
+ {
+  "slug": "orleans",
+  "name": "Orléans",
+  "insee": "45234",
+  "department": "Loiret",
+  "departmentCode": "45",
+  "region": "Centre-Val de Loire",
+  "population": 116357,
+  "populationYear": 2023,
+  "lat": 47.9029,
+  "lon": 1.9093,
+  "distanceKm": 181,
+  "landmarks": [
+   "Cathédrale Sainte-Croix d'Orléans",
+   "Hôtel Groslot",
+   "Maison de Jeanne d'Arc"
+  ],
+  "roofing": null,
+  "droneNote": "Base aérienne 123 Orléans-Bricy au nord-ouest de l'agglomération : contraintes probables, à vérifier. Centre-ville en agglomération : un vol professionnel relève de la catégorie spécifique et suppose en principe une déclaration préalable en préfecture ; vérifier systématiquement la carte « Restrictions UAS » sur Géoportail avant chaque chantier.",
+  "sources": [
+   "https://www.insee.fr/fr/statistiques/fichier/8680694/dep45.pdf",
+   "https://fr.wikipedia.org/wiki/Orl%C3%A9ans",
+   "https://fr.wikipedia.org/wiki/Cath%C3%A9drale_Sainte-Croix_d%27Orl%C3%A9ans",
+   "https://www.geoportail.gouv.fr/",
+   "https://www.ecologie.gouv.fr/sites/default/files/documents/Contacts_prefectures_Autorisation_survols_basses_hauteurs_19janvier2026.pdf"
+  ],
+  "photos": [
+   {
+    "file": "orleans-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Orl%C3%A9ans,_Cath%C3%A9drale_Sainte-Croix-PM_68210.jpg",
+    "author": "PMRMaeyaert",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "caption": "La cathédrale Sainte-Croix d'Orléans",
+    "width": 709,
+    "height": 473
+   },
+   {
+    "file": "orleans-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Sainte-Croix_d%27Orl%C3%A9ans_juillet_2009.JPG",
+    "author": "Own work",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "caption": "La cathédrale Sainte-Croix d'Orléans (juillet 2009)",
+    "width": 1600,
+    "height": 2133
+   }
+  ],
+  "simulation": {
+   "photo": 1
+  }
+ },
+ {
+  "slug": "dunkerque",
+  "name": "Dunkerque",
+  "insee": "59183",
+  "department": "Nord",
+  "departmentCode": "59",
+  "region": "Hauts-de-France",
+  "population": 86263,
+  "populationYear": 2023,
+  "lat": 51.0343,
+  "lon": 2.3768,
+  "distanceKm": 183,
+  "landmarks": [
+   "Beffroi Saint-Éloi (UNESCO)",
+   "Hôtel de ville et son beffroi (UNESCO)",
+   "Phare du Risban"
+  ],
+  "roofing": "Panne flamande : tuile très utilisée dans le nord de la France.",
+  "droneNote": "Zone portuaire et industrielle ; centrale nucléaire de Gravelines à l'ouest : vérifier les zones interdites. Centre-ville en agglomération : un vol professionnel relève de la catégorie spécifique et suppose en principe une déclaration préalable en préfecture ; vérifier systématiquement la carte « Restrictions UAS » sur Géoportail avant chaque chantier.",
+  "sources": [
+   "https://www.insee.fr/fr/statistiques/fichier/8680694/dep59.pdf",
+   "https://fr.wikipedia.org/wiki/Dunkerque",
+   "https://fr.wikipedia.org/wiki/Beffrois_de_Belgique_et_de_France",
+   "https://www.maisons-paysannes-loiret.org/attachments/article/39/Toitures%20N°%202%20Les%20pannes%20picardes%20et%20flamandes.pdf",
+   "https://www.geoportail.gouv.fr/",
+   "https://www.ecologie.gouv.fr/sites/default/files/documents/Contacts_prefectures_Autorisation_survols_basses_hauteurs_19janvier2026.pdf"
+  ],
+  "photos": [
+   {
+    "file": "dunkerque-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Dunkerque_la_Tour_du_Reuze_et_le_beffroi.JPG",
+    "author": "Pierre André",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "La tour du Reuze et le beffroi de Dunkerque",
+    "width": 1600,
+    "height": 1365
+   },
+   {
+    "file": "dunkerque-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Town_hall_of_Dunkerque-7585.jpg",
+    "author": "Raimond Spekking",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "L'hôtel de ville de Dunkerque",
+    "width": 1600,
+    "height": 1569
+   }
+  ],
+  "simulation": {
+   "photo": 1
+  }
+ },
+ {
+  "slug": "calais",
+  "name": "Calais",
+  "insee": "62193",
+  "department": "Pas-de-Calais",
+  "departmentCode": "62",
+  "region": "Hauts-de-France",
+  "population": 67571,
+  "populationYear": 2023,
+  "lat": 50.9513,
+  "lon": 1.8587,
+  "distanceKm": 184,
+  "landmarks": [
+   "Hôtel de ville et beffroi (UNESCO)",
+   "Tour du Guet",
+   "Phare de Calais"
+  ],
+  "roofing": "Panne flamande : tuile très utilisée dans le nord de la France.",
+  "droneNote": "Port, terminal du tunnel sous la Manche et aéroport de Calais-Dunkerque (Marck) : contraintes probables, à vérifier. Centre-ville en agglomération : un vol professionnel relève de la catégorie spécifique et suppose en principe une déclaration préalable en préfecture ; vérifier systématiquement la carte « Restrictions UAS » sur Géoportail avant chaque chantier.",
+  "sources": [
+   "https://www.insee.fr/fr/statistiques/fichier/8680694/dep62.pdf",
+   "https://fr.wikipedia.org/wiki/Calais",
+   "https://fr.wikipedia.org/wiki/H%C3%B4tel_de_ville_de_Calais",
+   "https://www.maisons-paysannes-loiret.org/attachments/article/39/Toitures%20N°%202%20Les%20pannes%20picardes%20et%20flamandes.pdf",
+   "https://www.geoportail.gouv.fr/",
+   "https://www.ecologie.gouv.fr/sites/default/files/documents/Contacts_prefectures_Autorisation_survols_basses_hauteurs_19janvier2026.pdf"
+  ],
+  "photos": [
+   {
+    "file": "calais-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Calais_hotel_de_ville_face.jpg",
+    "author": "Velvet",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "caption": "L'hôtel de ville de Calais, vu de face",
+    "width": 1600,
+    "height": 1558
+   },
+   {
+    "file": "calais-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Calais_Le_Boulevard_Jacquard_et_l%27Hotel_de_Ville.jpg",
+    "author": "Unknown authorUnknown author",
+    "licence": "Public domain",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.fr",
+    "caption": "Le boulevard Jacquard et l'hôtel de ville de Calais",
+    "width": 1600,
+    "height": 1015
+   }
+  ],
+  "simulation": {
+   "photo": 0
+  }
+ },
+ {
+  "slug": "troyes",
+  "name": "Troyes",
+  "insee": "10387",
+  "department": "Aube",
+  "departmentCode": "10",
+  "region": "Grand Est",
+  "population": 62088,
+  "populationYear": 2023,
+  "lat": 48.2973,
+  "lon": 4.0744,
+  "distanceKm": 154,
+  "landmarks": [
+   "Cathédrale Saint-Pierre-et-Saint-Paul",
+   "Maisons à pans de bois du centre ancien (« bouchon de Champagne »)",
+   "Basilique Saint-Urbain"
+  ],
+  "roofing": "Champagne : la tuile plate domine hors de la bande de tuile néo-romaine.",
+  "droneNote": "Aérodrome de Troyes-Barberey au nord-ouest : à vérifier. Centre-ville en agglomération : un vol professionnel relève de la catégorie spécifique et suppose en principe une déclaration préalable en préfecture ; vérifier systématiquement la carte « Restrictions UAS » sur Géoportail avant chaque chantier.",
+  "sources": [
+   "https://www.insee.fr/fr/statistiques/fichier/8680694/dep10.pdf",
+   "https://fr.wikipedia.org/wiki/Troyes",
+   "https://maisons-paysannes-loiret.org/attachments/article/39/Toitures%20N°%205%20La%20tuile%20neo-romaine%20de%20Champagne.pdf",
+   "https://www.geoportail.gouv.fr/",
+   "https://www.ecologie.gouv.fr/sites/default/files/documents/Contacts_prefectures_Autorisation_survols_basses_hauteurs_19janvier2026.pdf"
+  ],
+  "photos": [
+   {
+    "file": "troyes-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:TroyesCathedrale.JPG",
+    "author": "Gérard Janot",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "caption": "La cathédrale Saint-Pierre-et-Saint-Paul de Troyes",
+    "width": 1600,
+    "height": 2133
+   },
+   {
+    "file": "troyes-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Troyes_rue_Emile_Zola_maisons_pans_de_bois.jpg",
+    "author": "Myrabella",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Maisons à pans de bois, rue Émile-Zola à Troyes",
+    "width": 1600,
+    "height": 1067
+   }
+  ],
+  "simulation": {
+   "photo": 1
+  }
+ },
+ {
+  "slug": "meaux",
+  "name": "Meaux",
+  "insee": "77284",
+  "department": "Seine-et-Marne",
+  "departmentCode": "77",
+  "region": "Île-de-France",
+  "population": 56905,
+  "populationYear": 2023,
+  "lat": 48.9601,
+  "lon": 2.8788,
+  "distanceKm": 51,
+  "landmarks": [
+   "Cathédrale Saint-Étienne de Meaux",
+   "Cité épiscopale et palais épiscopal (musée Bossuet)"
+  ],
+  "roofing": null,
+  "droneNote": "Région parisienne (espace aérien dense, aéroport Paris-Charles-de-Gaulle à une vingtaine de km) : vérifier impérativement. Centre-ville en agglomération : un vol professionnel relève de la catégorie spécifique et suppose en principe une déclaration préalable en préfecture ; vérifier systématiquement la carte « Restrictions UAS » sur Géoportail avant chaque chantier.",
+  "sources": [
+   "https://www.insee.fr/fr/statistiques/fichier/8680694/dep77.pdf",
+   "https://fr.wikipedia.org/wiki/Meaux",
+   "https://fr.wikipedia.org/wiki/Cath%C3%A9drale_Saint-%C3%89tienne_de_Meaux",
+   "https://www.geoportail.gouv.fr/",
+   "https://www.ecologie.gouv.fr/sites/default/files/documents/Contacts_prefectures_Autorisation_survols_basses_hauteurs_19janvier2026.pdf"
+  ],
+  "photos": [
+   {
+    "file": "meaux-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Saint-%C3%89tienne_de_Meaux.JPG",
+    "author": "Anubis75",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "caption": "La cathédrale Saint-Étienne de Meaux",
+    "width": 1600,
+    "height": 2133
+   },
+   {
+    "file": "meaux-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Saint-Etienne_de_Meaux..JPG",
+    "author": "Toine77",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "caption": "La cathédrale Saint-Étienne de Meaux",
+    "width": 1600,
+    "height": 2133
+   }
+  ],
+  "simulation": {
+   "photo": 1
+  }
+ },
+ {
+  "slug": "beauvais",
+  "name": "Beauvais",
+  "insee": "60057",
+  "department": "Oise",
+  "departmentCode": "60",
+  "region": "Hauts-de-France",
+  "population": 55550,
+  "populationYear": 2023,
+  "lat": 49.4295,
+  "lon": 2.0807,
+  "distanceKm": 54,
+  "landmarks": [
+   "Cathédrale Saint-Pierre (chœur gothique le plus haut du monde, 48,5 m)",
+   "Église Saint-Étienne",
+   "Palais épiscopal (MUDO – Musée de l'Oise)"
+  ],
+  "roofing": "Picardie : panne picarde présente dans la Somme et le nord de l'Oise, où elle partage les toits avec l'ardoise.",
+  "droneNote": "Aéroport de Beauvais-Tillé très proche du centre (quelques km au nord-est) : contraintes fortes probables, à vérifier. Centre-ville en agglomération : un vol professionnel relève de la catégorie spécifique et suppose en principe une déclaration préalable en préfecture ; vérifier systématiquement la carte « Restrictions UAS » sur Géoportail avant chaque chantier.",
+  "sources": [
+   "https://www.insee.fr/fr/statistiques/fichier/8680694/dep60.pdf",
+   "https://fr.wikipedia.org/wiki/Beauvais",
+   "https://fr.wikipedia.org/wiki/Cath%C3%A9drale_Saint-Pierre_de_Beauvais",
+   "https://www.maisons-paysannes-loiret.org/attachments/article/39/Toitures%20N°%202%20Les%20pannes%20picardes%20et%20flamandes.pdf",
+   "https://www.geoportail.gouv.fr/",
+   "https://www.ecologie.gouv.fr/sites/default/files/documents/Contacts_prefectures_Autorisation_survols_basses_hauteurs_19janvier2026.pdf"
+  ],
+  "photos": [
+   {
+    "file": "beauvais-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Beauvais,_cathedral_Saint_Pierre.JPG",
+    "author": "Dguendel",
+    "licence": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+    "caption": "La cathédrale Saint-Pierre de Beauvais",
+    "width": 1600,
+    "height": 1281
+   },
+   {
+    "file": "beauvais-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Saint-Pierre_de_Beauvais_projection_1.JPG",
+    "author": "Chatsam",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "caption": "La cathédrale Saint-Pierre de Beauvais lors d'une projection lumineuse",
+    "width": 1600,
+    "height": 2133
+   }
+  ],
+  "simulation": {
+   "photo": 0
+  }
+ },
+ {
+  "slug": "saint-quentin",
+  "name": "Saint-Quentin",
+  "insee": "02691",
+  "department": "Aisne",
+  "departmentCode": "02",
+  "region": "Hauts-de-France",
+  "population": 52813,
+  "populationYear": 2023,
+  "lat": 49.8465,
+  "lon": 3.2876,
+  "distanceKm": 58,
+  "landmarks": [
+   "Basilique Saint-Quentin",
+   "Hôtel de ville gothique flamboyant (place de l'Hôtel-de-Ville)",
+   "Façades Art déco de la Reconstruction"
+  ],
+  "roofing": null,
+  "droneNote": "Centre-ville en agglomération : un vol professionnel relève de la catégorie spécifique et suppose en principe une déclaration préalable en préfecture ; vérifier systématiquement la carte « Restrictions UAS » sur Géoportail avant chaque chantier.",
+  "sources": [
+   "https://www.insee.fr/fr/statistiques/fichier/8680694/dep02.pdf",
+   "https://fr.wikipedia.org/wiki/Saint-Quentin_%28Aisne%29",
+   "https://fr.wikipedia.org/wiki/Basilique_Saint-Quentin",
+   "https://www.geoportail.gouv.fr/",
+   "https://www.ecologie.gouv.fr/sites/default/files/documents/Contacts_prefectures_Autorisation_survols_basses_hauteurs_19janvier2026.pdf"
+  ],
+  "photos": [
+   {
+    "file": "saint-quentin-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:St_quentin_hotel_de_ville.JPG",
+    "author": "Velvet",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "caption": "L'hôtel de ville de Saint-Quentin",
+    "width": 1600,
+    "height": 1200
+   },
+   {
+    "file": "saint-quentin-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:St_Quentin_Basilique.JPG",
+    "author": "Stavros1 at English Wikipedia",
+    "licence": "Public domain",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.fr",
+    "caption": "La basilique de Saint-Quentin",
+    "width": 1600,
+    "height": 2133
+   }
+  ],
+  "simulation": {
+   "photo": 0
+  }
+ },
+ {
+  "slug": "evreux",
+  "name": "Évreux",
+  "insee": "27229",
+  "department": "Eure",
+  "departmentCode": "27",
+  "region": "Normandie",
+  "population": 49360,
+  "populationYear": 2023,
+  "lat": 49.0241,
+  "lon": 1.1508,
+  "distanceKm": 129,
+  "landmarks": [
+   "Cathédrale Notre-Dame d'Évreux",
+   "Beffroi (tour de l'Horloge, XVe siècle)",
+   "Ancien évêché (musée d'Art, Histoire et Archéologie)"
+  ],
+  "roofing": null,
+  "droneNote": "Base aérienne 105 Évreux-Fauville à l'est de la ville : contraintes probables, à vérifier. Centre-ville en agglomération : un vol professionnel relève de la catégorie spécifique et suppose en principe une déclaration préalable en préfecture ; vérifier systématiquement la carte « Restrictions UAS » sur Géoportail avant chaque chantier.",
+  "sources": [
+   "https://www.insee.fr/fr/statistiques/fichier/8680694/dep27.pdf",
+   "https://fr.wikipedia.org/wiki/%C3%89vreux",
+   "https://fr.wikipedia.org/wiki/Cath%C3%A9drale_Notre-Dame_d%27%C3%89vreux",
+   "https://www.geoportail.gouv.fr/",
+   "https://www.ecologie.gouv.fr/sites/default/files/documents/Contacts_prefectures_Autorisation_survols_basses_hauteurs_19janvier2026.pdf"
+  ],
+  "photos": [
+   {
+    "file": "evreux-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Notre-Dame_%C3%A0_Evreux-01.jpg",
+    "author": "Source: User:Odenel Derivative: User:MathKnight-at-TAU",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "caption": "La cathédrale Notre-Dame d'Évreux",
+    "width": 1249,
+    "height": 862
+   },
+   {
+    "file": "evreux-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:%C3%89vreux,_Cath%C3%A9drale_Notre-Dame,_XIII-XV_secolo.jpg",
+    "author": "Parsifall",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "La cathédrale Notre-Dame d'Évreux (XIIIe–XVe siècles)",
+    "width": 1600,
+    "height": 1200
+   }
+  ],
+  "simulation": {
+   "photo": 0
+  }
+ },
+ {
+  "slug": "charleville-mezieres",
+  "name": "Charleville-Mézières",
+  "insee": "08105",
+  "department": "Ardennes",
+  "departmentCode": "08",
+  "region": "Grand Est",
+  "population": 45560,
+  "populationYear": 2023,
+  "lat": 49.7621,
+  "lon": 4.7263,
+  "distanceKm": 142,
+  "landmarks": [
+   "Place Ducale (XVIIe siècle)",
+   "Vieux Moulin (musée Arthur-Rimbaud)",
+   "Basilique Notre-Dame-d'Espérance (Mézières)"
+  ],
+  "roofing": "Ardennes : large zone où l'ardoise a remplacé la tuile.",
+  "droneNote": "Centre-ville en agglomération : un vol professionnel relève de la catégorie spécifique et suppose en principe une déclaration préalable en préfecture ; vérifier systématiquement la carte « Restrictions UAS » sur Géoportail avant chaque chantier.",
+  "sources": [
+   "https://www.insee.fr/fr/statistiques/fichier/8680694/dep08.pdf",
+   "https://fr.wikipedia.org/wiki/Charleville-M%C3%A9zi%C3%A8res",
+   "https://fr.wikipedia.org/wiki/Place_Ducale",
+   "https://maisons-paysannes-loiret.org/attachments/article/39/Toitures%20N°%205%20La%20tuile%20neo-romaine%20de%20Champagne.pdf",
+   "https://www.geoportail.gouv.fr/",
+   "https://www.ecologie.gouv.fr/sites/default/files/documents/Contacts_prefectures_Autorisation_survols_basses_hauteurs_19janvier2026.pdf"
+  ],
+  "photos": [
+   {
+    "file": "charleville-mezieres-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Charleville-M%C3%A9zi%C3%A8res,_Place_Ducale_--_2017_--_4866.jpg",
+    "author": "Dietmar Rabich",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "La place Ducale de Charleville-Mézières",
+    "width": 1600,
+    "height": 900
+   }
+  ],
+  "simulation": {
+   "photo": 0
+  }
+ },
+ {
+  "slug": "valenciennes",
+  "name": "Valenciennes",
+  "insee": "59606",
+  "department": "Nord",
+  "departmentCode": "59",
+  "region": "Hauts-de-France",
+  "population": 43468,
+  "populationYear": 2023,
+  "lat": 50.357,
+  "lon": 3.5235,
+  "distanceKm": 116,
+  "landmarks": [
+   "Hôtel de ville (place d'Armes)",
+   "Basilique Notre-Dame-du-Saint-Cordon",
+   "Église Saint-Géry"
+  ],
+  "roofing": "Panne flamande : tuile très utilisée dans le nord de la France.",
+  "droneNote": "Aéroport de Valenciennes-Denain (Prouvy) au sud-ouest : à vérifier. Centre-ville en agglomération : un vol professionnel relève de la catégorie spécifique et suppose en principe une déclaration préalable en préfecture ; vérifier systématiquement la carte « Restrictions UAS » sur Géoportail avant chaque chantier.",
+  "sources": [
+   "https://www.insee.fr/fr/statistiques/fichier/8680694/dep59.pdf",
+   "https://fr.wikipedia.org/wiki/Valenciennes",
+   "https://www.maisons-paysannes-loiret.org/attachments/article/39/Toitures%20N°%202%20Les%20pannes%20picardes%20et%20flamandes.pdf",
+   "https://www.geoportail.gouv.fr/",
+   "https://www.ecologie.gouv.fr/sites/default/files/documents/Contacts_prefectures_Autorisation_survols_basses_hauteurs_19janvier2026.pdf"
+  ],
+  "photos": [
+   {
+    "file": "valenciennes-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Valenciennes_(2011)_l%27h%C3%B4tel_de_ville.jpg",
+    "author": "© Pierre André",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "L'hôtel de ville de Valenciennes (2011)",
+    "width": 1600,
+    "height": 1268
+   },
+   {
+    "file": "valenciennes-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Mairie_Valenciennes.jpg",
+    "author": "Alex59300",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "caption": "La mairie de Valenciennes",
+    "width": 1600,
+    "height": 1200
+   }
+  ],
+  "simulation": {
+   "photo": 0,
+   "skyTolerance": 45
+  }
+ },
+ {
+  "slug": "chalons-en-champagne",
+  "name": "Châlons-en-Champagne",
+  "insee": "51108",
+  "department": "Marne",
+  "departmentCode": "51",
+  "region": "Grand Est",
+  "population": 42971,
+  "populationYear": 2023,
+  "lat": 48.9566,
+  "lon": 4.3631,
+  "distanceKm": 123,
+  "landmarks": [
+   "Cathédrale Saint-Étienne",
+   "Collégiale Notre-Dame-en-Vaux (UNESCO, chemins de Compostelle)",
+   "Le Grand Jard et les canaux du centre-ville"
+  ],
+  "roofing": "La tuile néo-romaine de Champagne remonte la vallée de la Marne jusqu'à Châlons ; tuile plate ailleurs en Champagne.",
+  "droneNote": "Aéroport de Paris-Vatry et terrains militaires (camp de Mourmelon) dans le secteur : à vérifier. Centre-ville en agglomération : un vol professionnel relève de la catégorie spécifique et suppose en principe une déclaration préalable en préfecture ; vérifier systématiquement la carte « Restrictions UAS » sur Géoportail avant chaque chantier.",
+  "sources": [
+   "https://www.insee.fr/fr/statistiques/fichier/8680694/dep51.pdf",
+   "https://fr.wikipedia.org/wiki/Ch%C3%A2lons-en-Champagne",
+   "https://maisons-paysannes-loiret.org/attachments/article/39/Toitures%20N°%205%20La%20tuile%20neo-romaine%20de%20Champagne.pdf",
+   "https://www.geoportail.gouv.fr/",
+   "https://www.ecologie.gouv.fr/sites/default/files/documents/Contacts_prefectures_Autorisation_survols_basses_hauteurs_19janvier2026.pdf"
+  ],
+  "photos": [
+   {
+    "file": "chalons-en-champagne-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2lons-en-Champagne_Cath%C3%A9drale_Saint-%C3%89tienne.JPG",
+    "author": "Aimelaime~commonswiki",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "La cathédrale Saint-Étienne de Châlons-en-Champagne",
+    "width": 1600,
+    "height": 1200
+   }
+  ],
+  "simulation": {
+   "photo": 0
+  }
+ },
+ {
+  "slug": "arras",
+  "name": "Arras",
+  "insee": "62041",
+  "department": "Pas-de-Calais",
+  "departmentCode": "62",
+  "region": "Hauts-de-France",
+  "population": 42875,
+  "populationYear": 2023,
+  "lat": 50.291,
+  "lon": 2.7775,
+  "distanceKm": 97,
+  "landmarks": [
+   "Beffroi et hôtel de ville (UNESCO)",
+   "Grand'Place et place des Héros (façades à pignons flamands)",
+   "Abbaye Saint-Vaast et cathédrale"
+  ],
+  "roofing": "Panne flamande : tuile très utilisée dans le nord de la France.",
+  "droneNote": "Centre-ville en agglomération : un vol professionnel relève de la catégorie spécifique et suppose en principe une déclaration préalable en préfecture ; vérifier systématiquement la carte « Restrictions UAS » sur Géoportail avant chaque chantier.",
+  "sources": [
+   "https://www.insee.fr/fr/statistiques/fichier/8680694/dep62.pdf",
+   "https://fr.wikipedia.org/wiki/Arras",
+   "https://fr.wikipedia.org/wiki/Beffroi_d%27Arras",
+   "https://www.maisons-paysannes-loiret.org/attachments/article/39/Toitures%20N°%202%20Les%20pannes%20picardes%20et%20flamandes.pdf",
+   "https://www.geoportail.gouv.fr/",
+   "https://www.ecologie.gouv.fr/sites/default/files/documents/Contacts_prefectures_Autorisation_survols_basses_hauteurs_19janvier2026.pdf"
+  ],
+  "photos": [
+   {
+    "file": "arras-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Arras_beffroi,_h%C3%B4tel_de_ville_et_place_des_H%C3%A9ros.jpg",
+    "author": "Mélanie Huguet",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "caption": "Le beffroi, l'hôtel de ville et la place des Héros à Arras",
+    "width": 1600,
+    "height": 2133
+   },
+   {
+    "file": "arras-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:0_Arras,_Grand%27Place_(1).JPG",
+    "author": "Jean-Pol GRANDMONT",
+    "licence": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+    "caption": "La Grand'Place d'Arras",
+    "width": 1600,
+    "height": 1067
+   }
+  ],
+  "simulation": {
+   "photo": 0
+  }
+ },
+ {
+  "slug": "compiegne",
+  "name": "Compiègne",
+  "insee": "60159",
+  "department": "Oise",
+  "departmentCode": "60",
+  "region": "Hauts-de-France",
+  "population": 40761,
+  "populationYear": 2023,
+  "lat": 49.4179,
+  "lon": 2.8261,
+  "distanceKm": 0,
+  "landmarks": [
+   "Palais (château) de Compiègne",
+   "Hôtel de ville gothique flamboyant et son beffroi aux Picantins",
+   "Église Saint-Jacques"
+  ],
+  "roofing": "Pays compiégnois : tuiles plates, tuiles mécaniques rouges ou ardoises sur le bâti de centre-bourg ; tuile mécanique rouge ou ardoise sur les maisons de la Reconstruction (CAUE de l'Oise).",
+  "droneNote": "Aérodrome de Compiègne-Margny à proximité : à vérifier. Centre-ville en agglomération : un vol professionnel relève de la catégorie spécifique et suppose en principe une déclaration préalable en préfecture ; vérifier systématiquement la carte « Restrictions UAS » sur Géoportail avant chaque chantier.",
+  "sources": [
+   "https://www.insee.fr/fr/statistiques/fichier/8680694/dep60.pdf",
+   "https://fr.wikipedia.org/wiki/Compi%C3%A8gne",
+   "https://fr.wikipedia.org/wiki/H%C3%B4tel_de_ville_de_Compi%C3%A8gne",
+   "https://www.agglo-compiegne.fr/sites/default/files/2025-05/plaquette_CAUE_recomm%20archi_pays%20compiegnois_2012.pdf",
+   "https://www.geoportail.gouv.fr/",
+   "https://www.ecologie.gouv.fr/sites/default/files/documents/Contacts_prefectures_Autorisation_survols_basses_hauteurs_19janvier2026.pdf"
+  ],
+  "photos": [
+   {
+    "file": "compiegne-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Compiegne_Hotel_de_Ville_01.jpg",
+    "author": "Patrick GIRAUD",
+    "licence": "CC BY-SA 1.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/1.0",
+    "caption": "L'hôtel de ville de Compiègne",
+    "width": 1600,
+    "height": 2421
+   },
+   {
+    "file": "compiegne-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Compi%C3%A8gne,_the_ch%C3%A2teau.JPG",
+    "author": "Dguendel",
+    "licence": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+    "caption": "Le palais de Compiègne",
+    "width": 1600,
+    "height": 1147
+   }
+  ],
+  "simulation": {
+   "photo": 0
+  }
+ },
+ {
+  "slug": "boulogne-sur-mer",
+  "name": "Boulogne-sur-Mer",
+  "insee": "62160",
+  "department": "Pas-de-Calais",
+  "departmentCode": "62",
+  "region": "Hauts-de-France",
+  "population": 40539,
+  "populationYear": 2023,
+  "lat": 50.7264,
+  "lon": 1.6147,
+  "distanceKm": 169,
+  "landmarks": [
+   "Beffroi (UNESCO)",
+   "Basilique Notre-Dame et son dôme",
+   "Remparts et château de la ville haute"
+  ],
+  "roofing": "Panne flamande : tuile très utilisée dans le nord de la France.",
+  "droneNote": "Zone portuaire : à vérifier. Centre-ville en agglomération : un vol professionnel relève de la catégorie spécifique et suppose en principe une déclaration préalable en préfecture ; vérifier systématiquement la carte « Restrictions UAS » sur Géoportail avant chaque chantier.",
+  "sources": [
+   "https://www.insee.fr/fr/statistiques/fichier/8680694/dep62.pdf",
+   "https://fr.wikipedia.org/wiki/Boulogne-sur-Mer",
+   "https://www.maisons-paysannes-loiret.org/attachments/article/39/Toitures%20N°%202%20Les%20pannes%20picardes%20et%20flamandes.pdf",
+   "https://www.geoportail.gouv.fr/",
+   "https://www.ecologie.gouv.fr/sites/default/files/documents/Contacts_prefectures_Autorisation_survols_basses_hauteurs_19janvier2026.pdf"
+  ],
+  "photos": [
+   {
+    "file": "boulogne-sur-mer-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Beffroi_de_Boulogne.jpg",
+    "author": "Jörg Braukmann",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "Le beffroi de Boulogne-sur-Mer",
+    "width": 1600,
+    "height": 3508
+   },
+   {
+    "file": "boulogne-sur-mer-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Cathedral,_Boulogne-sur-Mer,_France.JPG",
+    "author": "Donar Reiskoffer",
+    "licence": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
+    "caption": "La basilique Notre-Dame de Boulogne-sur-Mer",
+    "width": 1200,
+    "height": 1600
+   }
+  ],
+  "simulation": {
+   "photo": 0
+  }
+ }
+]
