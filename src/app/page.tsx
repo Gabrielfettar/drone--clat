@@ -80,7 +80,7 @@ export default function Home() {
           </div>
           {before && after && (
             <div className="wow-ba-frame" data-reveal>
-              <BeforeAfter before={`/illustrations/libres/${before.file}`} after={`/illustrations/libres/${after.file}`} illustration="Photos d’illustration"
+              <BeforeAfter before={`/illustrations/libres/${before.file}`} after={`/illustrations/libres/${after.file}`} illustration tag="Photos d’illustration"
                 alt={{ before: before.caption, after: after.caption }} />
             </div>
           )}

@@ -7,7 +7,8 @@ import { JsonLd } from '@/components/ui/JsonLd';
 import { Faq } from '@/components/ui/Faq';
 import { CtaBand } from '@/components/ui/CtaBand';
 import { Icon } from '@/components/ui/Icon';
-import { Benefits, AidesTeaser } from '@/components/sections/Sections';
+import { Benefits } from '@/components/sections/Sections';
+import { BeforeAfter } from '@/components/widgets/BeforeAfter';
 import { cities, type City } from '@/content/cities';
 import { services } from '@/content/services';
 import { absoluteUrl } from '@/config/site';
@@ -62,7 +63,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
           <Breadcrumbs items={[{ href: '/zones-intervention/', label: 'Zones' }, { href: `/villes/${c.slug}/`, label: c.name }]} />
           <span className="eyebrow">{c.department} · {c.region}</span>
           <h1 className="h-display">Nettoyage de toiture par drone à {c.name}.</h1>
-          <p className="lede">Démoussage, nettoyage de toiture, de façade et de bardage à {c.name} et dans les communes voisines. Sans échafaudage, sans personne sur votre toit, avec une étude gratuite à partir de vos photos.</p>
+          <p className="lede">Toiture, façade, bardage. Sans échafaudage, sans personne sur votre toit.</p>
           <div className="cta-row">
             <Link className="btn" href={`/contact/?ville=${encodeURIComponent(c.name)}`} data-track="cta_city_hero">Étude gratuite à {c.name} <span className="btn-arrow" aria-hidden="true">→</span></Link>
             <Link className="btn btn--light" href={`/contact/?ville=${encodeURIComponent(c.name)}&batiment=pro`}>Demande professionnelle</Link>
@@ -70,6 +71,26 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
         </div>
         {hero && <p className="photo-credit">{hero.caption}. Photo : {hero.author}, <a href={hero.licenceUrl} target="_blank" rel="noopener license">{hero.licence}</a>, via <a href={hero.commonsUrl} target="_blank" rel="noopener">Wikimedia Commons</a>.</p>}
       </header>
+
+      {c.simulation && (
+        <section className="section city-ba" aria-labelledby="city-ba">
+          <div className="container">
+            <div className="sec-head">
+              <div data-reveal><span className="eyebrow">Avant / après à {c.name}</span><h2 id="city-ba" className="h-1">Même {c.name}. Dix ans de moins.</h2></div>
+              <p className="lede" data-reveal style={{ ['--i' as string]: 1 }}>Glissez : à gauche l’encrassement, à droite la pierre propre.</p>
+            </div>
+            <div data-reveal>
+              <BeforeAfter
+                before={c.simulation.before}
+                after={`/villes/${c.simulation.photo.file}`}
+                alt={{ before: `${c.simulation.photo.caption}, avant simulé : pierre et toiture encrassées`, after: c.simulation.photo.caption }}
+                illustration tag="Simulation"
+                caption={<>« Avant » simulé par calcul, pas un chantier Drone Éclat. Photo d’origine : {c.simulation.photo.caption}, par {c.simulation.photo.author}, <a href={c.simulation.photo.licenceUrl} target="_blank" rel="noopener license">{c.simulation.photo.licence}</a>, <a href={c.simulation.photo.commonsUrl} target="_blank" rel="noopener">Wikimedia Commons</a>{/BY-SA/.test(c.simulation.photo.licence) ? ', image modifiée (encrassement simulé) diffusée sous la même licence.' : ', image modifiée (encrassement simulé).'}</>}
+              />
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="section" aria-labelledby="city-intro">
         <div className="container">
@@ -91,7 +112,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
             <div><dt>Étude</dt><dd>Gratuite, 48 h</dd></div>
           </dl>
           {c.roofing && <p className="city-roof" data-reveal><span className="mono">Le bâti local</span>{c.roofing}</p>}
-          <p className="hint muted" style={{ marginTop: 'var(--s-3)' }}>Population municipale INSEE {c.populationYear}.</p>
+          <p className="hint muted" style={{ marginTop: 'var(--s-3)' }}>Population municipale INSEE {c.populationYear}. Logement de plus de deux ans : TVA à 10 % possible, <Link href="/aides-tva/">voir les conditions</Link>.</p>
         </div>
       </section>
 
@@ -142,8 +163,6 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
           </div>
         </section>
       )}
-
-      <AidesTeaser />
 
       <section className="section" aria-labelledby="city-faq">
         <div className="container faq-grid">
