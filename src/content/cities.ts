@@ -11,11 +11,20 @@ export type City = {
   slug: string; name: string; insee: string; department: string; departmentCode: string; region: string;
   population: number; populationYear: number; lat: number; lon: number; distanceKm: number;
   landmarks: string[]; roofing: string | null; droneNote: string | null; sources: string[]; photos: CityPhoto[];
+  /** Avant simulé (scripts/simulate-grime.mjs) : public/villes/sim/<slug>-avant.webp, à partir de la photo `photo`. */
+  simulation: CitySimulation | null;
 };
+export type CitySimulation = { before: string; photo: CityPhoto };
 
 type RawPhoto = { file: string | null; author: string | null; licence: string | null; licenceUrl: string | null; commonsUrl: string; caption: string; width: number | null; height: number | null };
 const ready = (p: RawPhoto): p is CityPhoto => !!(p.file && p.author && p.licence && p.licenceUrl && p.width && p.height);
 
-export const cities: City[] = (raw as (Omit<City, 'photos'> & { photos: RawPhoto[] })[])
-  .map((c) => ({ ...c, photos: c.photos.filter(ready) }))
+type RawCity = Omit<City, 'photos' | 'simulation'> & { photos: RawPhoto[]; simulation?: { photo: number } };
+
+export const cities: City[] = (raw as RawCity[])
+  .map((c) => {
+    const src = c.photos[c.simulation?.photo ?? 0];
+    const simulation = src && ready(src) ? { before: `/villes/sim/${c.slug}-avant.webp`, photo: src } : null;
+    return { ...c, photos: c.photos.filter(ready), simulation };
+  })
   .sort((a, b) => b.population - a.population);

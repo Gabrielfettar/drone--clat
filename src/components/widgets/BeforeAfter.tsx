@@ -1,13 +1,13 @@
 'use client';
 import Image from 'next/image';
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useRef, useState, type ReactNode } from 'react';
 
 /**
  * Comparateur avant / après : glisser (souris, doigt), clavier (flèches, Début, Fin).
  * `illustration` affiche une mention explicite tant que les photos de chantiers réels ne sont pas disponibles.
  */
-export function BeforeAfter({ before, after, alt, caption, illustration = false, priority = false }: {
-  before: string; after: string; alt: { before: string; after: string }; caption?: string; illustration?: boolean; priority?: boolean;
+export function BeforeAfter({ before, after, alt, caption, illustration = false, tag, priority = false }: {
+  before: string; after: string; alt: { before: string; after: string }; caption?: ReactNode; illustration?: boolean; tag?: string; priority?: boolean;
 }) {
   const [pos, setPos] = useState(50);
   const box = useRef<HTMLDivElement>(null);
@@ -39,7 +39,7 @@ export function BeforeAfter({ before, after, alt, caption, illustration = false,
       </div>
       {(caption || illustration) && (
         <figcaption className="ba-cap">
-          {illustration && <span className="pending-tag">Illustration 3D</span>} {caption}
+          {illustration && <span className="pending-tag">{tag ?? 'Illustration 3D'}</span>} {caption}
         </figcaption>
       )}
     </figure>

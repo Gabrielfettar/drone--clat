@@ -37,6 +37,18 @@ test('avant / après : clavier', async ({ page }) => {
   await expect(s).toHaveAttribute('aria-valuenow', '4');
 });
 
+test('pages villes : avant / après simulé, signalé et crédité', async ({ page }) => {
+  for (const slug of ['charleville-mezieres', 'troyes', 'paris']) {
+    await page.goto(`/villes/${slug}/`);
+    const ba = page.locator('.city-ba');
+    await expect(ba.getByRole('slider', { name: 'Comparer avant et après' })).toBeVisible();
+    await expect(ba.locator('figcaption')).toContainText('pas un chantier Drone Éclat');
+    await expect(ba.locator('figcaption a[rel~="license"]')).toHaveCount(1);
+    const srcs = await ba.locator('img').evaluateAll((imgs) => imgs.map((i) => (i as HTMLImageElement).currentSrc));
+    expect(srcs.some((s) => s.includes(encodeURIComponent(`/villes/sim/${slug}-avant.webp`)))).toBe(true);
+  }
+});
+
 test('sélecteur de prestations : onglets', async ({ page }) => {
   await page.goto('/');
   const tabs = page.getByRole('tab');

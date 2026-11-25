@@ -47,7 +47,10 @@
     "width": 1600,
     "height": 2278
    }
-  ]
+  ],
+  "simulation": {
+   "photo": 1
+  }
  },
  {
   "slug": "lille",
@@ -97,7 +100,11 @@
     "width": 1600,
     "height": 1600
    }
-  ]
+  ],
+  "simulation": {
+   "photo": 1,
+   "skyTolerance": 45
+  }
  },
  {
   "slug": "reims",
@@ -147,7 +154,10 @@
     "width": 1200,
     "height": 900
    }
-  ]
+  ],
+  "simulation": {
+   "photo": 0
+  }
  },
  {
   "slug": "le-havre",
@@ -196,7 +206,10 @@
     "width": 1600,
     "height": 1067
    }
-  ]
+  ],
+  "simulation": {
+   "photo": 0
+  }
  },
  {
   "slug": "amiens",
@@ -246,7 +259,10 @@
     "width": 900,
     "height": 1200
    }
-  ]
+  ],
+  "simulation": {
+   "photo": 0
+  }
  },
  {
   "slug": "rouen",
@@ -295,7 +311,10 @@
     "width": 1600,
     "height": 2133
    }
-  ]
+  ],
+  "simulation": {
+   "photo": 0
+  }
  },
  {
   "slug": "orleans",
@@ -344,7 +363,10 @@
     "width": 1600,
     "height": 2133
    }
-  ]
+  ],
+  "simulation": {
+   "photo": 1
+  }
  },
  {
   "slug": "dunkerque",
@@ -394,7 +416,10 @@
     "width": 1600,
     "height": 1569
    }
-  ]
+  ],
+  "simulation": {
+   "photo": 1
+  }
  },
  {
   "slug": "calais",
@@ -444,7 +469,10 @@
     "width": 1600,
     "height": 1015
    }
-  ]
+  ],
+  "simulation": {
+   "photo": 0
+  }
  },
  {
   "slug": "troyes",
@@ -493,7 +521,10 @@
     "width": 1600,
     "height": 1067
    }
-  ]
+  ],
+  "simulation": {
+   "photo": 1
+  }
  },
  {
   "slug": "meaux",
@@ -541,7 +572,10 @@
     "width": 1600,
     "height": 2133
    }
-  ]
+  ],
+  "simulation": {
+   "photo": 1
+  }
  },
  {
   "slug": "beauvais",
@@ -591,7 +625,10 @@
     "width": 1600,
     "height": 2133
    }
-  ]
+  ],
+  "simulation": {
+   "photo": 0
+  }
  },
  {
   "slug": "saint-quentin",
@@ -640,7 +677,10 @@
     "width": 1600,
     "height": 2133
    }
-  ]
+  ],
+  "simulation": {
+   "photo": 0
+  }
  },
  {
   "slug": "evreux",
@@ -689,7 +729,10 @@
     "width": 1600,
     "height": 1200
    }
-  ]
+  ],
+  "simulation": {
+   "photo": 0
+  }
  },
  {
   "slug": "charleville-mezieres",
@@ -729,7 +772,10 @@
     "width": 1600,
     "height": 900
    }
-  ]
+  ],
+  "simulation": {
+   "photo": 0
+  }
  },
  {
   "slug": "valenciennes",
@@ -778,7 +824,11 @@
     "width": 1600,
     "height": 1200
    }
-  ]
+  ],
+  "simulation": {
+   "photo": 0,
+   "skyTolerance": 45
+  }
  },
  {
   "slug": "chalons-en-champagne",
@@ -817,7 +867,10 @@
     "width": 1600,
     "height": 1200
    }
-  ]
+  ],
+  "simulation": {
+   "photo": 0
+  }
  },
  {
   "slug": "arras",
@@ -867,7 +920,10 @@
     "width": 1600,
     "height": 1067
    }
-  ]
+  ],
+  "simulation": {
+   "photo": 0
+  }
  },
  {
   "slug": "compiegne",
@@ -917,7 +973,10 @@
     "width": 1600,
     "height": 1147
    }
-  ]
+  ],
+  "simulation": {
+   "photo": 0
+  }
  },
  {
   "slug": "boulogne-sur-mer",
@@ -966,6 +1025,9 @@
     "width": 1200,
     "height": 1600
    }
-  ]
+  ],
+  "simulation": {
+   "photo": 0
+  }
  }
 ]
