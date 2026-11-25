@@ -49,12 +49,12 @@ test('pages villes : avant / après simulé, signalé et crédité', async ({ pa
   }
 });
 
-test('sélecteur de prestations : onglets', async ({ page }) => {
+test('accueil : un seul avant / après, sur une maison', async ({ page }) => {
   await page.goto('/');
-  const tabs = page.getByRole('tab');
-  await tabs.nth(1).click();
-  await expect(tabs.nth(1)).toHaveAttribute('aria-selected', 'true');
-  await expect(page.getByRole('tabpanel')).toContainText('façade');
+  const ba = page.locator('.wow-ba');
+  await expect(ba.getByRole('slider', { name: 'Comparer avant et après' })).toHaveCount(1);
+  await expect(page.getByRole('tablist', { name: 'Choisir une ville' })).toHaveCount(0);
+  await expect(ba.locator('figcaption')).toContainText('Illustration 3D');
 });
 
 test('vérification de zone : code postal invalide puis valide (API simulée)', async ({ page }) => {

@@ -28,16 +28,6 @@
   ],
   "photos": [
    {
-    "file": "paris-1.webp",
-    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Notre_Dame,_Paris,_France._View_of_spire,_roof_with_statuary,_and_cityscape_beyond.jpg",
-    "author": "Charles Marville",
-    "licence": "Public domain",
-    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.fr",
-    "caption": "Toiture de Notre-Dame de Paris, sa flèche et ses statues, avec les toits de Paris en arrière-plan",
-    "width": 1600,
-    "height": 2180
-   },
-   {
     "file": "paris-2.webp",
     "commonsUrl": "https://commons.wikimedia.org/wiki/File:Panorama_de_la_toiture_de_Notre-Dame_de_Paris.jpg",
     "author": "Suaudeau",
@@ -46,10 +36,20 @@
     "caption": "Panorama sur la toiture de Notre-Dame de Paris",
     "width": 1600,
     "height": 2278
+   },
+   {
+    "file": "paris-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Notre_Dame,_Paris,_France._View_of_spire,_roof_with_statuary,_and_cityscape_beyond.jpg",
+    "author": "Charles Marville",
+    "licence": "Public domain",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.fr",
+    "caption": "Toiture de Notre-Dame de Paris, sa flèche et ses statues, avec les toits de Paris en arrière-plan",
+    "width": 1600,
+    "height": 2180
    }
   ],
   "simulation": {
-   "photo": 1
+   "photo": 0
   }
  },
  {

@@ -102,7 +102,7 @@ export function NeglectSlider({ clean, dirty, stages }: { clean: string; dirty: 
   return (
     <div className="neg">
       <div className="neg-visual">
-        <Image src={clean} alt="Bâtiment propre" fill sizes="(max-width: 900px) 100vw, 60vw" />
+        <Image src={clean} alt="Toiture propre" fill sizes="(max-width: 900px) 100vw, 60vw" />
         <div className="neg-dirty" style={{ opacity: y / max }}><Image src={dirty} alt="" fill sizes="(max-width: 900px) 100vw, 60vw" /></div>
         <span className="neg-years"><b>{y === 0 ? 'Aujourd’hui' : `+ ${y} an${y > 1 ? 's' : ''}`}</b><small>sans entretien</small></span>
       </div>
@@ -151,10 +151,11 @@ export function CitySwitcher({ pairs, Slider }: { pairs: SimPair[]; Slider: (p: 
     <div className="csw">
       <div className="csw-tabs" role="tablist" aria-label="Choisir une ville">
         {pairs.map((x, k) => (
-          <button key={x.slug} type="button" role="tab" aria-selected={k === i} className="csw-tab" onClick={() => setI(k)}>{x.name}</button>
+          <button key={x.slug} type="button" role="tab" id={`csw-t-${x.slug}`} aria-controls="csw-panel" aria-selected={k === i} tabIndex={k === i ? 0 : -1} className="csw-tab"
+            onKeyDown={(e) => { const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return; e.preventDefault(); const n = (k + d + pairs.length) % pairs.length; setI(n); (e.currentTarget.parentElement?.children[n] as HTMLElement | undefined)?.focus(); }} onClick={() => setI(k)}>{x.name}</button>
         ))}
       </div>
-      <div className="csw-stage" key={p.slug}>{Slider({ pair: p })}</div>
+      <div className="csw-stage" key={p.slug} role="tabpanel" id="csw-panel" aria-labelledby={`csw-t-${p.slug}`}>{Slider({ pair: p })}</div>
     </div>
   );
 }
