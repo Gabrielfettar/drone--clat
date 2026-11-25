@@ -28,24 +28,24 @@
   ],
   "photos": [
    {
-    "file": null,
-    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Notre_Dame%2C_Paris%2C_France._View_of_spire%2C_roof_with_statuary%2C_and_cityscape_beyond.jpg",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "file": "paris-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Notre_Dame,_Paris,_France._View_of_spire,_roof_with_statuary,_and_cityscape_beyond.jpg",
+    "author": "Charles Marville",
+    "licence": "Public domain",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.fr",
     "caption": "Toiture de Notre-Dame de Paris, sa flèche et ses statues, avec les toits de Paris en arrière-plan",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 2180
    },
    {
-    "file": null,
+    "file": "paris-2.webp",
     "commonsUrl": "https://commons.wikimedia.org/wiki/File:Panorama_de_la_toiture_de_Notre-Dame_de_Paris.jpg",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "author": "Suaudeau",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "caption": "Panorama sur la toiture de Notre-Dame de Paris",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 2278
    }
   ]
  },
@@ -78,24 +78,24 @@
   ],
   "photos": [
    {
-    "file": null,
-    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Lille%2C_Le_beffroi_et_l%27_H%C3%B4tel_de_Ville_%28_PA59000078%29.jpg",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "file": "lille-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Lille,_Le_beffroi_et_l%27_H%C3%B4tel_de_Ville_(_PA59000078).jpg",
+    "author": "PIERRE ANDRE LECLERCQ",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "caption": "Le beffroi et l'hôtel de ville de Lille",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 2108
    },
    {
-    "file": null,
-    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Grand_place%2C_Lille.jpg",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "file": "lille-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Grand_place,_Lille.jpg",
+    "author": "Strukova1409",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "caption": "La Grand'Place de Lille",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 1600
    }
   ]
  },
@@ -128,24 +128,24 @@
   ],
   "photos": [
    {
-    "file": null,
-    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Notre-Dame_de_Reims_%28fa%C3%A7ade%29.jpg",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "file": "reims-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Notre-Dame_de_Reims_(fa%C3%A7ade).jpg",
+    "author": "Lumaca",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "caption": "Façade occidentale de la cathédrale Notre-Dame de Reims",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 2133
    },
    {
-    "file": null,
+    "file": "reims-2.webp",
     "commonsUrl": "https://commons.wikimedia.org/wiki/File:Reims_Cathedrale_Notre_Dame_001.JPG",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "author": "Mattana",
+    "licence": "Public domain",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.fr",
     "caption": "Cathédrale Notre-Dame de Reims",
-    "width": null,
-    "height": null
+    "width": 1200,
+    "height": 900
    }
   ]
  },
@@ -177,24 +177,24 @@
   ],
   "photos": [
    {
-    "file": null,
-    "commonsUrl": "https://commons.wikimedia.org/wiki/File:%C3%89glise_Saint-Joseph_du_Havre_%2849832991847%29.jpg",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "file": "le-havre-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:%C3%89glise_Saint-Joseph_du_Havre_(49832991847).jpg",
+    "author": "Alexandre Prevot from Nancy, France",
+    "licence": "CC BY-SA 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
     "caption": "L'église Saint-Joseph du Havre",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 1067
    },
    {
-    "file": null,
+    "file": "le-havre-2.webp",
     "commonsUrl": "https://commons.wikimedia.org/wiki/File:Le_Havre_-_%C3%89glise_Saint-Joseph_-_28261987289.jpg",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "author": "Fred Romero",
+    "licence": "CC BY 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
     "caption": "L'église Saint-Joseph, Le Havre",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 1067
    }
   ]
  },
@@ -227,24 +227,24 @@
   ],
   "photos": [
    {
-    "file": null,
-    "commonsUrl": "https://commons.wikimedia.org/wiki/File:0_Amiens_-_Cath%C3%A9drale_Notre-Dame_%281%29.JPG",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "file": "amiens-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:0_Amiens_-_Cath%C3%A9drale_Notre-Dame_(1).JPG",
+    "author": "Jean-Pol GRANDMONT",
+    "licence": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
     "caption": "La cathédrale Notre-Dame d'Amiens",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 2456
    },
    {
-    "file": null,
+    "file": "amiens-2.webp",
     "commonsUrl": "https://commons.wikimedia.org/wiki/File:Amiens_cathedral_001.JPG",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "author": "Mattana",
+    "licence": "Public domain",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.fr",
     "caption": "La cathédrale d'Amiens",
-    "width": null,
-    "height": null
+    "width": 900,
+    "height": 1200
    }
   ]
  },
@@ -276,24 +276,24 @@
   ],
   "photos": [
    {
-    "file": null,
+    "file": "rouen-1.webp",
     "commonsUrl": "https://commons.wikimedia.org/wiki/File:Rouen_Cathedral_as_seen_from_Gros_Horloge_140215_4.jpg",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "author": "DXR",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "caption": "La cathédrale de Rouen vue depuis le Gros-Horloge",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 2562
    },
    {
-    "file": null,
-    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Le_Gros_Horloge%2C_Rouen%2C_Normandy.jpg",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "file": "rouen-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Le_Gros_Horloge,_Rouen,_Normandy.jpg",
+    "author": "No machine-readable author provided. Ofol assumed (based on copyright claims).",
+    "licence": "CC BY 2.5",
+    "licenceUrl": "https://creativecommons.org/licenses/by/2.5",
     "caption": "Le Gros-Horloge de Rouen",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 2133
    }
   ]
  },
@@ -325,24 +325,24 @@
   ],
   "photos": [
    {
-    "file": null,
-    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Orl%C3%A9ans%2C_Cath%C3%A9drale_Sainte-Croix-PM_68210.jpg",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "file": "orleans-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Orl%C3%A9ans,_Cath%C3%A9drale_Sainte-Croix-PM_68210.jpg",
+    "author": "PMRMaeyaert",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "caption": "La cathédrale Sainte-Croix d'Orléans",
-    "width": null,
-    "height": null
+    "width": 709,
+    "height": 473
    },
    {
-    "file": null,
+    "file": "orleans-2.webp",
     "commonsUrl": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Sainte-Croix_d%27Orl%C3%A9ans_juillet_2009.JPG",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "author": "Own work",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "caption": "La cathédrale Sainte-Croix d'Orléans (juillet 2009)",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 2133
    }
   ]
  },
@@ -375,24 +375,24 @@
   ],
   "photos": [
    {
-    "file": null,
+    "file": "dunkerque-1.webp",
     "commonsUrl": "https://commons.wikimedia.org/wiki/File:Dunkerque_la_Tour_du_Reuze_et_le_beffroi.JPG",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "author": "Pierre André",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "caption": "La tour du Reuze et le beffroi de Dunkerque",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 1365
    },
    {
-    "file": null,
+    "file": "dunkerque-2.webp",
     "commonsUrl": "https://commons.wikimedia.org/wiki/File:Town_hall_of_Dunkerque-7585.jpg",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "author": "Raimond Spekking",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "caption": "L'hôtel de ville de Dunkerque",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 1569
    }
   ]
  },
@@ -425,24 +425,24 @@
   ],
   "photos": [
    {
-    "file": null,
+    "file": "calais-1.webp",
     "commonsUrl": "https://commons.wikimedia.org/wiki/File:Calais_hotel_de_ville_face.jpg",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "author": "Velvet",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "caption": "L'hôtel de ville de Calais, vu de face",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 1558
    },
    {
-    "file": null,
+    "file": "calais-2.webp",
     "commonsUrl": "https://commons.wikimedia.org/wiki/File:Calais_Le_Boulevard_Jacquard_et_l%27Hotel_de_Ville.jpg",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "author": "Unknown authorUnknown author",
+    "licence": "Public domain",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.fr",
     "caption": "Le boulevard Jacquard et l'hôtel de ville de Calais",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 1015
    }
   ]
  },
@@ -474,24 +474,24 @@
   ],
   "photos": [
    {
-    "file": null,
+    "file": "troyes-1.webp",
     "commonsUrl": "https://commons.wikimedia.org/wiki/File:TroyesCathedrale.JPG",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "author": "Gérard Janot",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
     "caption": "La cathédrale Saint-Pierre-et-Saint-Paul de Troyes",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 2133
    },
    {
-    "file": null,
+    "file": "troyes-2.webp",
     "commonsUrl": "https://commons.wikimedia.org/wiki/File:Troyes_rue_Emile_Zola_maisons_pans_de_bois.jpg",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "author": "Myrabella",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "caption": "Maisons à pans de bois, rue Émile-Zola à Troyes",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 1067
    }
   ]
  },
@@ -522,24 +522,24 @@
   ],
   "photos": [
    {
-    "file": null,
+    "file": "meaux-1.webp",
     "commonsUrl": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Saint-%C3%89tienne_de_Meaux.JPG",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "author": "Anubis75",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "caption": "La cathédrale Saint-Étienne de Meaux",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 2133
    },
    {
-    "file": null,
+    "file": "meaux-2.webp",
     "commonsUrl": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Saint-Etienne_de_Meaux..JPG",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "author": "Toine77",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "caption": "La cathédrale Saint-Étienne de Meaux",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 2133
    }
   ]
  },
@@ -572,24 +572,24 @@
   ],
   "photos": [
    {
-    "file": null,
-    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Beauvais%2C_cathedral_Saint_Pierre.JPG",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "file": "beauvais-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Beauvais,_cathedral_Saint_Pierre.JPG",
+    "author": "Dguendel",
+    "licence": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
     "caption": "La cathédrale Saint-Pierre de Beauvais",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 1281
    },
    {
-    "file": null,
+    "file": "beauvais-2.webp",
     "commonsUrl": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Saint-Pierre_de_Beauvais_projection_1.JPG",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "author": "Chatsam",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "caption": "La cathédrale Saint-Pierre de Beauvais lors d'une projection lumineuse",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 2133
    }
   ]
  },
@@ -621,24 +621,24 @@
   ],
   "photos": [
    {
-    "file": null,
+    "file": "saint-quentin-1.webp",
     "commonsUrl": "https://commons.wikimedia.org/wiki/File:St_quentin_hotel_de_ville.JPG",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "author": "Velvet",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "caption": "L'hôtel de ville de Saint-Quentin",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 1200
    },
    {
-    "file": null,
+    "file": "saint-quentin-2.webp",
     "commonsUrl": "https://commons.wikimedia.org/wiki/File:St_Quentin_Basilique.JPG",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "author": "Stavros1 at English Wikipedia",
+    "licence": "Public domain",
+    "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.fr",
     "caption": "La basilique de Saint-Quentin",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 2133
    }
   ]
  },
@@ -670,24 +670,24 @@
   ],
   "photos": [
    {
-    "file": null,
+    "file": "evreux-1.webp",
     "commonsUrl": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Notre-Dame_%C3%A0_Evreux-01.jpg",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "author": "Source: User:Odenel Derivative: User:MathKnight-at-TAU",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "caption": "La cathédrale Notre-Dame d'Évreux",
-    "width": null,
-    "height": null
+    "width": 1249,
+    "height": 862
    },
    {
-    "file": null,
-    "commonsUrl": "https://commons.wikimedia.org/wiki/File:%C3%89vreux%2C_Cath%C3%A9drale_Notre-Dame%2C_XIII-XV_secolo.jpg",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "file": "evreux-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:%C3%89vreux,_Cath%C3%A9drale_Notre-Dame,_XIII-XV_secolo.jpg",
+    "author": "Parsifall",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "caption": "La cathédrale Notre-Dame d'Évreux (XIIIe–XVe siècles)",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 1200
    }
   ]
  },
@@ -720,14 +720,14 @@
   ],
   "photos": [
    {
-    "file": null,
-    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Charleville-M%C3%A9zi%C3%A8res%2C_Place_Ducale_--_2017_--_4866.jpg",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "file": "charleville-mezieres-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Charleville-M%C3%A9zi%C3%A8res,_Place_Ducale_--_2017_--_4866.jpg",
+    "author": "Dietmar Rabich",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "caption": "La place Ducale de Charleville-Mézières",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 900
    }
   ]
  },
@@ -759,24 +759,24 @@
   ],
   "photos": [
    {
-    "file": null,
-    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Valenciennes_%282011%29_l%27h%C3%B4tel_de_ville.jpg",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "file": "valenciennes-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Valenciennes_(2011)_l%27h%C3%B4tel_de_ville.jpg",
+    "author": "© Pierre André",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "caption": "L'hôtel de ville de Valenciennes (2011)",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 1268
    },
    {
-    "file": null,
+    "file": "valenciennes-2.webp",
     "commonsUrl": "https://commons.wikimedia.org/wiki/File:Mairie_Valenciennes.jpg",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "author": "Alex59300",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "caption": "La mairie de Valenciennes",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 1200
    }
   ]
  },
@@ -808,14 +808,14 @@
   ],
   "photos": [
    {
-    "file": null,
+    "file": "chalons-en-champagne-1.webp",
     "commonsUrl": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2lons-en-Champagne_Cath%C3%A9drale_Saint-%C3%89tienne.JPG",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "author": "Aimelaime~commonswiki",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "caption": "La cathédrale Saint-Étienne de Châlons-en-Champagne",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 1200
    }
   ]
  },
@@ -848,24 +848,24 @@
   ],
   "photos": [
    {
-    "file": null,
-    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Arras_beffroi%2C_h%C3%B4tel_de_ville_et_place_des_H%C3%A9ros.jpg",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "file": "arras-1.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Arras_beffroi,_h%C3%B4tel_de_ville_et_place_des_H%C3%A9ros.jpg",
+    "author": "Mélanie Huguet",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "caption": "Le beffroi, l'hôtel de ville et la place des Héros à Arras",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 2133
    },
    {
-    "file": null,
-    "commonsUrl": "https://commons.wikimedia.org/wiki/File:0_Arras%2C_Grand%27Place_%281%29.JPG",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "file": "arras-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:0_Arras,_Grand%27Place_(1).JPG",
+    "author": "Jean-Pol GRANDMONT",
+    "licence": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
     "caption": "La Grand'Place d'Arras",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 1067
    }
   ]
  },
@@ -898,24 +898,24 @@
   ],
   "photos": [
    {
-    "file": null,
+    "file": "compiegne-1.webp",
     "commonsUrl": "https://commons.wikimedia.org/wiki/File:Compiegne_Hotel_de_Ville_01.jpg",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "author": "Patrick GIRAUD",
+    "licence": "CC BY-SA 1.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/1.0",
     "caption": "L'hôtel de ville de Compiègne",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 2421
    },
    {
-    "file": null,
-    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Compi%C3%A8gne%2C_the_ch%C3%A2teau.JPG",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "file": "compiegne-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Compi%C3%A8gne,_the_ch%C3%A2teau.JPG",
+    "author": "Dguendel",
+    "licence": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
     "caption": "Le palais de Compiègne",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 1147
    }
   ]
  },
@@ -947,24 +947,24 @@
   ],
   "photos": [
    {
-    "file": null,
+    "file": "boulogne-sur-mer-1.webp",
     "commonsUrl": "https://commons.wikimedia.org/wiki/File:Beffroi_de_Boulogne.jpg",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "author": "Jörg Braukmann",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "caption": "Le beffroi de Boulogne-sur-Mer",
-    "width": null,
-    "height": null
+    "width": 1600,
+    "height": 3508
    },
    {
-    "file": null,
-    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Cathedral%2C_Boulogne-sur-Mer%2C_France.JPG",
-    "author": null,
-    "licence": null,
-    "licenceUrl": null,
+    "file": "boulogne-sur-mer-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Cathedral,_Boulogne-sur-Mer,_France.JPG",
+    "author": "Donar Reiskoffer",
+    "licence": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
     "caption": "La basilique Notre-Dame de Boulogne-sur-Mer",
-    "width": null,
-    "height": null
+    "width": 1200,
+    "height": 1600
    }
   ]
  }

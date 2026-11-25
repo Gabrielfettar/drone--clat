@@ -9,9 +9,9 @@
   "author": "Barb McMahon",
   "licence": "Unsplash License",
   "licenceUrl": "https://unsplash.com/license",
-  "file": null,
-  "width": null,
-  "height": null
+  "file": "a_toit_moussu_1.webp",
+  "width": 1600,
+  "height": 1200
  },
  {
   "key": "a_toit_moussu_2",
@@ -23,9 +23,9 @@
   "author": "Magda Ehlers (Pexels)",
   "licence": "Licence Pexels",
   "licenceUrl": "https://www.pexels.com/license/",
-  "file": null,
-  "width": null,
-  "height": null
+  "file": "a_toit_moussu_2.webp",
+  "width": 1600,
+  "height": 1067
  },
  {
   "key": "a_toit_moussu_3",
@@ -37,9 +37,9 @@
   "author": "Coernl",
   "licence": "Pixabay Content License",
   "licenceUrl": "https://pixabay.com/service/license-summary/",
-  "file": null,
-  "width": null,
-  "height": null
+  "file": "a_toit_moussu_3.webp",
+  "width": 1280,
+  "height": 853
  },
  {
   "key": "b_toit_propre_ardoise",
@@ -51,9 +51,9 @@
   "author": "Monsterkoi (Pixabay)",
   "licence": "Pixabay Content License",
   "licenceUrl": "https://pixabay.com/service/license-summary/",
-  "file": null,
-  "width": null,
-  "height": null
+  "file": "b_toit_propre_ardoise.webp",
+  "width": 1280,
+  "height": 851
  },
  {
   "key": "b_toit_propre_tuiles",
@@ -65,9 +65,9 @@
   "author": "aboodi vesakaran",
   "licence": "Unsplash License",
   "licenceUrl": "https://unsplash.com/license",
-  "file": null,
-  "width": null,
-  "height": null
+  "file": "b_toit_propre_tuiles.webp",
+  "width": 1600,
+  "height": 2133
  },
  {
   "key": "c_facade_sale_mur",
@@ -79,9 +79,9 @@
   "author": "Elena Mozhvilo",
   "licence": "Unsplash License",
   "licenceUrl": "https://unsplash.com/license",
-  "file": null,
-  "width": null,
-  "height": null
+  "file": "c_facade_sale_mur.webp",
+  "width": 1600,
+  "height": 1064
  },
  {
   "key": "c_facade_sale_beton",
@@ -93,9 +93,9 @@
   "author": "Krakograff Textures (Pexels)",
   "licence": "Licence Pexels",
   "licenceUrl": "https://www.pexels.com/license/",
-  "file": null,
-  "width": null,
-  "height": null
+  "file": "c_facade_sale_beton.webp",
+  "width": 1600,
+  "height": 900
  },
  {
   "key": "d_bardage_propre",
@@ -107,9 +107,9 @@
   "author": "Jan van der Wolf (Pexels)",
   "licence": "Licence Pexels",
   "licenceUrl": "https://www.pexels.com/license/",
-  "file": null,
-  "width": null,
-  "height": null
+  "file": "d_bardage_propre.webp",
+  "width": 1600,
+  "height": 1067
  },
  {
   "key": "d_facade_nettoyage_nacelle",
@@ -121,9 +121,9 @@
   "author": "rkit (Pixabay)",
   "licence": "Pixabay Content License",
   "licenceUrl": "https://pixabay.com/service/license-summary/",
-  "file": null,
-  "width": null,
-  "height": null
+  "file": "d_facade_nettoyage_nacelle.webp",
+  "width": 1280,
+  "height": 960
  },
  {
   "key": "e_drone_toiture_commons",
@@ -132,12 +132,12 @@
   "pageUrl": "https://commons.wikimedia.org/wiki/File:Nettoyage_haute_performance_toiture_avec_drone.jpg",
   "commonsUrl": "https://commons.wikimedia.org/wiki/File:Nettoyage_haute_performance_toiture_avec_drone.jpg",
   "imageUrl": null,
-  "author": null,
-  "licence": null,
-  "licenceUrl": null,
-  "file": null,
-  "width": null,
-  "height": null
+  "author": "SI-DRONE prestation",
+  "licence": "CC BY-SA 4.0",
+  "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "file": "e_drone_toiture_commons.webp",
+  "width": 1600,
+  "height": 1066
  },
  {
   "key": "f_toit_industriel",
@@ -149,9 +149,9 @@
   "author": "Elly Sartain (Pexels)",
   "licence": "Licence Pexels",
   "licenceUrl": "https://www.pexels.com/license/",
-  "file": null,
-  "width": null,
-  "height": null
+  "file": "f_toit_industriel.webp",
+  "width": 1600,
+  "height": 2444
  },
  {
   "key": "g_chateau_normandie",
@@ -163,9 +163,9 @@
   "author": "ykaiavu",
   "licence": "Pixabay Content License",
   "licenceUrl": "https://pixabay.com/service/license-summary/",
-  "file": null,
-  "width": null,
-  "height": null
+  "file": "g_chateau_normandie.webp",
+  "width": 1280,
+  "height": 720
  },
  {
   "key": "g_eglise_bourgogne",
@@ -177,9 +177,9 @@
   "author": "Fritz_the_Cat (Pixabay)",
   "licence": "Pixabay Content License",
   "licenceUrl": "https://pixabay.com/service/license-summary/",
-  "file": null,
-  "width": null,
-  "height": null
+  "file": "g_eglise_bourgogne.webp",
+  "width": 1280,
+  "height": 960
  },
  {
   "key": "g_versailles_toit",
@@ -191,8 +191,8 @@
   "author": "Kirandeep Singh Walia (Pexels)",
   "licence": "Licence Pexels",
   "licenceUrl": "https://www.pexels.com/license/",
-  "file": null,
-  "width": null,
-  "height": null
+  "file": "g_versailles_toit.webp",
+  "width": 1600,
+  "height": 1084
  }
 ]
