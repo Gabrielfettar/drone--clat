@@ -7,9 +7,9 @@ import { services } from '@/content/services';
 
 const links = [
   { href: '/professionnels/entretien-batiments/', label: 'Professionnels' },
-  { href: '/realisations/', label: 'Réalisations' },
-  { href: '/technologie/', label: 'Technologie' },
-  { href: '/zones-intervention/', label: 'Zones' },
+  { href: '/realisations/', label: 'Avant / après' },
+  { href: '/equipe/', label: 'Équipe' },
+  { href: '/zones-intervention/', label: 'Villes' },
   { href: '/contact/', label: 'Contact' },
 ];
 
@@ -107,7 +107,7 @@ export function Header() {
         </nav>
 
         <Link href="/contact/" className="btn btn--sm header-cta" data-track="cta_header">
-          Étude gratuite <span className="btn-arrow" aria-hidden="true">→</span>
+          Devis gratuit <span className="btn-arrow" aria-hidden="true">→</span>
         </Link>
 
         <button ref={toggle} type="button" className="burger" aria-expanded={open} aria-controls="mobile-menu"
@@ -126,7 +126,7 @@ export function Header() {
           </ul>
           <p className="mono mobile-label">Drone Éclat</p>
           <ul className="mobile-list">
-            {[{ href: '/professionnels/entretien-batiments/', label: 'Professionnels' }, ...links.slice(1), { href: '/a-propos/', label: 'À propos' }, { href: '/journal/', label: 'Conseils' }].map((l) => (
+            {[{ href: '/professionnels/entretien-batiments/', label: 'Professionnels' }, ...links.slice(1), { href: '/fournisseurs/', label: 'Nos fournisseurs' }, { href: '/technologie/', label: 'Technologie' }, { href: '/a-propos/', label: 'À propos' }, { href: '/journal/', label: 'Conseils' }].map((l) => (
               <li key={l.href}><Link href={l.href}>{l.label}</Link></li>
             ))}
           </ul>

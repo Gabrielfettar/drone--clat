@@ -5,10 +5,12 @@ import { PageHero } from '@/components/ui/PageHero';
 import { CtaBand } from '@/components/ui/CtaBand';
 import { Gallery } from '@/components/widgets/Gallery';
 import { projects, demos } from '@/content/projects';
+import { examples } from '@/content/examples';
+import { BeforeAfter } from '@/components/widgets/BeforeAfter';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Réalisations : chantiers par drone dans l’Oise' },
-  description: 'Les premiers chantiers Drone Éclat arrivent : découvrez comment chaque intervention sera documentée, avec photos avant / après datées et accord du client.',
+  title: { absolute: 'Avant / après : nettoyage de toiture et façade par drone · Drone Éclat' },
+  description: 'Avant / après de démoussage de toiture, nettoyage de façade, de bardage et de monuments : le résultat d’un nettoyage professionnel, et comment nous documentons chaque chantier.',
   alternates: { canonical: '/realisations/' },
 };
 
@@ -29,16 +31,43 @@ export default function RealisationsPage() {
       <PageHero
         crumbs={[{ href: '/realisations/', label: 'Réalisations' }]}
         eyebrow="Réalisations"
-        title="Nos réalisations"
+        title="Avant / après : le résultat d’un nettoyage professionnel"
         lede={hasProjects
           ? 'Chaque fiche présente le bâtiment, le constat, la méthode et le résultat, avec des photos avant / après datées et l’accord du client.'
-          : 'Drone Éclat démarre : nos premiers chantiers arrivent. Plutôt que d’emprunter des photos ou d’inventer des avis, nous publierons ici chaque intervention réelle, documentée de la même façon.'}
+          : 'Toitures moussues, façades noircies, bardages verdis, monuments encrassés : voici ce que change un nettoyage professionnel. Glissez sur chaque image pour comparer.'}
       >
         <div className="cta-row">
           <Link href="/contact/" className="btn" data-track="cta_realisations_hero">Demander une étude gratuite <span className="btn-arrow" aria-hidden="true">→</span></Link>
-          <Link href="#fiche-type" className="btn btn--ghost">Voir la fiche type</Link>
+          <Link href="#exemples" className="btn btn--ghost">Voir les avant / après</Link>
         </div>
       </PageHero>
+
+      {/* Exemples types */}
+      {examples.length > 0 && (
+        <section className="section" id="exemples" aria-labelledby="ex-title">
+          <div className="container">
+            <div className="sec-head">
+              <div data-reveal><span className="eyebrow">Exemples types</span><h2 id="ex-title" className="h-1">Ce que nous faisons, en images.</h2></div>
+              <p className="lede" data-reveal style={{ ['--i' as string]: 1 }}>Ces photos libres de droits illustrent le type de résultat obtenu par un nettoyage professionnel, surface par surface. Les photos de nos propres chantiers viendront s’ajouter ici, avec l’accord de nos clients.</p>
+            </div>
+            <div className="ex-list">
+              {examples.map((e) => (
+                <article key={e.id} className="ex-row" data-reveal>
+                  <BeforeAfter before={e.before.src} after={e.after.src} alt={{ before: e.before.alt, after: e.after.alt }} illustration="Exemple type" />
+                  <div className="ex-copy">
+                    <span className="eyebrow">{e.category}</span>
+                    <h3 className="h-2">{e.title}</h3>
+                    <p className="lede">{e.text}</p>
+                    {!e.samePlace && <p className="hint muted">Les deux photos montrent des bâtiments comparables, pas le même bâtiment.</p>}
+                    <p className="credit">Photos : {e.before.credit.author} ({e.before.credit.license}) · {e.after.credit.author} ({e.after.credit.license}). <Link href="/credits-photos/">Crédits</Link></p>
+                    <Link className="btn" href={`/contact/?service=${e.category === 'Façade' ? 'nettoyage-facade-drone' : e.category === 'Bardage' ? 'nettoyage-bardage-drone' : 'demoussage-toiture-drone'}`}>Le même résultat chez moi <span className="btn-arrow" aria-hidden="true">→</span></Link>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Statut honnête */}
       <section className="section section--tight" aria-labelledby="statut-title">

@@ -68,45 +68,41 @@ test('galerie : filtre et visionneuse', async ({ page }) => {
   await expect(page.locator('dialog.lightbox')).toBeHidden();
 });
 
-test('estimateur : validation, photo, envoi réel et confirmation', async ({ page }) => {
+test('estimateur : 3 étapes, validation, photo, envoi réel et confirmation', async ({ page }) => {
   await page.goto('/contact/?service=demoussage-toiture-drone');
-  const next = page.getByRole('button', { name: /Continuer/ });
+  const form = page.locator('form.est');
+  const next = form.getByRole('button', { name: /Continuer/ });
+  await expect(form.getByRole('radio', { name: 'Démoussage / traitement de toiture' })).toBeChecked(); // prérempli depuis l'URL
   await next.click();
-  await expect(page.getByText('Choisissez un type de bâtiment.')).toBeVisible();
-  await page.getByRole('radio', { name: 'Maison individuelle' }).check();
+  await expect(form.getByText('Dites-nous qui vous êtes.')).toBeVisible();
+  await form.getByRole('radio', { name: 'Particulier' }).check();
   await next.click();
-  await expect(page.getByRole('radio', { name: 'Démoussage / traitement de toiture' })).toBeChecked(); // prérempli depuis l'URL
-  await next.click();
-  await page.getByLabel('Surface approximative (m²)').fill('140');
-  await page.getByLabel('Matériau').selectOption('Fibrociment');
-  await next.click();
-  await page.getByLabel('Code postal').fill('60200');
-  await page.getByLabel('Commune').fill('Compiègne');
-  await next.click();
+  await form.getByLabel('Code postal').fill('60200');
+  await form.getByLabel('Commune').fill('Compiègne');
+  await form.getByLabel(/Surface approximative/).fill('140');
   const png = path.join(__dirname, 'fixture.png');
   if (!fs.existsSync(png)) fs.writeFileSync(png, Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', 'base64'));
-  await page.locator('input[type=file]').setInputFiles(png);
-  await expect(page.getByRole('img', { name: /Photo 1/ })).toBeVisible();
+  await form.locator('input[type=file]').setInputFiles(png);
+  await expect(form.getByRole('img', { name: /Photo 1/ })).toBeVisible();
   await next.click();
-  await page.getByLabel('Nom').fill('Test Automatisé');
-  await page.getByLabel('Téléphone').fill('0612');
-  await page.getByLabel('E-mail').fill('pas-un-mail');
-  await next.click();
-  await expect(page.getByText(/Numéro français/)).toBeVisible();
-  await expect(page.getByText('Adresse e-mail invalide.')).toBeVisible();
-  await page.getByLabel('Téléphone').fill('06 12 34 56 78');
-  await page.getByLabel('E-mail').fill('test@example.com');
-  await page.getByRole('checkbox').check();
-  await next.click();
-  await expect(page.getByText(/diagnostic amiante/)).toBeVisible();
+  const send = form.getByRole('button', { name: /Recevoir mon étude gratuite/ });
+  await form.getByLabel('Nom').fill('Test Automatisé');
+  await form.getByLabel('Téléphone').fill('0612');
+  await form.getByLabel('E-mail').fill('pas-un-mail');
+  await send.click();
+  await expect(form.getByText(/Numéro français/)).toBeVisible();
+  await expect(form.getByText('Adresse e-mail invalide.')).toBeVisible();
+  await form.getByLabel('Téléphone').fill('06 12 34 56 78');
+  await form.getByLabel('E-mail').fill('test@example.com');
+  await form.getByRole('checkbox').check();
   await page.waitForTimeout(4200); // délai anti-robot
-  await page.getByRole('button', { name: 'Envoyer ma demande' }).click();
+  await send.click();
   await expect(page.getByRole('heading', { name: 'Demande bien reçue.' })).toBeVisible();
   await expect(page.getByText(/DE-\d{8}-/)).toBeVisible();
 });
 
 test('API devis : rejette un faux fichier image et les champs invalides', async ({ request }) => {
-  const r = await request.post('/api/devis', { multipart: { _t: String(Date.now() - 10000), building: 'Maison individuelle', service: 'Nettoyage de façade', postalCode: '60200', city: 'Compiègne', name: 'X Y', phone: '0612345678', email: 'a@b.fr', consent: 'on', photos: { name: 'virus.jpg', mimeType: 'image/jpeg', buffer: Buffer.from('MZ not an image') } } });
+  const r = await request.post('/api/devis', { multipart: { _t: String(Date.now() - 10000), profile: 'Particulier', service: 'Nettoyage de façade', postalCode: '60200', city: 'Compiègne', name: 'X Y', phone: '0612345678', email: 'a@b.fr', consent: 'on', photos: { name: 'virus.jpg', mimeType: 'image/jpeg', buffer: Buffer.from('MZ not an image') } } });
   expect(r.status()).toBe(422);
   const r2 = await request.post('/api/devis', { multipart: { _t: String(Date.now() - 10000), building: 'Château', email: 'x' } });
   expect(r2.status()).toBe(422);

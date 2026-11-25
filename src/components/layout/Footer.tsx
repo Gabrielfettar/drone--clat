@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Logo } from '@/components/ui/Logo';
 import { services } from '@/content/services';
 import { site, isKnown } from '@/config/site';
+import { CityLinks } from '@/components/ui/CityLinks';
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -27,6 +28,8 @@ export function Footer() {
               <li><Link href="/technologie/">Technologie et matériel</Link></li>
               <li><Link href="/realisations/">Réalisations</Link></li>
               <li><Link href="/zones-intervention/">Zones d’intervention</Link></li>
+              <li><Link href="/equipe/">Notre équipe</Link></li>
+              <li><Link href="/fournisseurs/">Nos fournisseurs</Link></li>
               <li><Link href="/a-propos/">À propos</Link></li>
               <li><Link href="/journal/">Conseils</Link></li>
             </ul>
@@ -40,6 +43,10 @@ export function Footer() {
             </ul>
           </div>
         </div>
+        <nav className="footer-cities" aria-label="Villes d’intervention">
+          <h2 className="mono">Nous intervenons à</h2>
+          <CityLinks compact />
+        </nav>
         <div className="footer-bottom">
           <span>© {year} Drone Éclat</span>
           <nav aria-label="Informations légales">
@@ -47,6 +54,7 @@ export function Footer() {
               <li><Link href="/mentions-legales/">Mentions légales</Link></li>
               <li><Link href="/confidentialite/">Confidentialité</Link></li>
               <li><Link href="/cookies/">Cookies</Link></li>
+              <li><Link href="/credits-photos/">Crédits photos</Link></li>
               <li><Link href="/securite-reglementation/">Sécurité et réglementation</Link></li>
             </ul>
           </nav>

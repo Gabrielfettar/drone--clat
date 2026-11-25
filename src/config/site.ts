@@ -26,9 +26,9 @@ export const site = {
     pending: true,
   },
   /** Rayon d'intervention envisagé, en km. Provisoire tant qu'il n'est pas validé par la direction. */
-  serviceRadiusKm: { value: 60, pending: true } as Pending<number>,
+  serviceRadiusKm: { value: 200, pending: true } as Pending<number>,
   /** Rayon élargi, au cas par cas (grands chantiers pro). */
-  extendedRadiusKm: { value: 120, pending: true } as Pending<number>,
+  extendedRadiusKm: { value: 250, pending: true } as Pending<number>,
   social: [] as { label: string; url: string }[],
   siret: { value: '', pending: true } as Pending<string>,
   insurer: { value: '', pending: true } as Pending<string>,

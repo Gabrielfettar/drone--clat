@@ -7,11 +7,12 @@ import { CtaBand } from '@/components/ui/CtaBand';
 import { site, isKnown } from '@/config/site';
 import { services } from '@/content/services';
 import { projects } from '@/content/projects';
+import { stills } from '@/content/examples';
 import '../../pages-a.css';
 
 export const metadata: Metadata = {
-  title: 'Bâtiments professionnels : entretien par drone',
-  description: 'Toitures, façades et bardages d’entrepôts, copropriétés, exploitations agricoles : entretien par drone, planning par secteurs, documents de sécurité.',
+  title: 'Professionnels, grands sites et monuments historiques : nettoyage par drone',
+  description: 'Toitures, façades et bardages d’entrepôts, copropriétés, sites industriels, bâtiments publics et monuments historiques : nettoyage par drone sans échafaudage, activité maintenue.',
   alternates: { canonical: '/professionnels/entretien-batiments/' },
 };
 
@@ -22,7 +23,11 @@ const audiences = [
   { label: 'Responsables techniques', title: 'Entreprises, commerces, logistique', text: 'Bardages et toitures d’entrepôts, de bureaux ou de surfaces commerciales, traités sans nacelle sur le parking et sans arrêter l’activité.' },
   { label: 'Exploitations agricoles', title: 'Hangars, stabulations, silos', text: 'De grandes surfaces souvent en bac acier ou en fibrociment, avec un calendrier qui tient compte des animaux, des récoltes et des travaux des champs.' },
   { label: 'Collectivités', title: 'Bâtiments publics', text: 'Écoles, salles, équipements sportifs ou techniques : un devis formel, des créneaux adaptés à l’occupation et un périmètre de sécurité balisé.' },
+  { label: 'Patrimoine', title: 'Monuments historiques et édifices anciens', text: 'Églises, châteaux, abbayes, hôtels particuliers : des hauteurs et des matériaux fragiles que le drone traite sans échafaudage lourd, avec une méthode validée par l’architecte.' },
+  { label: 'Grands comptes', title: 'Parcs multi-sites', text: 'Foncières, enseignes, bailleurs : un interlocuteur unique, un planning annuel et un reporting par bâtiment sur l’ensemble de vos sites.' },
 ];
+
+const siteTypes = ['Monuments historiques classés ou inscrits', 'Églises, cathédrales, abbayes', 'Châteaux et demeures', 'Usines et sites industriels', 'Plateformes logistiques', 'Centres commerciaux et retail parks', 'Hôpitaux et cliniques', 'Écoles, lycées, universités', 'Gymnases et équipements sportifs', 'Copropriétés et bailleurs sociaux', 'Hôtels et résidences', 'Gares, mairies, équipements publics', 'Bureaux et sièges sociaux', 'Exploitations agricoles'];
 
 const faq: FaqItem[] = [
   { q: 'Pouvez-vous intervenir sans interrompre notre activité ?', a: 'Dans la plupart des cas, oui. Le chantier est découpé en secteurs : seule la zone en cours de traitement est balisée et interdite au passage. Les accès principaux, quais ou entrées sont planifiés avec vous, y compris sur des créneaux hors des heures d’ouverture.' },
@@ -50,9 +55,9 @@ export default function ProfessionnelsPage() {
     <div className="pa">
       <PageHero
         crumbs={[{ href: '/professionnels/entretien-batiments/', label: 'Professionnels' }]}
-        eyebrow="Professionnels · Oise"
-        title="Entretien de bâtiments professionnels par drone"
-        lede="Toitures, façades et bardages de grands bâtiments nettoyés depuis le sol, secteur par secteur. Pas de nacelle sur le parking, pas de travail en hauteur pour vos équipes, et les documents attendus par un service technique."
+        eyebrow="Professionnels · Grands sites · Patrimoine"
+        title="Grands bâtiments, sites professionnels et monuments historiques : entretien par drone"
+        lede="Entrepôts de plusieurs milliers de m², copropriétés, centres commerciaux, églises, châteaux : nous nettoyons et protégeons toitures, façades et bardages depuis le sol, secteur par secteur, sans arrêter votre activité. Aucun chantier n’est trop haut ou trop grand."
         aside={
           <figure className="pa-figure">
             <div className="pa-frame">
@@ -77,7 +82,7 @@ export default function ProfessionnelsPage() {
           </div>
           <div className="pa-block">
             <div className="sec-head" style={{ marginBottom: 0 }}>
-              <div data-reveal><span className="eyebrow">Pour qui</span><h2 id="pour-qui" className="h-1">Quatre publics, un même besoin : entretenir sans immobiliser.</h2></div>
+              <div data-reveal><span className="eyebrow">Pour qui</span><h2 id="pour-qui" className="h-1">Six publics, un même besoin : entretenir sans immobiliser.</h2></div>
               <p className="lede" data-reveal style={{ ['--i' as string]: 1 }}>Chaque site a ses contraintes. Nous les relevons pendant l’étude et construisons le planning autour d’elles.</p>
             </div>
             <div className="cards">
@@ -90,6 +95,37 @@ export default function ProfessionnelsPage() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Grands sites & patrimoine */}
+      <section className="section section--mist" aria-labelledby="patrimoine-title">
+        <div className="container pro-band-grid">
+          <div className="pro-band-media" data-reveal>
+            <Image src={stills.heritage?.src ?? '/illustrations/overview.webp'} alt={stills.heritage?.alt ?? 'Illustration d’un chantier balisé'} fill sizes="(max-width: 900px) 100vw, 50vw" />
+            <span className="pro-band-chip mono">Patrimoine · Grande hauteur</span>
+          </div>
+          <div className="pro-band-copy" data-reveal style={{ ['--i' as string]: 1 }}>
+            <span className="eyebrow">Monuments historiques & grands sites</span>
+            <h2 id="patrimoine-title" className="h-1">Là où l’échafaudage coûte une fortune, le drone change tout.</h2>
+            <p className="lede">Sur un clocher, une nef ou une toiture d’entrepôt de 10 000 m², l’échafaudage représente souvent l’essentiel du budget et des semaines d’immobilisation. Le drone atteint ces surfaces en quelques minutes, sans contact avec la couverture.</p>
+            <ul className="ticks">
+              <li><strong>Monuments protégés :</strong> méthode, pression et produits définis avec l’architecte des Bâtiments de France ou l’architecte en chef, essais sur zone témoin avant intervention.</li>
+              <li><strong>Matériaux fragiles :</strong> pierre calcaire, ardoise ancienne, tuile plate, cuivre et plomb traités à basse pression, sans abrasion.</li>
+              <li><strong>Grandes surfaces :</strong> découpage en secteurs, interventions en horaires décalés ou le week-end si votre activité l’exige.</li>
+              <li><strong>Inspection incluse :</strong> la caméra du drone repère tuiles cassées, gouttières bouchées ou fissures, signalées dans le rapport.</li>
+            </ul>
+            <div className="cta-row">
+              <Link className="btn" href="/contact/?profil=patrimoine" data-track="pro_patrimoine">Parler d’un édifice ou d’un grand site <span className="btn-arrow" aria-hidden="true">→</span></Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--tight" aria-labelledby="types-title">
+        <div className="container">
+          <h2 id="types-title" className="h-2" style={{ marginBottom: 'var(--s-6)' }}>Les sites sur lesquels nous intervenons</h2>
+          <ul className="landmarks">{siteTypes.map((t) => <li key={t}>{t}</li>)}</ul>
         </div>
       </section>
 

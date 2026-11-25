@@ -1,8 +1,9 @@
 import { z } from 'zod';
 
 /** Schéma partagé client / serveur de la demande d'étude. */
+export const PROFILES = ['Particulier', 'Syndic / copropriété', 'Entreprise / industrie', 'Collectivité / patrimoine'] as const;
 export const BUILDINGS = ['Maison individuelle', 'Bâtiment professionnel', 'Bâtiment agricole', 'Immeuble', 'Autre'] as const;
-export const SERVICES = ['Démoussage / traitement de toiture', 'Nettoyage de façade', 'Entretien de bardage', 'Autre demande'] as const;
+export const SERVICES = ['Démoussage / traitement de toiture', 'Nettoyage de façade', 'Entretien de bardage', 'Plusieurs surfaces / autre'] as const;
 export const MATERIALS = ['Tuile terre cuite', 'Tuile béton', 'Ardoise', 'Fibrociment', 'Bac acier', 'Enduit / crépi', 'Pierre', 'Bardage métallique', 'Bardage bois', 'Je ne sais pas'] as const;
 export const HEIGHTS = ['Plain-pied (moins de 5 m)', '1 étage (5 à 8 m)', '2 étages (8 à 12 m)', 'Plus de 12 m', 'Je ne sais pas'] as const;
 export const CONDITIONS = ['Légèrement sale', 'Mousses visibles', 'Très encrassé', 'Tuiles ou éléments abîmés', 'Je ne sais pas'] as const;
@@ -15,7 +16,8 @@ export const ACCEPTED = ['image/jpeg', 'image/png', 'image/webp', 'image/heic', 
 const phoneFr = /^(?:(?:\+|00)33\s?|0)[1-9](?:[\s.-]?\d{2}){4}$/;
 
 export const leadSchema = z.object({
-  building: z.enum(BUILDINGS, { errorMap: () => ({ message: 'Choisissez un type de bâtiment.' }) }),
+  profile: z.enum(PROFILES, { errorMap: () => ({ message: 'Dites-nous qui vous êtes.' }) }),
+  building: z.enum(BUILDINGS).optional(),
   service: z.enum(SERVICES, { errorMap: () => ({ message: 'Choisissez une intervention.' }) }),
   surface: z.coerce.number({ invalid_type_error: 'Indiquez une surface en m².' }).int('Nombre entier, en m².').min(5, 'Surface trop petite (5 m² minimum).').max(50000, 'Surface trop grande : contactez-nous directement.').optional().or(z.literal('').transform(() => undefined)),
   material: z.enum(MATERIALS).optional(),
@@ -25,6 +27,8 @@ export const leadSchema = z.object({
   postalCode: z.string().trim().regex(/^\d{5}$/, 'Code postal à 5 chiffres.'),
   city: z.string().trim().min(2, 'Indiquez la commune.').max(80),
   address: z.string().trim().max(160).optional().or(z.literal('')),
+  company: z.string().trim().max(120).optional().or(z.literal('')),
+  source: z.string().trim().max(200).optional().or(z.literal('')),
   name: z.string().trim().min(2, 'Indiquez votre nom.').max(80),
   phone: z.string().trim().regex(phoneFr, 'Numéro français, par exemple 06 12 34 56 78.'),
   email: z.string().trim().email('Adresse e-mail invalide.').max(120),

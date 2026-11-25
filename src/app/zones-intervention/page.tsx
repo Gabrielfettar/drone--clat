@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageHero } from '@/components/ui/PageHero';
+import { CityLinks } from '@/components/ui/CityLinks';
 import { Faq, type FaqItem } from '@/components/ui/Faq';
 import { CtaBand } from '@/components/ui/CtaBand';
 import { ZoneChecker } from '@/components/widgets/ZoneChecker';
@@ -9,8 +10,8 @@ import { places, haversineKm } from '@/content/places';
 import '../pages-a.css';
 
 export const metadata: Metadata = {
-  title: 'Zones d’intervention : Compiègne et l’Oise',
-  description: 'Basé à Compiègne, Drone Éclat intervient dans l’Oise. Vérifiez si votre commune est dans notre secteur prévisionnel : Compiégnois, Noyonnais, Valois…',
+  title: 'Zones d’intervention : 200 km autour de Compiègne',
+  description: 'Basé à Compiègne, Drone Éclat intervient dans un rayon de 200 km : Oise, Hauts-de-France, Île-de-France, Normandie, Champagne. Paris, Lille, Amiens, Reims, Rouen et 15 autres villes.',
   alternates: { canonical: '/zones-intervention/' },
 };
 
@@ -55,15 +56,26 @@ export default function ZonesPage() {
     <div className="pa">
       <PageHero
         crumbs={[{ href: '/zones-intervention/', label: 'Zones d’intervention' }]}
-        eyebrow="Oise · Hauts-de-France"
-        title="Nos zones d’intervention autour de Compiègne"
-        lede="Drone Éclat est basé à Compiègne, dans l’Oise. Notre secteur est en cours de validation : vérifiez votre code postal, puis décrivez votre chantier pour une réponse définitive."
+        eyebrow="Oise · Hauts-de-France · Île-de-France · Normandie · Grand Est"
+        title="Nous intervenons dans un rayon de 200 km autour de Compiègne"
+        lede="Drone Éclat est basé à Compiègne, dans l’Oise. Nous intervenons pour les particuliers et les professionnels dans les grandes villes de la région et leurs alentours. Trouvez votre ville ou vérifiez votre code postal."
       >
         <div className="cta-row">
           <Link className="btn" href="#verifier" data-track="zones_hero_check">Vérifier ma commune <span className="btn-arrow" aria-hidden="true">→</span></Link>
           <Link className="btn btn--ghost" href={CONTACT}>Demander une étude</Link>
         </div>
       </PageHero>
+
+      {/* Villes */}
+      <section className="section" id="villes" aria-labelledby="villes-title">
+        <div className="container">
+          <div className="sec-head">
+            <div data-reveal><span className="eyebrow">Nos villes</span><h2 id="villes-title" className="h-1">Les principales villes où nous intervenons.</h2></div>
+            <p className="lede" data-reveal style={{ ['--i' as string]: 1 }}>Chaque page présente nos prestations dans votre ville. Votre commune n’y figure pas ? Nous intervenons aussi dans les communes voisines : vérifiez-la ci-dessous.</p>
+          </div>
+          <CityLinks />
+        </div>
+      </section>
 
       {/* Définition + vérificateur */}
       <section className="section" id="verifier" aria-labelledby="check-title">

@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const pages = ['/', '/services/demoussage-toiture-drone/', '/services/nettoyage-facade-drone/', '/services/nettoyage-bardage-drone/', '/professionnels/entretien-batiments/', '/technologie/', '/realisations/', '/zones-intervention/', '/a-propos/', '/contact/', '/journal/', '/securite-reglementation/', '/mentions-legales/', '/confidentialite/', '/cookies/'];
+const pages = ['/', '/services/demoussage-toiture-drone/', '/services/nettoyage-facade-drone/', '/services/nettoyage-bardage-drone/', '/professionnels/entretien-batiments/', '/technologie/', '/realisations/', '/zones-intervention/', '/a-propos/', '/contact/', '/equipe/', '/fournisseurs/', '/villes/compiegne/', '/villes/paris/', '/journal/', '/securite-reglementation/', '/mentions-legales/', '/confidentialite/', '/cookies/'];
 
 test.describe('Pages', () => {
   for (const p of pages) {

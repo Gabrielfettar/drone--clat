@@ -4,6 +4,7 @@ import path from 'node:path';
 import { leadSchema, preliminaryNotes, type Lead } from '@/lib/lead';
 import { checkFiles, type CheckedFile } from '@/lib/files';
 import { rateLimit } from '@/lib/rate-limit';
+import { sendToSheet } from '@/lib/sheets';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -18,9 +19,9 @@ const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&
 
 function emailHtml(l: Lead, id: string, notes: string[]) {
   const rows: [string, string | number | undefined][] = [
-    ['Référence', id], ['Statut', 'Nouveau prospect'], ['Bâtiment', l.building], ['Intervention', l.service], ['Surface', l.surface ? `${l.surface} m²` : 'non précisée'],
+    ['Référence', id], ['Statut', 'Nouveau prospect'], ['Profil', l.profile], ['Société', l.company], ['Bâtiment', l.building], ['Intervention', l.service], ['Surface', l.surface ? `${l.surface} m²` : 'non précisée'],
     ['Matériau', l.material], ['Hauteur', l.height], ['État', l.condition], ['Accès', l.access],
-    ['Commune', `${l.postalCode} ${l.city}`], ['Adresse', l.address], ['Nom', l.name], ['Téléphone', l.phone], ['E-mail', l.email], ['Message', l.message],
+    ['Commune', `${l.postalCode} ${l.city}`], ['Adresse', l.address], ['Nom', l.name], ['Téléphone', l.phone], ['E-mail', l.email], ['Message', l.message], ['Page', l.source],
   ];
   return `<h2>Nouvelle demande d’étude ${esc(id)}</h2><table cellpadding="6" style="border-collapse:collapse">${rows
     .filter(([, v]) => v !== undefined && v !== '')
@@ -30,31 +31,46 @@ function emailHtml(l: Lead, id: string, notes: string[]) {
 
 async function deliver(l: Lead, id: string, files: CheckedFile[]) {
   const notes = preliminaryNotes(l);
+  const via: string[] = [];
+  const failures: string[] = [];
+
+  // 1. Back-office Google Sheets (canal principal quand il est configuré).
+  if (process.env.GOOGLE_SHEETS_WEBHOOK_URL) {
+    try { if (await sendToSheet(l, id, notes, files)) via.push('sheet'); } catch (e) { failures.push((e as Error).message); }
+  }
+
+  // 2. Notification e-mail (Resend), en complément ou en secours.
   const key = process.env.RESEND_API_KEY, to = process.env.LEAD_TO_EMAIL, from = process.env.LEAD_FROM_EMAIL;
   if (key && to && from) {
-    const r = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        from, to: to.split(',').map((s) => s.trim()), reply_to: l.email,
-        subject: `[Devis ${id}] ${l.service} · ${l.postalCode} ${l.city}`,
-        html: emailHtml(l, id, notes),
-        attachments: files.map((f) => ({ filename: f.name, content: f.data.toString('base64') })),
-      }),
-      signal: AbortSignal.timeout(15000),
-    });
-    if (!r.ok) throw new Error(`resend ${r.status}`);
-    return 'email';
+    try {
+      const r = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          from, to: to.split(',').map((s) => s.trim()), reply_to: l.email,
+          subject: `[Devis ${id}] ${l.profile} · ${l.service} · ${l.postalCode} ${l.city}`,
+          html: emailHtml(l, id, notes),
+          attachments: files.map((f) => ({ filename: f.name, content: f.data.toString('base64') })),
+        }),
+        signal: AbortSignal.timeout(15000),
+      });
+      if (!r.ok) throw new Error(`resend ${r.status}`);
+      via.push('email');
+    } catch (e) { failures.push((e as Error).message); }
   }
+
+  // 3. Copie locale : en développement, ou si LEAD_LOCAL_SINK=1, ou en dernier recours si tout a échoué.
   if (process.env.NODE_ENV !== 'production' || process.env.LEAD_LOCAL_SINK === '1') {
-    // Développement : la demande est enregistrée localement pour pouvoir tester le parcours de bout en bout.
     const dir = path.join(process.cwd(), '.leads', id);
     await mkdir(dir, { recursive: true });
-    await writeFile(path.join(dir, 'demande.json'), JSON.stringify({ id, receivedAt: new Date().toISOString(), lead: l, notes }, null, 2));
+    await writeFile(path.join(dir, 'demande.json'), JSON.stringify({ id, receivedAt: new Date().toISOString(), lead: l, notes, via }, null, 2));
     for (const f of files) await writeFile(path.join(dir, f.name), f.data);
-    return 'local';
+    via.push('local');
   }
-  throw new Error('not-configured');
+
+  if (failures.length) console.error(`[devis] ${id} canal en échec: ${failures.join(' | ')}`);
+  if (!via.length) throw new Error(failures.join(' | ') || 'not-configured');
+  return via.join('+');
 }
 
 export async function POST(req: Request) {
@@ -74,7 +90,7 @@ export async function POST(req: Request) {
   }
 
   const raw = Object.fromEntries(
-    ['building', 'service', 'surface', 'material', 'height', 'condition', 'access', 'postalCode', 'city', 'address', 'name', 'phone', 'email', 'message', 'consent']
+    ['profile', 'company', 'source', 'building', 'service', 'surface', 'material', 'height', 'condition', 'access', 'postalCode', 'city', 'address', 'name', 'phone', 'email', 'message', 'consent']
       .map((k) => [k, form.get(k) ?? undefined])
       .filter(([, v]) => v !== undefined && v !== ''),
   );
