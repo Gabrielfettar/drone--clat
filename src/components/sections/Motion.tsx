@@ -142,19 +142,3 @@ export function ScrollHint({ label }: { label: string }) {
   return <a href="#suite" className="scroll-hint"><span className="scroll-mouse" aria-hidden="true"><i /></span>{label}</a>;
 }
 
-/** Avant / après « monuments » : onglets par ville, comparateur glissable, crédit de l'œuvre d'origine. */
-export type SimPair = { slug: string; name: string; before: string; after: string; caption: string; author: string; licence: string; licenceUrl: string; commonsUrl: string };
-export function CitySwitcher({ pairs, Slider }: { pairs: SimPair[]; Slider: (p: { pair: SimPair }) => ReactNode }) {
-  const [i, setI] = useState(0);
-  const p = pairs[i];
-  return (
-    <div className="csw">
-      <div className="csw-tabs" role="tablist" aria-label="Choisir une ville">
-        {pairs.map((x, k) => (
-          <button key={x.slug} type="button" role="tab" aria-selected={k === i} className="csw-tab" onClick={() => setI(k)}>{x.name}</button>
-        ))}
-      </div>
-      <div className="csw-stage" key={p.slug}>{Slider({ pair: p })}</div>
-    </div>
-  );
-}

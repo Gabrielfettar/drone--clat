@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import { HeroStage } from '@/components/hero/HeroStage';
-import { SimSlider } from '@/components/sections/SimSlider';
+import { BeforeAfter } from '@/components/widgets/BeforeAfter';
 import { Faq } from '@/components/ui/Faq';
 import { Icon } from '@/components/ui/Icon';
 import { SuppliersStrip } from '@/components/sections/Sections';
@@ -40,11 +40,6 @@ const segments = [
 
 export default function Home() {
   const before = photo('a_toit_moussu_1'), after = photo('b_toit_propre_tuiles');
-  const pairs = ['reims', 'arras', 'charleville-mezieres', 'rouen', 'compiegne', 'lille']
-    .map((slug) => cities.find((c) => c.slug === slug))
-    .filter((c): c is NonNullable<typeof c> => !!c?.simulation)
-    .map((c) => ({ slug: c.slug, name: c.name, before: c.simulation!.before, after: `/villes/${c.simulation!.photo.file}`, caption: c.simulation!.photo.caption, author: c.simulation!.photo.author, licence: c.simulation!.photo.licence, licenceUrl: c.simulation!.photo.licenceUrl, commonsUrl: c.simulation!.photo.commonsUrl }));
-  const negCity = cities.find((c) => c.slug === 'compiegne')?.simulation;
   const drone = photo('e_drone_toiture_commons'), facade = photo('d_bardage_propre');
   const steps = [
     { k: '01', title: 'Vos photos.', text: 'Trois questions, quelques photos. Étude gratuite sous 48 h.', img: before ? `/illustrations/libres/${before.file}` : '/illustrations/roof-before.webp', alt: 'Toiture moussue avant étude' },
@@ -78,11 +73,20 @@ export default function Home() {
 
       {/* 2. Avant / après plein écran */}
       <section className="section wow-ba" id="suite" aria-labelledby="ba-title">
-        <div className="container">
+        <div className="container wow-ba-grid">
           <div className="wow-head" data-reveal>
             <h2 id="ba-title" className="h-mega-2">Glissez.<br /><span className="accent">Ça brille.</span></h2>
+            <p className="lede">Mousse, lichens, traces noires : partis. Sans échafaudage, sans un pied sur le toit.</p>
+            <Link className="btn" href="/contact/" data-track="cta_ba">Le même résultat chez moi <span className="btn-arrow" aria-hidden="true">→</span></Link>
           </div>
-          {pairs.length > 0 && <div className="wow-ba-frame" data-reveal><SimSlider pairs={pairs} /></div>}
+          {after && (
+            <div className="wow-ba-frame" data-reveal>
+              <BeforeAfter before={`/illustrations/libres/sim/${after.key}-avant.webp`} after={`/illustrations/libres/${after.file}`}
+                alt={{ before: 'Maison avec toiture moussue et façade encrassée (simulation)', after: 'La même maison, toiture et façade propres' }}
+                illustration tag="Simulation"
+                caption={<>« Avant » simulé sur une photo de {after.author} ({after.licence}), pas un chantier Drone Éclat.</>} />
+            </div>
+          )}
         </div>
       </section>
 
@@ -112,15 +116,15 @@ export default function Home() {
       </section>
 
       {/* 5. Widget : et si on ne fait rien ? */}
-      {negCity && (
+      {after && (
         <section className="section section--mist" aria-labelledby="neg-title">
           <div className="container">
             <div className="wow-head wow-head--split" data-reveal>
               <h2 id="neg-title" className="h-mega-2">La mousse ne dort <span className="accent">jamais.</span></h2>
               <p className="lede">Faites avancer le temps.</p>
             </div>
-            <NeglectSlider clean={`/villes/${negCity.photo.file}`} dirty={negCity.before} stages={neglect} />
-            <p className="hint muted neg-credit">Simulation sur une photo de l’hôtel de ville de Compiègne ({negCity.photo.author}, {negCity.photo.licence}, Wikimedia Commons, image modifiée).</p>
+            <NeglectSlider clean={`/illustrations/libres/${after.file}`} dirty={`/illustrations/libres/sim/${after.key}-avant.webp`} stages={neglect} />
+            <p className="hint muted neg-credit">Vieillissement simulé sur une photo de {after.author} ({after.licence}).</p>
             <div className="cta-row wow-center-row"><Link className="btn" href="/contact/?service=demoussage-toiture-drone" data-track="cta_neglect">J’agis avant l’hiver <span className="btn-arrow" aria-hidden="true">→</span></Link></div>
           </div>
         </section>
