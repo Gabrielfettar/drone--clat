@@ -7,7 +7,7 @@ import { useCallback, useRef, useState } from 'react';
  * `illustration` affiche une mention explicite tant que les photos de chantiers réels ne sont pas disponibles.
  */
 export function BeforeAfter({ before, after, alt, caption, illustration = false, priority = false }: {
-  before: string; after: string; alt: { before: string; after: string }; caption?: string; illustration?: boolean; priority?: boolean;
+  before: string; after: string; alt: { before: string; after: string }; caption?: string; illustration?: boolean | string; priority?: boolean;
 }) {
   const [pos, setPos] = useState(50);
   const box = useRef<HTMLDivElement>(null);
@@ -39,7 +39,7 @@ export function BeforeAfter({ before, after, alt, caption, illustration = false,
       </div>
       {(caption || illustration) && (
         <figcaption className="ba-cap">
-          {illustration && <span className="pending-tag">Illustration 3D</span>} {caption}
+          {illustration && <span className="pending-tag">{typeof illustration === 'string' ? illustration : 'Illustration 3D'}</span>} {caption}
         </figcaption>
       )}
     </figure>

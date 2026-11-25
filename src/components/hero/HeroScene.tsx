@@ -338,6 +338,8 @@ function Director({ onHud, reduced, onReady, still }: { onHud: HudSink; reduced:
   const zone = useRef(0);
   const st = useRef({ t: 0, phase: 'intro' as Phase, phaseT: 0, dist: 0, lastUV: null as null | [number, number], hudT: 0 });
   const pointer = useRef({ x: 0, y: 0 });
+  // Défilement : 0 en haut de page, 1 quand le hero a quitté l'écran. Pilote la caméra et accélère le nettoyage.
+  const scroll = useRef({ p: 0, eased: 0, lastY: 0, boost: 0 });
   const sun = useRef<THREE.DirectionalLight>(null);
   const hemi = useRef<THREE.HemisphereLight>(null);
   const tmp = useMemo(() => ({ p: new THREE.Vector3(), look: new THREE.Vector3(), cam: new THREE.Vector3() }), []);
@@ -362,6 +364,12 @@ function Director({ onHud, reduced, onReady, still }: { onHud: HudSink; reduced:
   useEffect(() => {
     const m = (e: PointerEvent) => { pointer.current.x = e.clientX / window.innerWidth - 0.5; pointer.current.y = e.clientY / window.innerHeight - 0.5; };
     window.addEventListener('pointermove', m, { passive: true });
+    const sc = () => {
+      const y = window.scrollY, sr = scroll.current;
+      sr.p = Math.min(1, Math.max(0, y / (window.innerHeight * 0.9)));
+      sr.boost += Math.abs(y - sr.lastY); sr.lastY = y;
+    };
+    sc(); window.addEventListener('scroll', sc, { passive: true });
     gl.domElement.style.opacity = '0';
     requestAnimationFrame(() => { gl.domElement.style.transition = 'opacity 1.2s cubic-bezier(.16,1,.3,1)'; gl.domElement.style.opacity = '1'; onReady(); });
     if (still) {
@@ -376,7 +384,7 @@ function Director({ onHud, reduced, onReady, still }: { onHud: HudSink; reduced:
       for (let d = 0; d < path.total * 0.55; d += 0.12) { const p = at(d); tex.clean(p.u, p.v, 0.13); }
       tex.compose(); st.current.phase = 'clean'; st.current.dist = path.total * 0.55; zone.current = 1;
     }
-    return () => { window.removeEventListener('pointermove', m); tex.dispose(); };
+    return () => { window.removeEventListener('pointermove', m); window.removeEventListener('scroll', sc); tex.dispose(); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -388,10 +396,13 @@ function Director({ onHud, reduced, onReady, still }: { onHud: HudSink; reduced:
 
     // --- caméra
     const intro = Math.min(1, s.t / 3.2), e = 1 - Math.pow(1 - intro, 3);
-    const orbit = reduced ? 0 : Math.sin(s.t * 0.06) * 0.12 + pointer.current.x * 0.08;
-    const radius = (portrait ? 46 : 50) - e * 8;
+    const sr = scroll.current;
+    sr.eased += ((reduced ? 0 : sr.p) - sr.eased) * 0.08;
+    const sp = sr.eased, spE = sp * sp * (3 - 2 * sp);
+    const orbit = reduced ? 0 : Math.sin(s.t * 0.06) * 0.12 + pointer.current.x * 0.08 - spE * 0.55;
+    const radius = (portrait ? 46 : 50) - e * 8 - spE * 16;
     const baseAng = 0.42 + orbit;
-    tmp.cam.set(Math.sin(baseAng) * radius, 15 - e * 3 + pointer.current.y * -1.2, Math.cos(baseAng) * radius);
+    tmp.cam.set(Math.sin(baseAng) * radius, 15 - e * 3 + pointer.current.y * -1.2 + spE * 7, Math.cos(baseAng) * radius);
     camera.position.lerp(tmp.cam, reduced ? 1 : 0.08);
     // la maison est cadrée à droite en paysage, en bas en portrait
     tmp.look.set(portrait ? 2.5 : -9, portrait ? 6.6 : 5.2, 0);
@@ -419,7 +430,9 @@ function Director({ onHud, reduced, onReady, still }: { onHud: HudSink; reduced:
       zone.current = Math.min(1, Math.max(0, (s.phaseT - 1.6) / 1));
       if (k >= 1) { s.phase = 'clean'; s.phaseT = 0; s.dist = 0; s.lastUV = null; }
     } else if (s.phase === 'clean') {
-      if (!reduced) s.dist = Math.min(path.total, s.dist + dt * 2.4);
+      // Le défilement accélère le nettoyage (« scrollez, ça nettoie »), plafonné pour rester fluide.
+      const boost = Math.min(scroll.current.boost * 0.012, 3.5); scroll.current.boost = 0;
+      if (!reduced) s.dist = Math.min(path.total, s.dist + dt * 2.4 + boost);
       const { pos, p } = clean(s.dist);
       d.position.copy(pos); d.position.y += hover;
       spraying.current = !reduced;

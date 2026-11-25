@@ -56,6 +56,7 @@ export function Footer() {
               <li><Link href="/mentions-legales/">Mentions légales</Link></li>
               <li><Link href="/confidentialite/">Confidentialité</Link></li>
               <li><Link href="/cookies/">Cookies</Link></li>
+              <li><Link href="/credits-photos/">Crédits photos</Link></li>
               <li><Link href="/securite-reglementation/">Sécurité et réglementation</Link></li>
             </ul>
           </nav>

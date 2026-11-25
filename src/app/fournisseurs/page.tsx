@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { PageHero } from '@/components/ui/PageHero';
 import { CtaBand } from '@/components/ui/CtaBand';
 import { Icon } from '@/components/ui/Icon';
@@ -27,6 +28,7 @@ export default function SuppliersPage() {
           <ul className="sup-cards">
             {suppliers.map((s, k) => (
               <li key={s.slug} className="sup-card" data-reveal style={{ ['--i' as string]: k }}>
+                <div className={`sup-card-logo ${s.logo.onDark ? 'is-dark' : ''}`}><Image src={s.logo.src} alt={`Logo ${s.name}`} width={s.logo.width} height={s.logo.height} /></div>
                 <span className="sup-name">{s.name}</span>
                 <span className="mono">{s.short}</span>
                 <p>{s.about}</p>

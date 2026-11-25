@@ -3,6 +3,7 @@ import { Archivo, Instrument_Sans, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 import './components.css';
 import './v3.css';
+import './v4.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { QuickContact } from '@/components/layout/QuickContact';

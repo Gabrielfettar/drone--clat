@@ -165,19 +165,25 @@ export function TeamBlock() {
   );
 }
 
-/** Fournisseurs : noms en texte (pas de logo sans accord de la marque). */
+/** Fournisseurs : logos officiels des fabricants, sur fond sombre. */
 export function SuppliersStrip() {
   return (
-    <section className="section section--tight sup-strip" aria-labelledby="sup-title">
-      <div className="container sup-inner">
+    <section className="section section--tight sup-logos" aria-labelledby="sup-title">
+      <div className="container sup-logos-inner">
         <div data-reveal>
           <span className="eyebrow">Nos fournisseurs</span>
-          <h2 id="sup-title" className="h-2">Des produits de fabricants spécialisés.</h2>
+          <h2 id="sup-title" className="h-2">Des produits pros, <span className="accent">fabriqués en France.</span></h2>
         </div>
-        <ul className="sup-names" data-reveal style={{ ['--i' as string]: 1 }}>
-          {suppliers.map((s) => <li key={s.slug}><span className="sup-name">{s.name}</span><span className="mono">{s.short}</span></li>)}
+        <ul className="sup-logo-list" data-reveal style={{ ['--i' as string]: 1 }}>
+          {suppliers.map((s) => (
+            <li key={s.slug}>
+              <Link href="/fournisseurs/" className="sup-logo" aria-label={`${s.name} : ${s.short}`}>
+                <Image src={s.logo.src} alt={`Logo ${s.name}`} width={s.logo.width} height={s.logo.height} className={s.logo.onDark ? 'logo-ondark' : 'logo-onlight'} />
+              </Link>
+              <span className="mono">{s.short}</span>
+            </li>
+          ))}
         </ul>
-        <Link className="link-arrow" href="/fournisseurs/" data-reveal style={{ ['--i' as string]: 2 }}>Nos produits et nos engagements environnementaux <span aria-hidden="true">→</span></Link>
       </div>
     </section>
   );
