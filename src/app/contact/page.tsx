@@ -23,7 +23,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHero crumbs={[{ href: '/contact/', label: 'Contact' }]} eyebrow="Étude gratuite" title="Décrivez votre chantier, nous faisons l’étude."
-        lede="Six étapes courtes, quelques photos si vous en avez, et vous recevez sous 48 h ouvrées une réponse avec un devis détaillé. Aucun engagement." />
+        lede="Trois étapes, une minute, quelques photos si vous en avez, et vous recevez sous 48 h ouvrées une réponse avec un devis détaillé. Aucun engagement." />
       <section className="section" id="formulaire" aria-label="Formulaire de demande d’étude">
         <div className="container layout-aside">
           <Estimator />

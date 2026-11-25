@@ -54,7 +54,7 @@ test('vérification de zone : code postal invalide puis valide (API simulée)', 
   await expect(page.getByText(/code postal à 5 chiffres/)).toBeVisible();
   await input.fill('60280');
   await page.getByRole('button', { name: 'Vérifier' }).click();
-  await expect(page.getByText(/dans notre secteur prévisionnel/)).toBeVisible();
+  await expect(page.getByText(/dans notre secteur d’intervention/)).toBeVisible();
   await expect(page.getByRole('link', { name: /Demander une étude pour Margny/ })).toHaveAttribute('href', '/contact/?cp=60280');
 });
 
@@ -68,18 +68,13 @@ test('galerie : filtre et visionneuse', async ({ page }) => {
   await expect(page.locator('dialog.lightbox')).toBeHidden();
 });
 
-test('estimateur : validation, photo, envoi réel et confirmation', async ({ page }) => {
+test('estimateur : 3 étapes, validation, photo, envoi réel et confirmation', async ({ page }) => {
   await page.goto('/contact/?service=demoussage-toiture-drone');
   const next = page.getByRole('button', { name: /Continuer/ });
   await next.click();
   await expect(page.getByText('Choisissez un type de bâtiment.')).toBeVisible();
   await page.getByRole('radio', { name: 'Maison individuelle' }).check();
-  await next.click();
   await expect(page.getByRole('radio', { name: 'Démoussage / traitement de toiture' })).toBeChecked(); // prérempli depuis l'URL
-  await next.click();
-  await page.getByLabel('Surface approximative (m²)').fill('140');
-  await page.getByLabel('Matériau').selectOption('Fibrociment');
-  await next.click();
   await page.getByLabel('Code postal').fill('60200');
   await page.getByLabel('Commune').fill('Compiègne');
   await next.click();
@@ -87,20 +82,23 @@ test('estimateur : validation, photo, envoi réel et confirmation', async ({ pag
   if (!fs.existsSync(png)) fs.writeFileSync(png, Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', 'base64'));
   await page.locator('input[type=file]').setInputFiles(png);
   await expect(page.getByRole('img', { name: /Photo 1/ })).toBeVisible();
+  await page.getByText(/Préciser la surface/).click();
+  await page.getByLabel('Surface approximative (m²)').fill('140');
+  await page.getByLabel('Matériau').selectOption('Fibrociment');
   await next.click();
   await page.getByLabel('Nom').fill('Test Automatisé');
   await page.getByLabel('Téléphone').fill('0612');
   await page.getByLabel('E-mail').fill('pas-un-mail');
-  await next.click();
+  await expect(page.getByText(/diagnostic amiante/)).toBeVisible();
+  await page.waitForTimeout(4200); // délai anti-robot
+  const send = page.getByRole('button', { name: 'Recevoir mon étude gratuite' });
+  await send.click();
   await expect(page.getByText(/Numéro français/)).toBeVisible();
   await expect(page.getByText('Adresse e-mail invalide.')).toBeVisible();
   await page.getByLabel('Téléphone').fill('06 12 34 56 78');
   await page.getByLabel('E-mail').fill('test@example.com');
   await page.getByRole('checkbox').check();
-  await next.click();
-  await expect(page.getByText(/diagnostic amiante/)).toBeVisible();
-  await page.waitForTimeout(4200); // délai anti-robot
-  await page.getByRole('button', { name: 'Envoyer ma demande' }).click();
+  await send.click();
   await expect(page.getByRole('heading', { name: 'Demande bien reçue.' })).toBeVisible();
   await expect(page.getByText(/DE-\d{8}-/)).toBeVisible();
 });
