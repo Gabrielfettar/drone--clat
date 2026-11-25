@@ -34,7 +34,7 @@ export const services: Service[] = [
     h1: 'Démoussage de toiture par drone',
     title: 'Démoussage de toiture par drone dans l’Oise',
     description:
-      'Démoussage et nettoyage de toiture par drone : sans échafaudage, sans marcher sur les tuiles. Étude gratuite sur photos, intervention dans l’Oise.',
+      'Démoussage et nettoyage de toiture par drone : sans échafaudage, sans marcher sur les tuiles. Devis gratuit sur photos, Oise et 200 km autour de Compiègne.',
     lede:
       'Mousses, lichens et salissures retirés depuis les airs, sans échafaudage et sans que personne ne marche sur vos tuiles. L’étude se fait à partir de vos photos, gratuitement.',
     summary:
@@ -189,7 +189,7 @@ export const services: Service[] = [
     h1: 'Nettoyage de bardage et de bâtiments agricoles par drone',
     title: 'Nettoyage de bardage et hangars par drone',
     description:
-      'Nettoyage de bardage métallique, hangars et bâtiments agricoles par drone. Grandes surfaces sans nacelle ni arrêt d’activité. Étude gratuite.',
+      'Nettoyage de bardage métallique, hangars et bâtiments agricoles par drone. Grandes surfaces sans nacelle ni arrêt d’activité. Devis gratuit.',
     lede:
       'Hangars, entrepôts, bâtiments d’élevage : les grandes parois et toitures métalliques nettoyées secteur par secteur, sans nacelle dans la cour et sans arrêter l’activité.',
     summary:

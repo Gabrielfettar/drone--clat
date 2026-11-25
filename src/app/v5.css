@@ -1,0 +1,95 @@
+/* v5 : conversion et mouvement. Bande de confiance, comparatif, boutons dynamiques, barre de progression. */
+
+/* Boutons : bleu plus soutenu (contraste AA sur texte blanc) */
+.btn { --bg: var(--c-blue-strong); }
+.btn--ghost { --bg: transparent; }
+.btn--light { --bg: #fff; }
+.btn--light::after { background: var(--c-blue-strong); }
+
+/* Reflet qui suit le curseur + effet aimant sur les grands boutons */
+.btn:not([data-loading='true'])::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: 0;
+  background: radial-gradient(120px circle at var(--px, 50%) var(--py, 50%), rgb(255 255 255 / 0.35), transparent 70%);
+  transition: opacity var(--d-base);
+}
+.btn:hover:not([data-loading='true'])::before { opacity: 1; z-index: 0; }
+.btn--lg { translate: var(--mx, 0) var(--my, 0); transition: translate 220ms var(--ease-out), transform var(--d-base) var(--ease-out), background var(--d-base), color var(--d-base), border-color var(--d-base), box-shadow var(--d-base); }
+.btn:hover .btn-arrow { transform: translateX(5px); }
+
+/* Bouton principal : halo qui respire pour attirer l'œil */
+@media (prefers-reduced-motion: no-preference) {
+  .btn--pulse { animation: btn-pulse 2.6s var(--ease-inout) infinite; }
+  .btn--pulse:hover { animation: none; }
+}
+@keyframes btn-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgb(0 113 194 / 0.45); }
+  55% { box-shadow: 0 0 0 14px rgb(0 113 194 / 0); }
+}
+
+/* Barre de progression de lecture (CSS pur, navigateurs compatibles uniquement) */
+.scroll-progress { display: none; }
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-progress { display: block; position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 90; transform-origin: 0 50%; transform: scaleX(0); background: linear-gradient(90deg, var(--c-blue), var(--c-blue-strong)); animation: scroll-grow linear both; animation-timeline: scroll(root); pointer-events: none; }
+  }
+}
+@keyframes scroll-grow { to { transform: scaleX(1); } }
+
+/* Héros : faits clés fixes sous les boutons */
+.hero-facts { list-style: none; margin: var(--s-5) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 10px; }
+.hero-facts li { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: var(--r-pill); background: rgb(255 255 255 / 0.82); backdrop-filter: blur(8px); border: 1px solid var(--c-line); font-size: var(--t-sm); font-weight: 600; color: var(--c-ink); }
+.hero-facts svg { color: var(--c-blue-strong); flex: none; }
+
+/* Bande de confiance */
+.trust-band { background: var(--c-paper); border-bottom: 1px solid var(--c-line); padding-block: var(--s-6); }
+.trust-list { list-style: none; margin: 0 auto; padding-block: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s-5); }
+.trust-list li { display: flex; align-items: flex-start; gap: 12px; }
+.trust-ico { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: var(--r-md); background: var(--c-blue-soft); color: var(--c-blue-strong); transition: transform var(--d-slow) var(--ease-out), background var(--d-base), color var(--d-base); }
+.trust-list li:hover .trust-ico { transform: translateY(-3px) rotate(-6deg); background: var(--c-blue-strong); color: #fff; }
+.trust-list strong { display: block; font-family: var(--f-display); font-size: var(--t-md); line-height: 1.2; }
+.trust-d { display: block; margin-top: 2px; font-size: var(--t-sm); color: var(--c-muted); }
+@media (max-width: 980px) { .trust-list { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .trust-list { grid-template-columns: 1fr; gap: var(--s-4); } .trust-band { padding-block: var(--s-5); } }
+
+/* Comparatif drone / méthode classique */
+.vs { margin-top: var(--s-7); border: 1px solid var(--c-line); border-radius: var(--r-lg); overflow: hidden; background: var(--c-paper); box-shadow: var(--sh-2); }
+.vs-row { display: grid; grid-template-columns: minmax(150px, 0.8fr) 1.3fr 1.3fr; border-top: 1px solid var(--c-line); }
+.vs-row:first-child { border-top: 0; }
+.vs-head { grid-template-columns: minmax(150px, 0.8fr) 1.3fr 1.3fr; }
+.vs-head .sr-only + .vs-col { grid-column: 2; }
+.vs-head .vs-col { font-family: var(--f-display); font-size: var(--t-lg); font-weight: 700; }
+.vs-k { display: flex; align-items: center; padding: var(--s-4) var(--s-5); font-size: var(--t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--c-muted); }
+.vs-col { min-width: 0; overflow-wrap: anywhere; display: flex; align-items: center; gap: 10px; padding: var(--s-4) var(--s-5); color: var(--c-muted); }
+.vs-col--drone { background: var(--c-blue-soft); color: var(--c-ink); font-weight: 600; }
+.vs-col--drone svg { flex: none; color: var(--c-blue-strong); }
+.vs-head .vs-col--drone { background: var(--c-ink); color: #fff; }
+.vs-row:not(.vs-head) { transition: background var(--d-base); }
+.vs-row:not(.vs-head):hover .vs-col--drone { background: #d3e9fa; }
+.vs-note { margin-top: var(--s-4); max-width: 70ch; }
+@media (max-width: 760px) {
+  .vs-row, .vs-head { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .vs-head .sr-only { display: none; }
+  .vs-row > .vs-col--drone, .vs-head .sr-only + .vs-col { grid-column: 1; }
+  .vs-row > .vs-col:not(.vs-col--drone) { grid-column: 2; }
+  .vs-head .vs-col { font-size: var(--t-md); }
+  .vs-k { grid-column: 1 / -1; padding-bottom: 0; padding-top: var(--s-4); }
+  .vs-col { padding: var(--s-3) var(--s-4); font-size: var(--t-sm); align-items: flex-start; }
+}
+
+/* Cartes : légère élévation au survol, pour un site qui réagit */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .seg-card, .city-card { transition: transform var(--d-slow) var(--ease-out), box-shadow var(--d-slow) var(--ease-out); }
+  .seg-card:hover, .city-card:hover { transform: translateY(-6px); box-shadow: var(--sh-3); }
+  .seg-card img, .city-card img { transition: transform 900ms var(--ease-out); }
+  .seg-card:hover img, .city-card:hover img { transform: scale(1.06); }
+}
+
+/* Petit écran : le bouton d'en-tête reste visible, plus compact */
+@media (max-width: 420px) { .header-cta { display: inline-flex; padding: 0 12px; min-height: 36px; font-size: var(--t-xs); } .header-cta .btn-arrow { display: none; } .burger { margin-left: 8px; } }
+
+/* Communes en pastilles (page Compiègne, page Oise) */
+.town-chips { list-style: none; margin: var(--s-5) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.town-chips li, .town-chips a { display: inline-flex; align-items: center; padding: 8px 14px; border-radius: var(--r-pill); border: 1px solid var(--c-line-strong); background: var(--c-paper); font-weight: 600; font-size: var(--t-sm); color: var(--c-ink); text-decoration: none; }
+.town-chips li:has(a) { padding: 0; border: 0; }
+.town-chips a { transition: background var(--d-base), color var(--d-base), border-color var(--d-base), transform var(--d-base) var(--ease-out); }
+.town-chips a:hover { background: var(--c-ink); border-color: var(--c-ink); color: #fff; transform: translateY(-2px); }

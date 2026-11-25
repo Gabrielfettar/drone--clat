@@ -56,7 +56,7 @@ async function toEmail(l: Lead, id: string, notes: string[], files: CheckedFile[
     method: 'POST',
     headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      from, to: to.split(',').map((s) => s.trim()), reply_to: l.email,
+      from, to: to.split(',').map((s) => s.trim()), reply_to: l.email || undefined,
       subject: `[Devis ${id}] ${l.service} · ${l.postalCode} ${l.city}`,
       html: emailHtml(l, id, notes),
       attachments: files.map((f) => ({ filename: f.name, content: f.data.toString('base64') })),

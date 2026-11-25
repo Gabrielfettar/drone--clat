@@ -52,7 +52,7 @@ export default function TechnologiePage() {
         }
       >
         <div className="cta-row">
-          <Link className="btn" href={CONTACT} data-track="tech_hero_devis">Demander une étude gratuite <span className="btn-arrow" aria-hidden="true">→</span></Link>
+          <Link className="btn" href={CONTACT} data-track="tech_hero_devis">Demander un devis gratuit <span className="btn-arrow" aria-hidden="true">→</span></Link>
           <Link className="btn btn--ghost" href="#limites">Capacités et limites</Link>
         </div>
       </PageHero>
@@ -68,7 +68,6 @@ export default function TechnologiePage() {
               <h2 id="materiel" className="h-1">Quatre éléments, un seul système.</h2>
               <p className="lede">Le drone ne travaille jamais seul : il dépend d’une installation au sol que l’équipe surveille en permanence.</p>
               <dl className="specs pa-specs">
-                <div><dt>Modèle du drone</dt><dd>À préciser <span className="pending-tag">En attente</span></dd></div>
                 <div><dt>Alimentation en eau</dt><dd>Par tuyau depuis le sol</dd></div>
                 <div><dt>Pilotage</dt><dd>À vue, télépilote au sol</dd></div>
                 <div><dt>Pression</dt><dd>Réglée selon le matériau</dd></div>

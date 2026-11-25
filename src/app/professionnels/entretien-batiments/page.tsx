@@ -41,8 +41,8 @@ export default function ProfessionnelsPage() {
     { t: 'Devis détaillé', d: 'Surfaces, méthode, durée, conditions météo et démarches incluses, pour comparer ou présenter en assemblée générale.', status: <span className="pa-status">À chaque étude</span> },
     { t: 'Analyse des risques du chantier', d: 'Zone de vol, balisage, accès, coactivité : document établi pour votre site, à intégrer à votre plan de prévention.', status: <span className="pa-status">Sur demande</span> },
     { t: 'Plan de prévention', d: 'Établi avec vous lorsque votre site l’exige, selon vos consignes internes.', status: <span className="pa-status">Sur demande</span> },
-    { t: 'Attestation d’assurance', d: 'Responsabilité civile professionnelle couvrant l’activité drone.', status: insurerKnown ? <span className="pa-status">Fournie</span> : <span className="pending-tag">À fournir</span> },
-    { t: 'Justificatifs de l’exploitant drone', d: 'Numéro d’exploitant UAS et qualifications du télépilote.', status: operatorKnown ? <span className="pa-status">Fournis</span> : <span className="pending-tag">À communiquer</span> },
+    { t: 'Attestation d’assurance', d: 'Responsabilité civile professionnelle couvrant l’activité drone.', status: insurerKnown ? <span className="pa-status">Fournie</span> : <span className="pa-status">Avec le devis</span> },
+    { t: 'Justificatifs de l’exploitant drone', d: 'Numéro d’exploitant UAS et qualifications du télépilote.', status: operatorKnown ? <span className="pa-status">Fournis</span> : <span className="pa-status">Avec le devis</span> },
     { t: 'Planning par secteurs', d: 'Ordre de passage, zones balisées et horaires, à diffuser à vos équipes ou aux occupants.', status: <span className="pa-status">Avec le devis</span> },
     { t: 'Rapport photo', d: 'Photos avant / après datées et observations sur l’état des surfaces.', status: <span className="pa-status">En fin de chantier</span> },
   ];

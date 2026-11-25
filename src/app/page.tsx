@@ -5,7 +5,7 @@ import { HeroStage } from '@/components/hero/HeroStage';
 import { BeforeAfter } from '@/components/widgets/BeforeAfter';
 import { Faq } from '@/components/ui/Faq';
 import { Icon } from '@/components/ui/Icon';
-import { SuppliersStrip } from '@/components/sections/Sections';
+import { TrustBand, Compare } from '@/components/sections/Conversion';
 import { Rotator, Marquee, CountUp, ScrollSteps, NeglectSlider, Rail, ScrollHint } from '@/components/sections/Motion';
 import { homeFaq } from '@/content/faq';
 import { neglect } from '@/content/benefits';
@@ -14,17 +14,18 @@ import { cities } from '@/content/cities';
 import { team } from '@/content/team';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Drone Éclat · Démoussage et nettoyage de toiture par drone' },
-  description: 'Démoussage de toiture, nettoyage de façade et de bardage par drone. Zéro tuile cassée, zéro échafaudage. Particuliers, pros et monuments, 200 km autour de Compiègne. Étude gratuite sous 48 h.',
+  title: { absolute: 'Démoussage de toiture par drone à Compiègne, Oise · Drone Éclat' },
+  description: 'Démoussage de toiture, nettoyage de façade et de bardage par drone, sans échafaudage. Compiègne, Oise et 200 km autour. Devis gratuit sous 48 h.',
   alternates: { canonical: '/' },
+  openGraph: { type: 'website', locale: 'fr_FR', siteName: 'Drone Éclat', url: '/', images: [{ url: '/og-default.jpg', width: 1200, height: 630, alt: 'Drone Éclat : un drone nettoie une toiture en tuiles' }] },
 };
 
-const SLOGANS = ['Zéro tuile cassée', 'Zéro échafaudage', 'On ne monte plus sur votre toit', 'Propre vu d’en haut', 'Du pavillon à la cathédrale', 'Un toit neuf sans le refaire', 'Étude gratuite en 48 h'];
+const SLOGANS = ['Personne ne marche sur vos tuiles', 'Zéro échafaudage', 'On ne monte plus sur votre toit', 'Propre vu d’en haut', 'Du pavillon à l’entrepôt', 'Un toit neuf sans le refaire', 'Devis gratuit sous 48 h'];
 
 const gains = [
-  { icon: 'tile' as const, big: 'Zéro', t: 'tuile cassée', d: 'Personne ne marche sur votre toit.' },
+  { icon: 'tile' as const, big: 'Zéro', t: 'pied sur vos tuiles', d: 'Le drone travaille au-dessus de la couverture.' },
   { icon: 'euro' as const, big: 'Zéro', t: 'échafaudage', d: 'Vous payez le nettoyage, pas l’accès.' },
-  { icon: 'calendar' as const, big: 'Des années', t: 'de tranquillité', d: 'Nettoyé, traité, oublié.' },
+  { icon: 'calendar' as const, big: 'Un toit', t: 'qui respire', d: 'Mousses et lichens retirés, la tuile sèche à nouveau.' },
   { icon: 'shield' as const, big: 'Plus longtemps', t: 'votre toiture dure', d: 'La mousse ne fait plus éclater les tuiles.' },
   { icon: 'clock' as const, big: '1 jour', t: 'en général', d: 'Votre rue libérée le soir même.' },
   { icon: 'home' as const, big: '+ de valeur', t: 'pour votre bien', d: 'La première impression change tout.' },
@@ -34,17 +35,16 @@ const segments = [
   { k: 'e_drone_toiture_commons', t: 'Maisons', d: 'Pavillons, longères, villas' },
   { k: 'd_bardage_propre', t: 'Copropriétés & bureaux', d: 'Façades, bardages, toits plats' },
   { k: 'f_toit_industriel', t: 'Industrie & logistique', d: 'Des milliers de m², activité maintenue' },
-  { k: 'g_chateau_normandie', t: 'Châteaux & patrimoine', d: 'Méthode validée avec l’architecte' },
-  { k: 'g_versailles_toit', t: 'Monuments historiques', d: 'Là où l’échafaudage coûte une fortune' },
+  { k: 'g_chateau_normandie', t: 'Châteaux & patrimoine', d: 'Étude au cas par cas, avec l’architecte' },
 ];
 
 export default function Home() {
   const before = photo('a_toit_moussu_1'), after = photo('b_toit_propre_tuiles');
   const drone = photo('e_drone_toiture_commons'), facade = photo('d_bardage_propre');
   const steps = [
-    { k: '01', title: 'Vos photos.', text: 'Trois questions, quelques photos. Étude gratuite sous 48 h.', img: before ? `/illustrations/libres/${before.file}` : '/illustrations/roof-before.webp', alt: 'Toiture moussue avant étude' },
+    { k: '01', title: 'Vos photos.', text: 'Trois questions, quelques photos. Devis gratuit sous 48 h.', img: before ? `/illustrations/libres/${before.file}` : '/illustrations/roof-before.webp', alt: 'Toiture moussue avant étude' },
     { k: '02', title: 'Le drone décolle.', text: 'Démarches de vol à notre charge. Personne sur le toit.', img: drone ? `/illustrations/libres/${drone.file}` : '/illustrations/drone.webp', alt: 'Drone de nettoyage en action sur une toiture' },
-    { k: '03', title: 'L’éclat.', text: 'Toit propre, traité, rapport photo. En général en un jour.', img: after ? `/illustrations/libres/${after.file}` : '/illustrations/roof-after.webp', alt: 'Toiture propre après nettoyage' },
+    { k: '03', title: 'L’éclat.', text: 'Toit propre, rapport photo avant / après. En général en un jour.', img: after ? `/illustrations/libres/${after.file}` : '/illustrations/roof-after.webp', alt: 'Toiture propre après nettoyage' },
   ];
 
   return (
@@ -62,14 +62,21 @@ export default function Home() {
             Démoussage et nettoyage de votre <Rotator words={['toiture', 'façade', 'bardage', 'copropriété', 'église', 'entrepôt']} /> par drone.
           </p>
           <div className="cta-row hero-in" style={{ ['--d' as string]: '380ms' }}>
-            <Link href="/contact/" className="btn btn--lg" data-track="cta_hero">Mon étude gratuite <span className="btn-arrow" aria-hidden="true">→</span></Link>
+            <Link href="/contact/" className="btn btn--lg btn--pulse" data-track="cta_hero">Mon devis gratuit <span className="btn-arrow" aria-hidden="true">→</span></Link>
             <Link href="/professionnels/entretien-batiments/" className="btn btn--ghost btn--lg">Je suis un pro</Link>
           </div>
+          <ul className="hero-facts hero-in" style={{ ['--d' as string]: '480ms' }}>
+            <li><Icon name="map" size={16} />Compiègne, Oise et 200 km autour</li>
+            <li><Icon name="clock" size={16} />Devis gratuit sous 48 h</li>
+            <li><Icon name="check" size={16} />Sans engagement</li>
+          </ul>
         </div>
         <ScrollHint label="Scrollez : le drone accélère" />
       </section>
 
       <Marquee items={SLOGANS} />
+
+      <TrustBand />
 
       {/* 2. Avant / après plein écran */}
       <section className="section wow-ba" id="suite" aria-labelledby="ba-title">
@@ -77,7 +84,7 @@ export default function Home() {
           <div className="wow-head" data-reveal>
             <h2 id="ba-title" className="h-mega-2">Glissez.<br /><span className="accent">Ça brille.</span></h2>
             <p className="lede">Mousse, lichens, traces noires : partis. Sans échafaudage, sans un pied sur le toit.</p>
-            <Link className="btn" href="/contact/" data-track="cta_ba">Le même résultat chez moi <span className="btn-arrow" aria-hidden="true">→</span></Link>
+            <Link className="btn" href="/contact/" data-track="cta_ba">Demander mon devis gratuit <span className="btn-arrow" aria-hidden="true">→</span></Link>
           </div>
           {after && (
             <div className="wow-ba-frame" data-reveal>
@@ -115,6 +122,8 @@ export default function Home() {
         </div>
       </section>
 
+      <Compare />
+
       {/* 5. Widget : et si on ne fait rien ? */}
       <section className="section section--mist" aria-labelledby="neg-title">
           <div className="container">
@@ -124,7 +133,7 @@ export default function Home() {
             </div>
             <NeglectSlider clean="/illustrations/house-after.webp" dirty="/illustrations/house-before.webp" stages={neglect} />
             <p className="hint muted neg-credit">Illustration 3D.</p>
-            <div className="cta-row wow-center-row"><Link className="btn" href="/contact/?service=demoussage-toiture-drone" data-track="cta_neglect">J’agis avant l’hiver <span className="btn-arrow" aria-hidden="true">→</span></Link></div>
+            <div className="cta-row wow-center-row"><Link className="btn" href="/contact/?service=demoussage-toiture-drone" data-track="cta_neglect">Devis gratuit avant l’hiver <span className="btn-arrow" aria-hidden="true">→</span></Link></div>
           </div>
         </section>
 
@@ -132,8 +141,8 @@ export default function Home() {
       <section className="section section--ink seg-wow" aria-labelledby="seg-title">
         <div className="container">
           <div className="wow-head wow-head--split" data-reveal>
-            <h2 id="seg-title" className="h-mega-2">Du pavillon<br /><span className="accent">à la cathédrale.</span></h2>
-            <p className="lede">Aucun chantier trop haut. Aucun trop grand.</p>
+            <h2 id="seg-title" className="h-mega-2">Du pavillon<br /><span className="accent">au patrimoine.</span></h2>
+            <p className="lede">Maisons, copropriétés, sites d’activité, édifices anciens : chaque chantier est étudié avant de voler.</p>
           </div>
         </div>
         <Rail label="Types de bâtiments">
@@ -156,25 +165,22 @@ export default function Home() {
       <section className="section section--tight stats-wow" aria-label="Drone Éclat en chiffres">
         <div className="container stats-grid">
           <div data-reveal><strong className="stat-big"><CountUp to={200} suffix=" km" /></strong><span>autour de Compiègne</span></div>
-          <div data-reveal style={{ ['--i' as string]: 1 }}><strong className="stat-big"><CountUp to={cities.length} /></strong><span>grandes villes desservies</span></div>
+          <div data-reveal style={{ ['--i' as string]: 1 }}><strong className="stat-big"><CountUp to={cities.length} /></strong><span>villes couvertes</span></div>
           <div data-reveal style={{ ['--i' as string]: 2 }}><strong className="stat-big"><CountUp to={48} suffix=" h" /></strong><span>pour votre étude</span></div>
           <div data-reveal style={{ ['--i' as string]: 3 }}><strong className="stat-big"><CountUp to={0} /></strong><span>pied sur votre toit</span></div>
         </div>
       </section>
 
-      {/* 8. Logos fournisseurs */}
-      <SuppliersStrip />
-
       {/* 9. Équipe, en une ligne */}
-      <section className="section section--tight team-wow" aria-labelledby="team-title">
+      {team.some((m) => m.name) && <section className="section section--tight team-wow" aria-labelledby="team-title">
         <div className="container team-wow-inner">
-          <h2 id="team-title" className="h-2" data-reveal>Des pilotes <span className="accent">certifiés CATS.</span> Une équipe au sol.</h2>
+          <h2 id="team-title" className="h-2" data-reveal>Un télépilote <span className="accent">formé.</span> Une équipe au sol.</h2>
           <ul className="team-chips" data-reveal style={{ ['--i' as string]: 1 }}>
             {team.map((m) => <li key={m.slug}><Icon name="users" size={18} />{m.role}</li>)}
           </ul>
           <Link className="link-arrow" href="/a-propos/#equipe">L’équipe <span aria-hidden="true">→</span></Link>
         </div>
-      </section>
+      </section>}
 
       {/* 10. Villes */}
       <section className="section cities-wow" aria-labelledby="cities-title">
@@ -184,7 +190,7 @@ export default function Home() {
             <p className="lede">{cities.length} villes, 200 km autour de Compiègne.</p>
           </div>
         </div>
-        <Rail label="Villes desservies">
+        <Rail label="Villes couvertes">
           {cities.map((c) => {
             const p = c.photos[0];
             return (
@@ -211,7 +217,7 @@ export default function Home() {
         <div className="container final-inner">
           <h2 id="final-title" className="h-mega">Votre toit mérite <span className="accent">l’éclat.</span></h2>
           <div className="cta-row">
-            <Link className="btn btn--lg" href="/contact/" data-track="cta_final">Étude gratuite en 1 minute <span className="btn-arrow" aria-hidden="true">→</span></Link>
+            <Link className="btn btn--lg" href="/contact/" data-track="cta_final">Devis gratuit en 1 minute <span className="btn-arrow" aria-hidden="true">→</span></Link>
           </div>
           <p className="final-fine">Gratuit · Sans engagement · Réponse sous 48 h · <Link href="/aides-tva/">TVA à 10 % possible sur l’entretien d’un logement</Link></p>
         </div>

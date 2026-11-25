@@ -57,7 +57,12 @@ function doPost(e) {
       'Diagnostic auto': (lead.notes || []).join('\n'),
       "Page d'origine": lead.source,
     };
-    sheet.appendRow(headers.map(function (h) { return values[h] !== undefined && values[h] !== null ? values[h] : ''; }));
+    // Sécurité : un texte saisi par un visiteur qui commence par = + - ou @ est préfixé d'une apostrophe,
+    // pour que Google Sheets ne l'interprète jamais comme une formule.
+    sheet.appendRow(headers.map(function (h) {
+      var v = values[h] !== undefined && values[h] !== null ? values[h] : '';
+      return typeof v === 'string' && /^[=+\-@\t\r]/.test(v) ? "'" + v : v;
+    }));
     lock.releaseLock();
 
     notify_(lead, photosUrl);

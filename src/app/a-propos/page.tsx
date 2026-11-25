@@ -4,7 +4,7 @@ import '../pages-b.css';
 import { PageHero } from '@/components/ui/PageHero';
 import { CtaBand } from '@/components/ui/CtaBand';
 import { TeamBlock, SuppliersStrip } from '@/components/sections/Sections';
-import { site } from '@/config/site';
+import { site, isKnown } from '@/config/site';
 
 export const metadata: Metadata = {
   title: { absolute: 'À propos de Drone Éclat : entretien par drone, Oise' },
@@ -51,7 +51,7 @@ export default function AboutPage() {
         lede="Drone Éclat est née en 2026 dans l’Oise d’une idée simple : entretenir toitures, façades et bardages sans mettre personne en hauteur, et le faire de façon vérifiable."
       >
         <div className="cta-row">
-          <Link href="/contact/" className="btn" data-track="cta_about_hero">Demander une étude gratuite <span className="btn-arrow" aria-hidden="true">→</span></Link>
+          <Link href="/contact/" className="btn" data-track="cta_about_hero">Demander un devis gratuit <span className="btn-arrow" aria-hidden="true">→</span></Link>
           <Link href="/technologie/" className="btn btn--ghost">Notre méthode</Link>
         </div>
       </PageHero>
@@ -112,9 +112,10 @@ export default function AboutPage() {
       <section className="section section--tight" aria-label="Informations réglementaires">
         <div className="container">
           <dl className="pb-legal-dl" style={{ marginTop: 'var(--s-6)' }}>
-            <div><dt>Siège</dt><dd>{site.base.city}, {site.base.department}{site.base.pending && <> <span className="pending-tag">à confirmer</span></>}</dd></div>
-            <div><dt>Numéro d’exploitant UAS</dt><dd><span className="pending-tag">à compléter</span></dd></div>
-            <div><dt>Assurance responsabilité civile</dt><dd><span className="pending-tag">à compléter</span></dd></div>
+            <div><dt>Siège</dt><dd>{site.base.city}, {site.base.department}</dd></div>
+            {isKnown(site.operatorId) && <div><dt>Numéro d’exploitant UAS</dt><dd>{site.operatorId.value}</dd></div>}
+            {isKnown(site.insurer) && <div><dt>Assurance responsabilité civile</dt><dd>{site.insurer.value}</dd></div>}
+            <div><dt>Justificatifs</dt><dd>Attestation d’assurance et justificatifs de l’exploitant remis avec le devis</dd></div>
           </dl>
         </div>
       </section>

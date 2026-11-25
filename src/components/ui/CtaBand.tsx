@@ -1,14 +1,14 @@
 import Link from 'next/link';
 
 /** Appel à l'action de fin de page, contextualisé par page. */
-export function CtaBand({ title, text, cta = 'Décrire mon chantier', href = '/contact/', secondary }: {
+export function CtaBand({ title, text, cta = 'Demander mon devis gratuit', href = '/contact/', secondary }: {
   title: string; text: string; cta?: string; href?: string; secondary?: { href: string; label: string };
 }) {
   return (
     <section className="section section--ink cta-band" aria-labelledby="cta-band-title">
       <div className="container cta-band-inner">
         <div>
-          <span className="eyebrow">Étude gratuite</span>
+          <span className="eyebrow">Devis gratuit</span>
           <h2 id="cta-band-title" className="h-1">{title}</h2>
         </div>
         <div className="cta-band-side">

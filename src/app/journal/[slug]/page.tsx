@@ -33,6 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
       url: absoluteUrl(url),
       publishedTime: a.date,
       modifiedTime: a.updated ?? a.date,
+      images: [{ url: '/og-default.jpg', width: 1200, height: 630, alt: 'Drone Éclat : un drone nettoie une toiture en tuiles' }],
     },
   };
 }
@@ -108,7 +109,7 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
               <span className="eyebrow">Étude gratuite</span>
               <p className="h-3">Votre toiture est-elle adaptée au drone ?</p>
               <p className="muted">Envoyez l’adresse et quelques photos. Nous vous répondons sous 48 h ouvrées, et nous vous orientons vers un couvreur si c’est lui qu’il vous faut.</p>
-              <Link className="btn btn--block" href="/contact/" data-track="cta_article_aside">Décrire mon chantier <span className="btn-arrow" aria-hidden="true">→</span></Link>
+              <Link className="btn btn--block" href="/contact/" data-track="cta_article_aside">Demander mon devis gratuit <span className="btn-arrow" aria-hidden="true">→</span></Link>
               {a.links && a.links.length > 0 && (
                 <>
                   <hr />

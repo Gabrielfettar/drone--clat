@@ -57,7 +57,7 @@ export default function SuppliersPage() {
         </div>
       </section>
 
-      <CtaBand title="Quel traitement pour votre toit ?" text="Nous vous le disons après étude, gratuitement : rinçage seul, traitement curatif, préventif ou hydrofuge." cta="Recevoir mon étude gratuite" secondary={{ href: '/services/demoussage-toiture-drone/', label: 'Le démoussage en détail' }} />
+      <CtaBand title="Quel traitement pour votre toit ?" text="Nous vous le disons après étude, gratuitement : rinçage seul, traitement curatif, préventif ou hydrofuge." cta="Demander mon devis gratuit" secondary={{ href: '/services/demoussage-toiture-drone/', label: 'Le démoussage en détail' }} />
     </>
   );
 }

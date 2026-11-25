@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import {
   BUILDINGS, SERVICES, MATERIALS, HEIGHTS, CONDITIONS, ACCESS, ACCEPTED, MAX_FILES, MAX_FILE_MB,
-  leadSchema, preliminaryNotes, type Lead,
+  leadShape, CONTACT_REQUIRED, preliminaryNotes, type Lead,
 } from '@/lib/lead';
 import { track } from '@/components/layout/Analytics';
 
@@ -13,7 +13,7 @@ type Errors = Record<string, string>;
 const STEPS = [
   { key: 'project', title: 'Votre projet', fields: ['building', 'service', 'postalCode', 'city'] },
   { key: 'photos', title: 'Photos et précisions', fields: ['surface', 'material', 'height', 'condition', 'access', 'message'] },
-  { key: 'contact', title: 'Où vous envoyer l’étude ?', fields: ['name', 'phone', 'email', 'consent'] },
+  { key: 'contact', title: 'Où vous envoyer le devis ?', fields: ['name', 'phone', 'email', 'consent'] },
 ] as const;
 
 const serviceFromSlug: Record<string, (typeof SERVICES)[number]> = {
@@ -22,15 +22,15 @@ const serviceFromSlug: Record<string, (typeof SERVICES)[number]> = {
   'nettoyage-bardage-drone': 'Entretien de bardage',
 };
 
-/** Réduit une photo à 2000 px de côté (JPEG) avant envoi : plus rapide sur mobile. HEIC et échecs : fichier d'origine. */
+/** Réduit une photo à 1600 px de côté (JPEG) avant envoi : l'envoi complet reste léger (limites des hébergeurs). HEIC non décodable et échecs : fichier d'origine. */
 async function shrink(f: File): Promise<File> {
-  if (!/^image\/(jpeg|png|webp)$/.test(f.type) || f.size < 900 * 1024) return f;
+  if (!/^image\//.test(f.type) || f.size < 500 * 1024) return f;
   try {
     const bmp = await createImageBitmap(f);
-    const k = Math.min(1, 2000 / Math.max(bmp.width, bmp.height));
+    const k = Math.min(1, 1600 / Math.max(bmp.width, bmp.height));
     const c = document.createElement('canvas'); c.width = Math.round(bmp.width * k); c.height = Math.round(bmp.height * k);
     c.getContext('2d')!.drawImage(bmp, 0, 0, c.width, c.height);
-    const blob = await new Promise<Blob | null>((r) => c.toBlob(r, 'image/jpeg', 0.85));
+    const blob = await new Promise<Blob | null>((r) => c.toBlob(r, 'image/jpeg', 0.8));
     return blob && blob.size < f.size ? new File([blob], f.name.replace(/\.\w+$/, '') + '.jpg', { type: 'image/jpeg' }) : f;
   } catch { return f; }
 }
@@ -80,13 +80,14 @@ export function Estimator() {
   const set = (k: string, v: string) => { setData((d) => ({ ...d, [k]: v })); setErrors((e) => { const n = { ...e }; delete n[k]; return n; }); };
 
   function validate(fields: readonly string[]) {
-    const shape = leadSchema.shape as Record<string, import('zod').ZodTypeAny>;
+    const shape = leadShape as Record<string, import('zod').ZodTypeAny>;
     const errs: Errors = {};
     for (const f of fields) {
       const r = shape[f].safeParse(data[f] === undefined ? (f === 'consent' ? undefined : '') : data[f]);
-      const optional = !['building', 'service', 'postalCode', 'city', 'name', 'phone', 'email', 'consent'].includes(f);
+      const optional = !['building', 'service', 'postalCode', 'city', 'name', 'consent'].includes(f);
       if (!r.success && !(optional && (data[f] === undefined || data[f] === ''))) errs[f] = r.error.issues[0].message;
     }
+    if (fields.includes('phone') && !data.phone && !data.email) errs.phone = CONTACT_REQUIRED;
     setErrors(errs);
     return Object.keys(errs).length === 0;
   }
@@ -149,7 +150,7 @@ export function Estimator() {
           <li>Vos photos et coordonnées ne servent qu’à préparer l’étude.</li>
           <li>Aucun engagement : le devis est gratuit.</li>
         </ul>
-        <Link className="link-arrow" href="/#preparer">Préparer l’intervention <span aria-hidden="true">→</span></Link>
+        <Link className="link-arrow" href="/technologie/">Comment se déroule l’intervention <span aria-hidden="true">→</span></Link>
       </div>
     );
   }
@@ -250,6 +251,7 @@ export function Estimator() {
               <div className="field"><label htmlFor={`${id}-name`}>Nom</label><input className="input" autoComplete="name" {...inputProps('name')} />{err('name')}</div>
               <div className="field"><label htmlFor={`${id}-phone`}>Téléphone</label><input className="input" type="tel" autoComplete="tel" {...inputProps('phone')} />{err('phone')}</div>
               <div className="field est-full"><label htmlFor={`${id}-email`}>E-mail</label><input className="input" type="email" autoComplete="email" {...inputProps('email')} />{err('email')}</div>
+              <p className="hint est-full">Téléphone ou e-mail : un seul des deux suffit.</p>
               <div className="field est-full">
                 <label className="consent">
                   <input type="checkbox" checked={data.consent === 'on'} onChange={(e) => set('consent', e.target.checked ? 'on' : '')} aria-invalid={!!errors.consent} aria-describedby={errors.consent ? `${id}-consent-e` : undefined} />
@@ -273,7 +275,7 @@ export function Estimator() {
         {step > 0 && <button type="button" className="btn btn--ghost" onClick={() => setStep((s) => s - 1)}>Retour</button>}
         {step < STEPS.length - 1
           ? <button type="submit" className="btn">{cur.key === 'photos' && !files.length ? 'Continuer sans photo' : 'Continuer'} <span className="btn-arrow" aria-hidden="true">→</span></button>
-          : <button type="submit" className="btn" data-loading={status.s === 'sending'} disabled={status.s === 'sending'}>Recevoir mon étude gratuite <span className="btn-arrow" aria-hidden="true">→</span></button>}
+          : <button type="submit" className="btn" data-loading={status.s === 'sending'} disabled={status.s === 'sending'}>Recevoir mon devis gratuit <span className="btn-arrow" aria-hidden="true">→</span></button>}
       </div>
     </form>
   );

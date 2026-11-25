@@ -1,13 +1,14 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { projects } from '@/content/projects';
 import { useEffect, useRef, useState } from 'react';
 import { Logo } from '@/components/ui/Logo';
 import { services } from '@/content/services';
 
 const links = [
   { href: '/professionnels/entretien-batiments/', label: 'Professionnels' },
-  { href: '/realisations/', label: 'Réalisations' },
+  ...(projects.length ? [{ href: '/realisations/', label: 'Réalisations' }] : []),
   { href: '/technologie/', label: 'Technologie' },
   { href: '/zones-intervention/', label: 'Zones' },
   { href: '/contact/', label: 'Contact' },
@@ -107,7 +108,7 @@ export function Header() {
         </nav>
 
         <Link href="/contact/" className="btn btn--sm header-cta" data-track="cta_header">
-          Étude gratuite <span className="btn-arrow" aria-hidden="true">→</span>
+          Devis gratuit <span className="btn-arrow" aria-hidden="true">→</span>
         </Link>
 
         <button ref={toggle} type="button" className="burger" aria-expanded={open} aria-controls="mobile-menu"
@@ -130,7 +131,7 @@ export function Header() {
               <li key={l.href}><Link href={l.href}>{l.label}</Link></li>
             ))}
           </ul>
-          <Link href="/contact/" className="btn btn--block" data-track="cta_mobile_menu">Demander une étude gratuite</Link>
+          <Link href="/contact/" className="btn btn--block" data-track="cta_mobile_menu">Demander un devis gratuit</Link>
         </nav>
       </div>
     </header>

@@ -7,7 +7,7 @@ import { site, isKnown } from '@/config/site';
 
 export const metadata: Metadata = {
   title: 'Demande d’étude et devis gratuit',
-  description: 'Votre demande en 1 minute et 3 étapes : bâtiment, photos facultatives, coordonnées. Étude gratuite et devis détaillé sous 48 h ouvrées, sans engagement.',
+  description: 'Votre demande en 1 minute et 3 étapes : bâtiment, photos facultatives, coordonnées. Devis gratuit et détaillé sous 48 h ouvrées, sans engagement.',
   alternates: { canonical: '/contact/' },
 };
 
@@ -22,7 +22,7 @@ export default function ContactPage() {
   const email = isKnown(site.email) ? site.email.value : null;
   return (
     <>
-      <PageHero crumbs={[{ href: '/contact/', label: 'Contact' }]} eyebrow="Étude gratuite" title="Décrivez votre chantier, nous faisons l’étude."
+      <PageHero crumbs={[{ href: '/contact/', label: 'Contact' }]} eyebrow="Devis gratuit" title="Décrivez votre chantier, nous faisons l’étude."
         lede="Trois étapes, une minute, quelques photos si vous en avez, et vous recevez sous 48 h ouvrées une réponse avec un devis détaillé. Aucun engagement." />
       <section className="section" id="formulaire" aria-label="Formulaire de demande d’étude">
         <div className="container layout-aside">
@@ -36,8 +36,8 @@ export default function ContactPage() {
             </ol>
             <hr />
             <p className="mono muted">Nous joindre</p>
-            <p>{phone ? <a href={`tel:${phone.replace(/\s/g, '')}`} data-track="phone_click">{phone}</a> : <>Téléphone <span className="pending-tag">bientôt</span></>}</p>
-            <p>{email ? <a href={`mailto:${email}`}>{email}</a> : <>E-mail <span className="pending-tag">bientôt</span></>}</p>
+            {phone && <p><a href={`tel:${phone.replace(/\s/g, '')}`} data-track="phone_click">{phone}</a></p>}
+            {email && <p><a href={`mailto:${email}`} data-track="email_click">{email}</a></p>}
             <Link className="link-arrow" href="/zones-intervention/">Vérifier ma zone <span aria-hidden="true">→</span></Link>
           </aside>
         </div>

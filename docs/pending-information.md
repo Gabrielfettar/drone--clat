@@ -5,11 +5,9 @@ Toute donnée marquée `pending: true` dans `src/config/site.ts` s’affiche ave
 ## À fournir par l’entreprise
 | Information | Où la renseigner | Impact |
 |---|---|---|
-| Orthographe exacte du domaine (droneeclat.fr ou drone-eclat.fr) | `NEXT_PUBLIC_SITE_URL` | Canonical, sitemap, Open Graph |
 | Raison sociale, forme, capital, SIRET, RCS, adresse du siège | `site.legalName`, `site.siret`, pages légales | Mentions légales obligatoires |
 | Directeur de la publication | `/mentions-legales/` | Obligatoire |
 | Téléphone | `site.phone` | Active les liens d’appel, le contact rapide, LocalBusiness |
-| E-mail de contact | `site.email` | Affichage + données structurées |
 | Adresse d’exploitation | `site.base` | Active LocalBusiness / Google Business Profile |
 | Rayon d’intervention | `site.serviceRadiusKm` | **Validé : 200 km** (25/11/2026). 20 pages villes publiées |
 | Numéro d’exploitant UAS (AlphaTango) | `site.operatorId` | Preuve réglementaire affichable |
@@ -39,3 +37,10 @@ Voir `regulation.md` § « Points à faire valider ». En priorité :
 - **Photos libres de droit** : villes (Wikimedia Commons, crédits automatiques) et illustrations (Unsplash, Pexels, Pixabay). Toujours étiquetées « Photo d’illustration », jamais présentées comme une réalisation. Téléchargement : `node scripts/fetch-photos.mjs` (machine ayant accès à ces sites).
 - **Avant / après des pages villes** : l’« avant » est une simulation calculée (`node scripts/simulate-grime.mjs`, sortie `public/villes/sim/`) à partir de la photo libre choisie dans `cities.json` (`simulation.photo`). Toujours affiché avec l’étiquette « Simulation », la mention « pas un chantier Drone Éclat », l’attribution de l’auteur et la mention de modification (licences CC BY / BY-SA). Une vraie paire avant/après (même bâtiment, photos d’époques différentes) la remplacera quand elle existe.
 - **Paris** : vol de drone interdit sans dérogation de la Préfecture de police (préavis de 10 jours ouvrables). La page Paris le dit.
+
+## Mise à jour du 25/11/2026 (préparation à la mise en ligne)
+- **Validé** : e-mail `contact@drone-eclat.fr`, domaine `drone-eclat.fr` (sans www).
+- Tant qu'une information n'est pas fournie, elle est **masquée** (et non plus affichée « à compléter ») sur les pages commerciales : téléphone, équipe, numéro d'exploitant, assureur, modèle du drone, page Réalisations (retirée du menu et du sitemap tant que `projects` est vide). Elles réapparaissent automatiquement dès que la valeur est renseignée.
+- **Restent bloquants avant publication** : mentions légales (raison sociale, SIRET, siège, directeur de la publication, hébergeur), réception des demandes (`GOOGLE_SHEETS_WEBHOOK_URL` ou `RESEND_API_KEY`), confirmation du régime de TVA, relecture de `/securite-reglementation/` (toujours en noindex, retirée du sitemap).
+- Formulaire : téléphone **ou** e-mail suffit. Photos réduites à 1600 px avant envoi.
+- Page `/studio/` : 404 en production (sauf `ENABLE_STUDIO=1`).

@@ -22,14 +22,16 @@ export function QuickContact() {
   }, [open]);
   if (path.startsWith('/contact')) return null;
   const phone = isKnown(site.phone) ? site.phone.value : null;
+  const email = isKnown(site.email) ? site.email.value : null;
   return (
     <div className="quick" data-show={show || open} data-open={open}>
       <div id="quick-panel" className="quick-panel" hidden={!open}>
         <p className="mono">Une question sur votre chantier ?</p>
-        <Link href="/contact/" className="btn btn--block btn--sm" data-track="quick_devis">Demander une étude gratuite</Link>
+        <Link href="/contact/" className="btn btn--block btn--sm" data-track="quick_devis">Demander un devis gratuit</Link>
         {phone
           ? <a href={`tel:${phone.replace(/\s/g, '')}`} className="btn btn--ghost btn--block btn--sm" data-track="phone_click">Appeler le {phone}</a>
-          : <p className="quick-note">Ligne téléphonique bientôt disponible.</p>}
+          : null}
+        {email && <a href={`mailto:${email}`} className="btn btn--ghost btn--block btn--sm" data-track="email_click">{email}</a>}
         <Link href="/contact/#formulaire" className="link-arrow">Accéder au formulaire <span aria-hidden="true">→</span></Link>
       </div>
       <button type="button" className="quick-toggle" aria-expanded={open} aria-controls="quick-panel" onClick={() => setOpen((v) => !v)}>

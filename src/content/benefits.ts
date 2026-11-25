@@ -8,12 +8,12 @@ export type IconName = 'shield' | 'tile' | 'calendar' | 'euro' | 'leaf' | 'drop'
 /** Les trois gains majeurs, mis en avant en grand. */
 export const keyBenefits: (Benefit & { kicker: string })[] = [
   {
-    icon: 'calendar', kicker: 'Tranquillité',
-    title: 'Une toiture tranquille pour plusieurs années.',
-    text: 'Mousses et lichens retirés jusqu’à la racine, puis traitement préventif quand il est adapté à votre couverture : la repousse est fortement ralentie. Vous n’y pensez plus avant longtemps.',
+    icon: 'calendar', kicker: 'Résultat',
+    title: 'Une toiture débarrassée de ses mousses.',
+    text: 'Mousses et lichens sont retirés à l’eau, sans marcher sur la couverture. Un traitement préventif peut être proposé en complément lorsqu’il est adapté à votre toiture et autorisé : nous vous le précisons dans le devis.',
   },
   {
-    icon: 'tile', kicker: 'Zéro casse',
+    icon: 'tile', kicker: 'Sans passage',
     title: 'Personne ne marche sur vos tuiles.',
     text: 'Le drone travaille au-dessus de la couverture. Pas de tuile fêlée sous le poids d’un pied, pas d’ardoise déplacée, pas de faîtage abîmé. Vous récupérez une toiture propre, pas une toiture à réparer.',
   },

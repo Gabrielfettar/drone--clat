@@ -8,7 +8,7 @@ Next.js y fonctionne sans configuration. Alternatives : Netlify, ou un VPS Node 
 1. Pousser le dépôt sur GitHub.
 2. Importer le dépôt dans Vercel (framework détecté automatiquement).
 3. Variables d’environnement (Production) :
-   - `NEXT_PUBLIC_SITE_URL` = `https://www.droneeclat.fr` (orthographe du domaine à confirmer)
+   - `NEXT_PUBLIC_SITE_URL` = `https://drone-eclat.fr`
    - `RESEND_API_KEY`, `LEAD_FROM_EMAIL`, `LEAD_TO_EMAIL` (compte Resend + domaine vérifié par DNS : SPF/DKIM)
    - `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` (optionnel)
    - En préproduction seulement : `NEXT_PUBLIC_NOINDEX=1`

@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     title: s.title,
     description: s.description,
     alternates: { canonical: `/services/${s.slug}/` },
-    openGraph: { title: s.h1, description: s.description, url: `/services/${s.slug}/` },
+    openGraph: { title: s.h1, description: s.description, url: `/services/${s.slug}/`, images: [{ url: '/og-default.jpg', width: 1200, height: 630, alt: 'Drone Éclat : un drone nettoie une toiture en tuiles' }] },
   };
 }
 
@@ -83,7 +83,7 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
         aside={aside}
       >
         <div className="cta-row">
-          <Link className="btn" href={contactHref} data-track="svc_hero_devis">Demander une étude gratuite <span className="btn-arrow" aria-hidden="true">→</span></Link>
+          <Link className="btn" href={contactHref} data-track="svc_hero_devis">Demander un devis gratuit <span className="btn-arrow" aria-hidden="true">→</span></Link>
           <Link className="btn btn--ghost" href="#deroulement">Voir le déroulement</Link>
         </div>
       </PageHero>
@@ -126,7 +126,7 @@ export default async function ServicePage({ params }: { params: Promise<Params> 
               <li><span className="mono">02</span><span>Quelques photos de chaque face ou pan concerné.</span></li>
               <li><span className="mono">03</span><span>Le matériau, si vous le connaissez, et les contraintes d’accès.</span></li>
             </ol>
-            <Link className="btn" href={contactHref} data-track="svc_aside_devis">Décrire mon chantier <span className="btn-arrow" aria-hidden="true">→</span></Link>
+            <Link className="btn" href={contactHref} data-track="svc_aside_devis">Demander mon devis gratuit <span className="btn-arrow" aria-hidden="true">→</span></Link>
             <hr className="pa-aside-sep" />
             <p className="muted">Réponse sous 48 h ouvrées, sans engagement.</p>
             <Link className="link-arrow" href="/zones-intervention/">Vérifier ma commune <span aria-hidden="true">→</span></Link>

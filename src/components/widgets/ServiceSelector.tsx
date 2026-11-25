@@ -60,7 +60,7 @@ export function ServiceSelector({ services }: { services: Service[] }) {
             </div>
           </div>
           <div className="cta-row">
-            <Link className="btn" href={`/contact/?service=${s.slug}`} data-track="svc_devis">Étude gratuite <span className="btn-arrow" aria-hidden="true">→</span></Link>
+            <Link className="btn" href={`/contact/?service=${s.slug}`} data-track="svc_devis">Devis gratuit <span className="btn-arrow" aria-hidden="true">→</span></Link>
             <Link className="link-arrow" href={`/services/${s.slug}/`}>Tout savoir sur cette prestation <span aria-hidden="true">→</span></Link>
           </div>
         </div>

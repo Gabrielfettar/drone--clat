@@ -4,14 +4,16 @@ import './globals.css';
 import './components.css';
 import './v3.css';
 import './v4.css';
+import './v5.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { QuickContact } from '@/components/layout/QuickContact';
 import { RevealInit } from '@/components/layout/RevealInit';
+import { MotionInit } from '@/components/layout/MotionInit';
 import { StickyCta } from '@/components/layout/StickyCta';
 import { Analytics } from '@/components/layout/Analytics';
 import { JsonLd } from '@/components/ui/JsonLd';
-import { site, absoluteUrl } from '@/config/site';
+import { site } from '@/config/site';
 import { organizationSchema, websiteSchema } from '@/lib/schema';
 
 const archivo = Archivo({ subsets: ['latin'], axes: ['wdth'], variable: '--font-archivo', display: 'swap' });
@@ -24,10 +26,12 @@ export const metadata: Metadata = {
   description: site.description,
   applicationName: site.name,
   alternates: { canonical: '/' },
-  openGraph: { type: 'website', locale: 'fr_FR', siteName: site.name, url: absoluteUrl('/'), images: [{ url: '/og-default.jpg', width: 1200, height: 630, alt: 'Drone Éclat : un drone nettoie une toiture en tuiles' }] },
+  openGraph: { type: 'website', locale: 'fr_FR', siteName: site.name, images: [{ url: '/og-default.jpg', width: 1200, height: 630, alt: 'Drone Éclat : un drone nettoie une toiture en tuiles' }] },
   twitter: { card: 'summary_large_image' },
   icons: { icon: '/favicon.svg' },
   formatDetection: { telephone: false },
+  // Préproduction : NEXT_PUBLIC_NOINDEX=1 bloque l'indexation page par page (en plus de robots.txt).
+  ...(process.env.NEXT_PUBLIC_NOINDEX === '1' ? { robots: { index: false, follow: false } } : {}),
 };
 
 export const viewport: Viewport = { themeColor: '#0A1F37', width: 'device-width', initialScale: 1, viewportFit: 'cover' };
@@ -43,6 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <QuickContact />
         <StickyCta />
         <RevealInit />
+        <MotionInit />
         <Analytics />
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
       </body>

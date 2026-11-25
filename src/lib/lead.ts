@@ -14,7 +14,7 @@ export const ACCEPTED = ['image/jpeg', 'image/png', 'image/webp', 'image/heic', 
 
 const phoneFr = /^(?:(?:\+|00)33\s?|0)[1-9](?:[\s.-]?\d{2}){4}$/;
 
-export const leadSchema = z.object({
+const leadObject = z.object({
   building: z.enum(BUILDINGS, { errorMap: () => ({ message: 'Choisissez un type de bâtiment.' }) }),
   service: z.enum(SERVICES, { errorMap: () => ({ message: 'Choisissez une intervention.' }) }),
   surface: z.coerce.number({ invalid_type_error: 'Indiquez une surface en m².' }).int('Nombre entier, en m².').min(5, 'Surface trop petite (5 m² minimum).').max(50000, 'Surface trop grande : contactez-nous directement.').optional().or(z.literal('').transform(() => undefined)),
@@ -26,11 +26,19 @@ export const leadSchema = z.object({
   city: z.string().trim().min(2, 'Indiquez la commune.').max(80),
   address: z.string().trim().max(160).optional().or(z.literal('')),
   name: z.string().trim().min(2, 'Indiquez votre nom.').max(80),
-  phone: z.string().trim().regex(phoneFr, 'Numéro français, par exemple 06 12 34 56 78.'),
-  email: z.string().trim().email('Adresse e-mail invalide.').max(120),
+  phone: z.string().trim().regex(phoneFr, 'Numéro français, par exemple 06 12 34 56 78.').optional().or(z.literal('')),
+  email: z.string().trim().email('Adresse e-mail invalide.').max(120).optional().or(z.literal('')),
   message: z.string().trim().max(2000, '2000 caractères maximum.').optional().or(z.literal('')),
   source: z.string().trim().max(200).optional().or(z.literal('')),
   consent: z.literal('on', { errorMap: () => ({ message: 'Votre accord est nécessaire pour traiter la demande.' }) }),
+});
+
+/** Champs seuls (validation étape par étape côté formulaire). */
+export const leadShape = leadObject.shape;
+export const CONTACT_REQUIRED = 'Indiquez un téléphone ou un e-mail pour recevoir votre devis.';
+/** Demande complète : au moins un moyen de vous recontacter. */
+export const leadSchema = leadObject.superRefine((l, ctx) => {
+  if (!l.phone && !l.email) ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['phone'], message: CONTACT_REQUIRED });
 });
 
 export type Lead = z.infer<typeof leadSchema>;

@@ -28,7 +28,7 @@ export default function NotFound() {
         <p className="lede">L’adresse que vous avez suivie n’existe pas, ou la page a été déplacée. Pas d’inquiétude : voici de quoi reprendre le vol.</p>
         <div className="cta-row" style={{ marginTop: 0 }}>
           <Link href="/" className="btn">Retour à l’accueil <span className="btn-arrow" aria-hidden="true">→</span></Link>
-          <Link href="/contact/" className="btn btn--ghost">Décrire mon chantier</Link>
+          <Link href="/contact/" className="btn btn--ghost">Demander un devis gratuit</Link>
         </div>
         <nav aria-label="Pages utiles">
           <ul className="pb-404-links">

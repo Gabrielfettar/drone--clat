@@ -24,12 +24,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!c) return {};
   const img = c.photos[0];
   return {
-    title: `Démoussage et nettoyage de toiture par drone à ${c.name} (${c.departmentCode})`,
-    description: `Démoussage de toiture, nettoyage de façade et de bardage par drone à ${c.name} et alentours. Sans échafaudage, sans marcher sur vos tuiles. Étude gratuite sous 48 h.`,
+    title: `Démoussage de toiture par drone à ${c.name} (${c.departmentCode})`,
+    description: `Démoussage de toiture et nettoyage de façade par drone à ${c.name} (${c.department}), ${c.distanceKm === 0 ? 'notre base' : `à ${c.distanceKm} km de Compiègne`}. Sans échafaudage. Devis gratuit sous 48 h.`,
     alternates: { canonical: `/villes/${c.slug}/` },
-    openGraph: img ? { images: [{ url: `/villes/${img.file}`, width: img.width, height: img.height, alt: img.caption }] } : undefined,
+    openGraph: { url: `/villes/${c.slug}/`, images: img ? [{ url: `/villes/${img.file}`, width: img.width, height: img.height, alt: img.caption }] : [{ url: '/og-default.jpg', width: 1200, height: 630, alt: 'Drone Éclat : un drone nettoie une toiture en tuiles' }] },
   };
 }
+
+/** Compiègne, notre base : contenu local propre à cette page. */
+const BASE_TOWNS = ['Margny-lès-Compiègne', 'Venette', 'Jaux', 'Lacroix-Saint-Ouen', 'Clairoix', 'Choisy-au-Bac', 'Le Meux', 'Thourotte', 'Pierrefonds', 'Ribécourt-Dreslincourt'];
+const BASE_FAQ = [
+  { q: 'Vous déplacez-vous dans les communes autour de Compiègne ?', a: `Oui. Compiègne est notre point de départ : ${BASE_TOWNS.slice(0, 6).join(', ')} et les communes voisines sont nos interventions les plus proches. Indiquez simplement votre code postal dans la demande de devis.` },
+  { q: 'Peut-on faire voler un drone près de l’aérodrome de Compiègne-Margny ?', a: 'La proximité d’un aérodrome impose des vérifications et parfois des restrictions de hauteur ou de zone. Nous contrôlons chaque adresse sur la carte officielle des restrictions avant de confirmer l’intervention, et nous vous le disons dès l’étude si le vol n’est pas possible.' },
+];
 
 function near(c: City) {
   const d = (a: City, b: City) => {
@@ -46,6 +53,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
   const [hero, ...more] = c.photos;
   const isBase = c.distanceKm === 0;
   const faq = [
+    ...(isBase ? BASE_FAQ : []),
     { q: `Intervenez-vous vraiment à ${c.name} ?`, a: `Oui. ${c.name} se trouve ${isBase ? 'dans notre commune de base' : `à environ ${c.distanceKm} km de notre base de Compiègne`}, dans notre secteur d’intervention. Nous y intervenons pour les particuliers comme pour les professionnels, sur étude préalable.` },
     { q: `Le vol d’un drone est-il autorisé partout à ${c.name} ?`, a: c.slug === 'paris' ? `Paris est une zone très réglementée : tout vol de drone y est interdit sans dérogation de la Préfecture de police, demandée au moins 10 jours ouvrables à l’avance. Nous étudions chaque adresse parisienne au cas par cas et vous disons dès l’étude si l’intervention est possible.` : `Chaque adresse est vérifiée avant l’intervention : zones aériennes, proximité d’un aérodrome, d’un site sensible ou d’un monument. Lorsque une autorisation ou une notification est nécessaire, nous nous en chargeons. Dans de rares cas, le vol n’est pas possible et nous vous le disons dès l’étude.` },
     { q: 'Combien de temps dure un démoussage de toiture par drone ?', a: 'Pour une maison, l’intervention tient souvent en une journée, installation comprise. Pour un grand bâtiment, nous proposons un planning par secteurs après visite technique.' },
@@ -62,10 +70,10 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
         <div className="container">
           <Breadcrumbs items={[{ href: '/zones-intervention/', label: 'Zones' }, { href: `/villes/${c.slug}/`, label: c.name }]} />
           <span className="eyebrow">{c.department} · {c.region}</span>
-          <h1 className="h-display">Nettoyage de toiture par drone à {c.name}.</h1>
+          <h1 className="h-display">Démoussage et nettoyage de toiture par drone à {c.name}.</h1>
           <p className="lede">Toiture, façade, bardage. Sans échafaudage, sans personne sur votre toit.</p>
           <div className="cta-row">
-            <Link className="btn" href={`/contact/?ville=${encodeURIComponent(c.name)}`} data-track="cta_city_hero">Étude gratuite à {c.name} <span className="btn-arrow" aria-hidden="true">→</span></Link>
+            <Link className="btn" href={`/contact/?ville=${encodeURIComponent(c.name)}`} data-track="cta_city_hero">Devis gratuit à {c.name} <span className="btn-arrow" aria-hidden="true">→</span></Link>
             <Link className="btn btn--light" href={`/contact/?ville=${encodeURIComponent(c.name)}&batiment=pro`}>Demande professionnelle</Link>
           </div>
         </div>
@@ -164,6 +172,18 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
         </div>
       </section>
 
+      {isBase && (
+        <section className="section section--tight" aria-labelledby="city-near-base">
+          <div className="container">
+            <div className="sec-head">
+              <div data-reveal><span className="eyebrow">Autour de Compiègne</span><h2 id="city-near-base" className="h-1">Notre base, vos communes.</h2></div>
+              <p className="lede" data-reveal style={{ ['--i' as string]: 1 }}>C’est ici que nous sommes installés : nos déplacements les plus courts sont chez vous. Maisons de la forêt de Compiègne souvent à l’ombre, toits de tuiles ou d’ardoises du centre, bâtiments d’activité de l’agglomération : la mousse s’y installe vite, nous la retirons sans monter sur le toit.</p>
+            </div>
+            <ul className="town-chips" data-reveal>{BASE_TOWNS.map((t) => <li key={t}>{t}</li>)}</ul>
+            <p className="hint muted" style={{ marginTop: 'var(--s-4)' }}>Tout le département est couvert : <Link href="/oise/">démoussage de toiture par drone dans l’Oise</Link>.</p>
+          </div>
+        </section>
+      )}
       <Benefits compact />
 
       {(more.length > 0 || c.landmarks.length > 0) && (
@@ -210,7 +230,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
         url: absoluteUrl(`/villes/${c.slug}/`),
       }} />
 
-      <CtaBand title={`Votre toit à ${c.name}, étudié gratuitement.`} text="Trois étapes, quelques photos si vous en avez : nous revenons vers vous sous 48 h ouvrées avec une étude et un devis détaillé." cta="Recevoir mon étude gratuite" href={`/contact/?ville=${encodeURIComponent(c.name)}`} />
+      <CtaBand title={`Votre toit à ${c.name}, étudié gratuitement.`} text="Trois étapes, quelques photos si vous en avez : nous revenons vers vous sous 48 h ouvrées avec une étude et un devis détaillé." cta="Demander mon devis gratuit" href={`/contact/?ville=${encodeURIComponent(c.name)}`} />
     </>
   );
 }

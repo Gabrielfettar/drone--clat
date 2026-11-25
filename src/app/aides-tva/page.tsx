@@ -53,7 +53,7 @@ export default function AidesPage() {
         </div>
       </section>
 
-      <CtaBand title="Un devis clair, TVA comprise." text="Nous indiquons sur chaque devis le taux de TVA applicable et vous remettons l’attestation à signer quand elle est nécessaire." cta="Recevoir mon étude gratuite" />
+      <CtaBand title="Un devis clair, TVA comprise." text="Nous indiquons sur chaque devis le taux de TVA applicable et vous remettons l’attestation à signer quand elle est nécessaire." cta="Demander mon devis gratuit" />
     </>
   );
 }

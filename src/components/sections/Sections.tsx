@@ -135,6 +135,7 @@ export function ProsShowcase({ headingLevel = 2 }: { headingLevel?: 2 | 3 }) {
 
 /** Équipe : cartes avec emplacement photo tant que les portraits ne sont pas fournis. */
 export function TeamBlock() {
+  if (!team.some((m) => m.name)) return null;
   return (
     <section className="section team" id="equipe" aria-labelledby="team-title">
       <div className="container">

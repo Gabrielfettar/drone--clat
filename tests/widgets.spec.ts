@@ -114,7 +114,7 @@ test('estimateur : 3 étapes, validation, photo, envoi réel et confirmation', a
   await page.getByLabel('E-mail').fill('pas-un-mail');
   await expect(page.getByText(/diagnostic amiante/)).toBeVisible();
   await page.waitForTimeout(4200); // délai anti-robot
-  const send = page.getByRole('button', { name: 'Recevoir mon étude gratuite' });
+  const send = page.getByRole('button', { name: 'Recevoir mon devis gratuit' });
   await send.click();
   await expect(page.getByText(/Numéro français/)).toBeVisible();
   await expect(page.getByText('Adresse e-mail invalide.')).toBeVisible();

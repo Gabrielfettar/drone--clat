@@ -29,6 +29,6 @@ export const suppliers: Supplier[] = [
       { family: 'Hydrofuges', items: 'HYDRO+ éco·R, D21' },
       { family: 'Nettoyants', items: 'NET 1 et NET 3 éco·R' },
     ],
-    facts: ['Fabrication française', 'Produits annoncés sans solvant par le fabricant', 'Nettoyants NET 1 et NET 3 annoncés 100 % biodégradables'],
+    facts: ['Fabrication française', 'Produits annoncés sans solvant par le fabricant'],
   },
 ];

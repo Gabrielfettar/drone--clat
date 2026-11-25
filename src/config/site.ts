@@ -8,13 +8,13 @@ export type Pending<T> = { value: T; pending: boolean };
 export const site = {
   name: 'Drone Éclat',
   legalName: { value: '', pending: true } as Pending<string>,
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.droneeclat.fr',
-  domainPending: true,
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://drone-eclat.fr',
+  domainPending: false,
   tagline: 'Entretien de toitures et de bâtiments par drone',
   baseline: 'Nettoyage · Démoussage · Traitement',
   description:
     "Drone Éclat nettoie, démousse et traite toitures, façades et bardages par drone, sans échafaudage ni passage sur la couverture. Basé dans l'Oise.",
-  email: { value: 'contact@droneeclat.fr', pending: true } as Pending<string>,
+  email: { value: 'contact@drone-eclat.fr', pending: false } as Pending<string>,
   phone: { value: '', pending: true } as Pending<string>,
   /** Point de départ des interventions, utilisé par la vérification de zone. */
   base: {
@@ -41,7 +41,6 @@ export const site = {
 export const nav = [
   { href: '/services/demoussage-toiture-drone/', label: 'Prestations' },
   { href: '/professionnels/entretien-batiments/', label: 'Professionnels' },
-  { href: '/realisations/', label: 'Réalisations' },
   { href: '/technologie/', label: 'Technologie' },
   { href: '/zones-intervention/', label: "Zones d'intervention" },
   { href: '/contact/', label: 'Contact' },
