@@ -1,0 +1,6 @@
+_staging
+.leads
+.next
+node_modules
+.env*
+!.env.example

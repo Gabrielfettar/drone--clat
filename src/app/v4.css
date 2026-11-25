@@ -203,3 +203,18 @@
 .csw .ba-cap { font-size: 11px; }
 .neg-credit { margin-top: var(--s-4); font-size: 11px; }
 @media (max-width: 700px) { .csw-tabs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } .csw-tab { flex: none; } }
+
+/* ---------- Paires d'archives (pages villes) ---------- */
+.arch-pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-4); }
+.arch-fig { margin: 0; display: grid; gap: 8px; }
+.arch-img { position: relative; aspect-ratio: 4 / 5; border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--sh-2); background: var(--c-mist-2); }
+.arch-img img { object-fit: cover; transition: transform 1.2s var(--ease-out); }
+.arch-fig:hover .arch-img img { transform: scale(1.03); }
+.arch-fig[data-k='before'] .arch-img { filter: saturate(0.92); }
+.arch-fig figcaption { display: grid; gap: 2px; }
+.arch-tag { font-family: var(--f-display); font-weight: 800; font-size: var(--t-xl); font-stretch: 115%; }
+.arch-fig[data-k='after'] .arch-tag { color: var(--c-blue-strong); }
+.arch-cred { font-size: 11px; color: var(--c-muted); }
+.arch-cred a { color: inherit; }
+.arch-note { margin-top: var(--s-4); display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+@media (max-width: 560px) { .arch-pair { gap: 8px; } .arch-img { aspect-ratio: 3 / 4; } .arch-tag { font-size: var(--t-md); } }

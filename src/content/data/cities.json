@@ -771,6 +771,16 @@
     "caption": "La place Ducale de Charleville-Mézières",
     "width": 1600,
     "height": 900
+   },
+   {
+    "file": "charleville-mezieres-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Charlestown-sur_la_Meuse.JPG",
+    "author": "François GOGLINS",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "caption": "La basilique Notre-Dame-d'Espérance et les toits de Mézières au bord de la Meuse",
+    "width": 1600,
+    "height": 1192
    }
   ],
   "simulation": {
@@ -866,6 +876,16 @@
     "caption": "La cathédrale Saint-Étienne de Châlons-en-Champagne",
     "width": 1600,
     "height": 1200
+   },
+   {
+    "file": "chalons-en-champagne-2.webp",
+    "commonsUrl": "https://commons.wikimedia.org/wiki/File:Basilique_Notre_dame_en_son_miroir_07116.jpg",
+    "author": "G.Garitan",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "caption": "La collégiale Notre-Dame-en-Vaux et ses flèches se reflétant dans le Mau",
+    "width": 1600,
+    "height": 2396
    }
   ],
   "simulation": {
