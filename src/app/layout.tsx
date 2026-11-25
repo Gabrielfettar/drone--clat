@@ -12,7 +12,7 @@ import { site, absoluteUrl } from '@/config/site';
 import { organizationSchema, websiteSchema } from '@/lib/schema';
 
 const archivo = Archivo({ subsets: ['latin'], axes: ['wdth'], variable: '--font-archivo', display: 'swap' });
-const instrument = Instrument_Sans({ subsets: ['latin'], variable: '--font-instrument', display: 'swap' });
+const instrument = Instrument_Sans({ subsets: ['latin'], variable: '--font-instrument', display: 'optional' }); // optional : pas de bascule tardive de police (LCP mobile)
 const plex = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-plex-mono', display: 'swap' });
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description: site.description,
   applicationName: site.name,
   alternates: { canonical: '/' },
-  openGraph: { type: 'website', locale: 'fr_FR', siteName: site.name, url: absoluteUrl('/') },
+  openGraph: { type: 'website', locale: 'fr_FR', siteName: site.name, url: absoluteUrl('/'), images: [{ url: '/og-default.jpg', width: 1200, height: 630, alt: 'Drone Éclat : un drone nettoie une toiture en tuiles' }] },
   twitter: { card: 'summary_large_image' },
   icons: { icon: '/favicon.svg' },
   formatDetection: { telephone: false },

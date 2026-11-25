@@ -1,0 +1,120 @@
+/* =========================================================================
+   Drone Éclat — Styles complémentaires des pages intérieures (lot A) :
+   /services/[slug]/, /professionnels/entretien-batiments/, /technologie/,
+   /securite-reglementation/, /zones-intervention/.
+   Toutes les classes sont préfixées « pa- » et ne s'appliquent qu'à ces pages.
+   Uniquement des tokens de globals.css.
+   ========================================================================= */
+
+/* Conteneur de page : évite tout débordement des titres longs à 320 px */
+.pa { overflow-x: clip; }
+.pa h1, .pa h2, .pa h3 { overflow-wrap: break-word; hyphens: auto; }
+
+/* Rythme vertical d'une colonne de contenu */
+.pa-stack { display: grid; gap: var(--s-8); min-width: 0; }
+.pa-block { display: grid; gap: var(--s-4); align-content: start; min-width: 0; }
+.pa-block > .h-2 + p, .pa-block > .h-2 + .lede { margin-top: calc(-1 * var(--s-1)); }
+.pa-lead-stack { display: grid; gap: var(--s-4); }
+
+/* Visuel illustré : cadre, image, étiquette « Illustration 3D » */
+.pa-figure { margin: 0; min-width: 0; }
+.pa-frame { position: relative; aspect-ratio: 4 / 3; border-radius: var(--r-lg); overflow: hidden; background: var(--c-mist-2); box-shadow: var(--sh-3); }
+.pa-frame img { object-fit: cover; }
+.pa-frame .pending-tag { position: absolute; left: var(--s-3); top: var(--s-3); background: var(--c-paper); }
+.pa-cap { margin-top: var(--s-3); font-size: var(--t-sm); color: var(--c-muted); }
+
+/* Deux colonnes égales (avantages / précautions, textes + visuel) */
+.pa-split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-6); align-items: start; }
+.pa-split--media { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: var(--s-8); align-items: center; }
+@media (max-width: 900px) { .pa-split--media { grid-template-columns: 1fr; gap: var(--s-6); } }
+@media (max-width: 700px) { .pa-split { grid-template-columns: 1fr; } }
+
+/* Encadré de liste (avantages, précautions) */
+.pa-box { display: grid; gap: var(--s-4); align-content: start; padding: var(--s-5); border: 1px solid var(--c-line); border-radius: var(--r-md); background: var(--c-paper); min-width: 0; }
+.pa-box .ticks, .pa-box .dashes { font-size: var(--t-md); gap: var(--s-3); }
+.section--mist .pa-box { border-color: var(--c-line); }
+
+/* Puces de surfaces (reprend .svc-chips, en plus grand) */
+.pa-chips { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.pa-chips li { font-size: var(--t-sm); padding: 6px 12px; border-radius: var(--r-pill); background: var(--c-mist); border: 1px solid var(--c-line); }
+
+/* Colonne latérale : liste de contrôle */
+.pa-aside-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s-3); font-size: var(--t-sm); }
+.pa-aside-list li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: var(--s-2); }
+.pa-aside-list .mono { color: var(--c-blue); padding-top: 3px; }
+.aside-card .btn { width: 100%; white-space: normal; text-align: center; padding-block: var(--s-3); }
+.aside-card .link-arrow { color: var(--c-blue); }
+.pa-aside-sep { border: 0; border-top: 1px solid var(--c-ink-2); margin: 0; }
+
+/* Piliers : trois ou quatre colonnes séparées par des filets */
+.pa-pillars { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); border-top: 1px solid var(--c-ink); }
+.pa-pillars > li { display: grid; gap: var(--s-3); align-content: start; padding: var(--s-5) var(--s-5) var(--s-5) 0; border-bottom: 1px solid var(--c-line); min-width: 0; }
+.pa-pillars .mono { color: var(--c-blue-strong); }
+.pa-pillars .muted { font-size: var(--t-sm); }
+.section--ink .pa-pillars { border-top-color: var(--c-on-ink-muted); }
+.section--ink .pa-pillars > li { border-bottom-color: var(--c-ink-2); }
+.section--ink .pa-pillars .muted { color: var(--c-on-ink-muted); }
+.section--ink .pa-pillars .mono { color: var(--c-blue); }
+
+/* Liste de documents avec statut */
+.pa-docs { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--c-ink); }
+.pa-docs li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--s-2) var(--s-5); align-items: start; padding: var(--s-4) 0; border-bottom: 1px solid var(--c-line); }
+.pa-docs strong { display: block; font-size: var(--t-md); }
+.pa-docs p { font-size: var(--t-sm); color: var(--c-muted); margin-top: 2px; }
+.pa-status { display: inline-block; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--c-blue-strong); border: 1px solid currentColor; border-radius: var(--r-xs); padding: 1px 6px; white-space: nowrap; }
+@media (max-width: 520px) { .pa-docs li { grid-template-columns: 1fr; } .pa-docs li > span:last-child { justify-self: start; } }
+
+/* Tableau capacités / limites : se transforme en fiches sous 700 px (pas de défilement horizontal) */
+.pa-table th[scope='row'] { width: 22%; }
+.pa-table td.pa-no { color: var(--c-ink); }
+.pa-table .pa-yes { font-weight: 500; }
+@media (max-width: 700px) {
+  .table-wrap:has(.pa-table) { overflow: visible; }
+  .cmp.pa-table { min-width: 0; box-shadow: none; background: transparent; border-radius: 0; }
+  .pa-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .pa-table tbody, .pa-table tr { display: block; }
+  .pa-table tr { margin-bottom: var(--s-4); background: var(--c-paper); border: 1px solid var(--c-line); border-radius: var(--r-md); overflow: hidden; }
+  .pa-table th[scope='row'], .pa-table td { display: block; width: auto; padding: var(--s-3) var(--s-4); }
+  .pa-table th[scope='row'] { background: var(--c-mist-2); font-family: var(--f-display); font-stretch: 105%; }
+  .pa-table td:last-child { border-bottom: 0; }
+  .pa-table td::before { content: attr(data-label); display: block; margin-bottom: 4px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c-muted); }
+  .pa-table td.us { background: var(--c-blue-soft); }
+}
+
+/* Cartes de catégorie (eau / biocide / phyto, secteurs, bâti) */
+.pa-kind { border-top: 3px solid var(--c-line-strong); }
+.pa-kind--ok { border-top-color: var(--c-blue); }
+.pa-kind--cond { border-top-color: var(--c-warning); }
+.pa-kind--no { border-top-color: var(--c-error); }
+.pa-kind .ticks, .pa-kind .dashes { font-size: var(--t-sm); }
+.pa-verdict { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+.pa-kind--ok .pa-verdict { color: var(--c-blue-strong); }
+.pa-kind--cond .pa-verdict { color: var(--c-warning); }
+.pa-kind--no .pa-verdict { color: var(--c-error); }
+.pa-card-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-2); }
+.pa-towns { font-size: var(--t-sm); color: var(--c-muted); }
+
+/* Bandeau d'avertissement en haut de page */
+.pa-warning { padding-top: var(--s-6); }
+.pa-warning .notice { display: grid; gap: var(--s-2); }
+.pa-warning strong { font-weight: 700; }
+
+/* Sources officielles */
+.pa-sources { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s-3); font-size: var(--t-sm); }
+.pa-sources li { display: grid; gap: 2px; padding-bottom: var(--s-3); border-bottom: 1px solid var(--c-line); }
+.pa-sources a { color: var(--c-blue-strong); font-weight: 600; overflow-wrap: anywhere; }
+.pa-sources .muted { font-size: var(--t-xs); }
+
+/* Liens « Aller plus loin » */
+.pa-related .card .h-3 { font-size: 1.25rem; }
+.pa-related .card p { font-size: var(--t-sm); }
+.pa-related .card .link-arrow { margin-top: auto; }
+
+/* Spécifications avec données en attente */
+.pa-specs { margin: 0; }
+.pa-specs dd .pending-tag { margin-left: 4px; }
+
+/* Bloc texte avec liste à puces simple */
+.pa-prose .ticks { font-size: var(--t-md); margin-top: var(--s-4); }
+.pa-prose h2 { margin-top: 0; }
+.pa-prose + .pa-prose { margin-top: var(--s-7); }

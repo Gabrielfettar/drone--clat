@@ -21,6 +21,7 @@ export function Header() {
   const [sub, setSub] = useState(false);
   const panel = useRef<HTMLDivElement>(null);
   const toggle = useRef<HTMLButtonElement>(null);
+  const hoverAt = useRef(0);
   const isHome = path === '/';
 
   useEffect(() => {
@@ -64,14 +65,17 @@ export function Header() {
   return (
     <header className="site-header" data-tone={tone} data-hidden={hidden && !open} data-open={open}>
       <div className="container site-header-inner">
-        <Link href="/" className="brand" aria-label="Drone Éclat, accueil">
+        <Link href="/" className="brand">
           <Logo />
         </Link>
 
         <nav className="nav-desktop" aria-label="Navigation principale">
           <ul>
-            <li className="has-sub" onMouseEnter={() => setSub(true)} onMouseLeave={() => setSub(false)}>
-              <button type="button" aria-expanded={sub} aria-controls="sub-services" onClick={() => setSub((v) => !v)}
+            <li className="has-sub" onMouseEnter={() => { hoverAt.current = Date.now(); setSub(true); }} onMouseLeave={() => setSub(false)}
+              onKeyDown={(e) => { if (e.key === 'Escape') setSub(false); }}
+              onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node)) setSub(false); }}>
+              {/* Un clic juste après le survol ne doit pas refermer le menu que le survol vient d'ouvrir. */}
+              <button type="button" aria-expanded={sub} aria-controls="sub-services" onClick={() => { if (Date.now() - hoverAt.current > 500) setSub((v) => !v); }}
                 className={path.startsWith('/services') ? 'is-active' : ''}>
                 Prestations <span aria-hidden="true" className="chev" />
               </button>

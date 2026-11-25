@@ -57,8 +57,9 @@ export function Estimator() {
   // Préremplissage depuis l'URL (?service=…&cp=…), utilisé par les CTA contextuels.
   useEffect(() => {
     const q = new URLSearchParams(window.location.search);
-    const s = q.get('service'), cp = q.get('cp');
-    setData((d) => ({ ...d, ...(s && serviceFromSlug[s] ? { service: serviceFromSlug[s] } : {}), ...(cp && /^\d{5}$/.test(cp) ? { postalCode: cp } : {}) }));
+    const s = q.get('service'), cp = q.get('cp'), b = q.get('batiment');
+    const buildingFromParam: Record<string, (typeof BUILDINGS)[number]> = { pro: 'Bâtiment professionnel', agricole: 'Bâtiment agricole', immeuble: 'Immeuble', maison: 'Maison individuelle' };
+    setData((d) => ({ ...d, ...(s && serviceFromSlug[s] ? { service: serviceFromSlug[s] } : {}), ...(cp && /^\d{5}$/.test(cp) ? { postalCode: cp } : {}), ...(b && buildingFromParam[b] ? { building: buildingFromParam[b] } : {}) }));
   }, []);
 
   useEffect(() => {

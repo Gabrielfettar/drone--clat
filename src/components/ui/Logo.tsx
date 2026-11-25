@@ -23,8 +23,8 @@ export function Logo({ tone = 'ink', className, withWordmark = true }: Props) {
     <span className={`logo ${className ?? ''}`} data-tone={tone}>
       <LogoMark tone={tone} className="logo-mark" />
       {withWordmark && (
-        <span className="logo-word" aria-hidden="true">
-          <span>DRONE</span>
+        <span className="logo-word">
+          <span>DRONE</span>{' '}
           <span className="logo-accent">ÉCLAT</span>
         </span>
       )}

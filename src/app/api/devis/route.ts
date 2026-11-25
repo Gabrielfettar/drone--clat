@@ -46,7 +46,7 @@ async function deliver(l: Lead, id: string, files: CheckedFile[]) {
     if (!r.ok) throw new Error(`resend ${r.status}`);
     return 'email';
   }
-  if (process.env.NODE_ENV !== 'production') {
+  if (process.env.NODE_ENV !== 'production' || process.env.LEAD_LOCAL_SINK === '1') {
     // Développement : la demande est enregistrée localement pour pouvoir tester le parcours de bout en bout.
     const dir = path.join(process.cwd(), '.leads', id);
     await mkdir(dir, { recursive: true });
@@ -59,7 +59,7 @@ async function deliver(l: Lead, id: string, files: CheckedFile[]) {
 
 export async function POST(req: Request) {
   const ip = (req.headers.get('x-forwarded-for') ?? '').split(',')[0].trim() || 'local';
-  if (!rateLimit(ip)) return NextResponse.json({ ok: false, error: 'Trop de demandes envoyées. Réessayez dans quelques minutes.' }, { status: 429 });
+  if (!rateLimit(ip, Number(process.env.RATE_LIMIT_MAX) || 5)) return NextResponse.json({ ok: false, error: 'Trop de demandes envoyées. Réessayez dans quelques minutes.' }, { status: 429 });
 
   const len = Number(req.headers.get('content-length') ?? 0);
   if (len > 45 * 1024 * 1024) return NextResponse.json({ ok: false, error: 'Envoi trop volumineux.' }, { status: 413 });

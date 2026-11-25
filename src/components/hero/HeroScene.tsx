@@ -13,7 +13,7 @@ import * as THREE from 'three';
 export type Still = { cam: [number, number, number]; look: [number, number, number]; clean: number; drone: [number, number] | null; fov?: number };
 export const STILLS: Record<string, Still> = {
   poster: { cam: [17.5, 12, 37], look: [-9, 5.2, 0], clean: 0.5, drone: [0.55, 0.6] },
-  'poster-mobile': { cam: [24, 14, 52], look: [2, 11, 0], clean: 0.5, drone: [0.55, 0.6] },
+  'poster-mobile': { cam: [15.5, 12, 34.5], look: [2.5, 6.6, 0], clean: 0.5, drone: [0.55, 0.6] },
   'roof-before': { cam: [4, 15.5, 17], look: [0.5, 7, 1.5], clean: 0, drone: null, fov: 34 },
   'roof-after': { cam: [4, 15.5, 17], look: [0.5, 7, 1.5], clean: 1, drone: null, fov: 34 },
   facade: { cam: [6, 4.5, 24], look: [1, 4.2, 0], clean: 1, drone: null, fov: 32 },
@@ -384,17 +384,17 @@ function Director({ onHud, reduced, onReady, still }: { onHud: HudSink; reduced:
     if (still) return;
     const dt = Math.min(rawDt, 1 / 20);
     const s = st.current; s.t += reduced ? 0 : dt; s.phaseT += reduced ? 0 : dt;
-    const portrait = size.width / size.height < 0.9;
+    const portrait = size.width / size.height < 1.25; // scène compacte (mobile, sous le texte) : maison centrée
 
     // --- caméra
     const intro = Math.min(1, s.t / 3.2), e = 1 - Math.pow(1 - intro, 3);
     const orbit = reduced ? 0 : Math.sin(s.t * 0.06) * 0.12 + pointer.current.x * 0.08;
-    const radius = (portrait ? 62 : 50) - e * (portrait ? 8 : 8);
+    const radius = (portrait ? 46 : 50) - e * 8;
     const baseAng = 0.42 + orbit;
-    tmp.cam.set(Math.sin(baseAng) * radius, (portrait ? 17 : 15) - e * 3 + pointer.current.y * -1.2, Math.cos(baseAng) * radius);
+    tmp.cam.set(Math.sin(baseAng) * radius, 15 - e * 3 + pointer.current.y * -1.2, Math.cos(baseAng) * radius);
     camera.position.lerp(tmp.cam, reduced ? 1 : 0.08);
     // la maison est cadrée à droite en paysage, en bas en portrait
-    tmp.look.set(portrait ? 2 : -9, portrait ? 11 : 5.2, 0);
+    tmp.look.set(portrait ? 2.5 : -9, portrait ? 6.6 : 5.2, 0);
     camera.lookAt(tmp.look);
 
     // --- lumière (mise en lumière progressive)
@@ -463,7 +463,7 @@ function Director({ onHud, reduced, onReady, still }: { onHud: HudSink; reduced:
     <>
       <hemisphereLight ref={hemi} args={['#eaf4ff', '#d8d2c4', 0.9]} />
       <directionalLight ref={sun} position={[-14, 22, 16]} intensity={2.6} castShadow
-        shadow-mapSize={[1536, 1536]} shadow-bias={-0.0004} shadow-normalBias={0.04}
+        shadow-mapSize={typeof window !== 'undefined' && window.innerWidth < 900 ? [1024, 1024] : [1536, 1536]} shadow-bias={-0.0004} shadow-normalBias={0.04}
         shadow-camera-left={-22} shadow-camera-right={22} shadow-camera-top={22} shadow-camera-bottom={-22} shadow-camera-far={70} />
       <ambientLight intensity={0.18} />
       <House roofMap={tex.map} roofBump={tex.bumpMap} />
@@ -484,10 +484,12 @@ function Director({ onHud, reduced, onReady, still }: { onHud: HudSink; reduced:
 }
 
 export default function HeroScene({ onHud, reduced, onReady, active, still }: { onHud: HudSink; reduced: boolean; onReady: () => void; active: boolean; still?: Still }) {
+  // Appareils tactiles / petits écrans : résolution et ombres allégées.
+  const light = typeof window !== 'undefined' && !still && (window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 900);
   return (
     <Canvas
       shadows
-      dpr={[1, 1.75]}
+      dpr={light ? [1, 1.5] : [1, 1.75]}
       frameloop={active ? (reduced ? 'demand' : 'always') : 'never'}
       gl={{ antialias: true, powerPreference: 'high-performance', alpha: true, preserveDrawingBuffer: !!still }}
       camera={{ fov: 30, near: 0.5, far: 220, position: [20, 12, 30] }}
