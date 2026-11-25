@@ -19,6 +19,8 @@ export const STILLS: Record<string, Still> = {
   facade: { cam: [6, 4.5, 24], look: [1, 4.2, 0], clean: 1, drone: null, fov: 32 },
   cladding: { cam: [20, 5, 17], look: [8, 2.6, 0], clean: 1, drone: null, fov: 34 },
   drone: { cam: [3.5, 11.5, 11.5], look: [-0.5, 9.2, 4.2], clean: 0.35, drone: [0.5, 0.5], fov: 30 },
+  'house-before': { cam: [12.5, 9.5, 20.5], look: [1.5, 5, 0], clean: 0, drone: null, fov: 33 },
+  'house-after': { cam: [12.5, 9.5, 20.5], look: [1.5, 5, 0], clean: 1, drone: null, fov: 33 },
   overview: { cam: [30, 26, 40], look: [2, 3, 2], clean: 0.6, drone: [0.7, 0.7], fov: 30 },
 };
 

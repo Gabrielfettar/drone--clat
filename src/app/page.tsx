@@ -116,19 +116,17 @@ export default function Home() {
       </section>
 
       {/* 5. Widget : et si on ne fait rien ? */}
-      {after && (
-        <section className="section section--mist" aria-labelledby="neg-title">
+      <section className="section section--mist" aria-labelledby="neg-title">
           <div className="container">
             <div className="wow-head wow-head--split" data-reveal>
               <h2 id="neg-title" className="h-mega-2">La mousse ne dort <span className="accent">jamais.</span></h2>
               <p className="lede">Faites avancer le temps.</p>
             </div>
-            <NeglectSlider clean={`/illustrations/libres/${after.file}`} dirty={`/illustrations/libres/sim/${after.key}-avant.webp`} stages={neglect} />
-            <p className="hint muted neg-credit">Vieillissement simulé sur une photo de {after.author} ({after.licence}).</p>
+            <NeglectSlider clean="/illustrations/house-after.webp" dirty="/illustrations/house-before.webp" stages={neglect} />
+            <p className="hint muted neg-credit">Illustration 3D.</p>
             <div className="cta-row wow-center-row"><Link className="btn" href="/contact/?service=demoussage-toiture-drone" data-track="cta_neglect">J’agis avant l’hiver <span className="btn-arrow" aria-hidden="true">→</span></Link></div>
           </div>
         </section>
-      )}
 
       {/* 6. Du pavillon à la cathédrale */}
       <section className="section section--ink seg-wow" aria-labelledby="seg-title">
@@ -174,7 +172,7 @@ export default function Home() {
           <ul className="team-chips" data-reveal style={{ ['--i' as string]: 1 }}>
             {team.map((m) => <li key={m.slug}><Icon name="users" size={18} />{m.role}</li>)}
           </ul>
-          <Link className="link-arrow" href="/equipe/">L’équipe <span aria-hidden="true">→</span></Link>
+          <Link className="link-arrow" href="/a-propos/#equipe">L’équipe <span aria-hidden="true">→</span></Link>
         </div>
       </section>
 
